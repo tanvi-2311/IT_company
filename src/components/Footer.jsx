@@ -21,7 +21,7 @@ const Footer = () => {
               <span className="text-[28px] font-bold text-white font-serif tracking-tight leading-none">Vedanco</span>
             </Link>
             <p className="text-sm leading-relaxed mb-6">
-              Hyperlink InfoSystem is a renowned mobile app development company & the best IT Software Solutions provider based in New York, USA & India, established in 2011.
+              Vedanco is a renowned mobile app development company & the best IT Software Solutions provider based in Gujarat, India, dedicated to driving digital transformation.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><Facebook size={18}/></a>
@@ -62,26 +62,22 @@ const Footer = () => {
             <ul className="space-y-4 text-sm font-medium">
               <li className="flex items-start">
                 <MapPin className="mr-3 text-primary shrink-0" size={20}/>
-                <span>One World Trade Center, 285 Fulton Street suite 8500, New York, NY 10007, USA</span>
+                <span>Gandhinagar, Infocity, Gandhinagar Ahmedabad, Gujarat, India - 382007</span>
               </li>
               <li className="flex items-center">
                 <Phone className="mr-3 text-primary shrink-0" size={20}/>
-                <span>+1 (309) 791-4105</span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="mr-3 text-primary shrink-0" size={20}/>
-                <span>+91 8000-161-161</span>
+                <span>+91 9510774987</span>
               </li>
               <li className="flex items-center">
                 <Mail className="mr-3 text-primary shrink-0" size={20}/>
-                <span>info@hyperlinkinfosystem.com</span>
+                <span>info@vedanco.com</span>
               </li>
             </ul>
           </div>
         </div>
         
         <div className="flex flex-col md:flex-row justify-between items-center text-sm font-medium">
-          <p>&copy; {new Date().getFullYear()} Hyperlink InfoSystem. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Vedanco. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-primary">Terms & Conditions</Link>
