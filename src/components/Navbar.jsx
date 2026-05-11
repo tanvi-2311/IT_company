@@ -1,22 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Building2, ChevronRight, ArrowRight } from 'lucide-react';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import ContactModal from './ContactModal';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      const currentScrollY = window.scrollY;
+
+      // Active state for backdrop-blur/glassmorphism styles
+      if (currentScrollY > 30) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+
+      // Hide navbar when scrolling down, show when scrolling up (with threshold of 80px)
+      if (currentScrollY > 80) {
+        if (currentScrollY > lastScrollY) {
+          setHidden(true); // scrolling down
+        } else {
+          setHidden(false); // scrolling up
+        }
+      } else {
+        setHidden(false); // near the top, always show
+      }
+
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
     setIsOpen(false);
+    setHidden(false); // Reset to visible on navigation
   }, [location]);
 
   // A completely upgraded, premium Menu Item Component
@@ -110,12 +138,24 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Main Navbar */}
-      <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${scrolled ? 'bg-white shadow-md' : 'bg-white border-b border-slate-100'}`}>
+      {/* Main Navbar with Premium Framer Motion Scroll Animations */}
+      <motion.nav
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-100%" }
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
+        className={`fixed w-full z-50 top-0 transition-all duration-300 ${
+          scrolled 
+            ? 'bg-white/75 backdrop-blur-md border-b border-slate-200/50 shadow-sm' 
+            : 'bg-transparent border-b border-transparent'
+        }`}
+      >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[80px]">
           
           {/* Logo — Vedanco (Classical Serif Corporate Identity) */}
-          <Link to="/" className="flex items-center gap-3 group select-none">
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 group select-none">
             {/* Perfectly proportioned, distortion-free classic serif V badge */}
             <div className="w-11 h-11 rounded-full bg-[#123C24] flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow relative overflow-hidden select-none">
               <svg viewBox="0 0 100 100" className="w-full h-full absolute inset-0" xmlns="http://www.w3.org/2000/svg">
@@ -241,9 +281,9 @@ const Navbar = () => {
               Contact Us
             </Link>
 
-            <Link to="/contact" className="ml-2 bg-primary text-white px-6 py-2.5 rounded-full font-bold text-[15px] hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg">
+            <button onClick={() => setIsQuoteOpen(true)} className="ml-2 bg-primary text-white px-6 py-2.5 rounded-full font-bold text-[15px] hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg">
               Get A Free Quote
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -260,10 +300,13 @@ const Navbar = () => {
             <Link to="/services" className="text-lg font-bold text-secondary border-b pb-2">All Services</Link>
             <Link to="/" className="text-lg font-bold text-secondary border-b pb-2">Hire Resources</Link>
             <Link to="/portfolio" className="text-lg font-bold text-secondary border-b pb-2">Portfolio</Link>
-            <Link to="/contact" className="bg-primary text-white text-center py-3 rounded-md font-bold mt-4">Get A Free Quote</Link>
+            <button onClick={() => setIsQuoteOpen(true)} className="bg-primary text-white text-center py-3 rounded-md font-bold mt-4 w-full">Get A Free Quote</button>
           </div>
         )}
-      </nav>
+      </motion.nav>
+      
+      {/* Contact Modal Popup */}
+      <ContactModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} title="Request A Free Quote!" />
       
       {/* Custom scrollbar styles for mega menu */}
       <style dangerouslySetInnerHTML={{__html: `

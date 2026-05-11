@@ -10,7 +10,7 @@ const Footer = () => {
           
           <div className="lg:col-span-1">
             {/* Logo — Vedanco (Classical Serif Corporate Identity) */}
-            <Link to="/" className="flex items-center gap-3 mb-6 group select-none">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 mb-6 group select-none">
               {/* Perfectly proportioned, distortion-free classic serif V badge */}
               <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm relative overflow-hidden select-none">
                 <svg viewBox="0 0 100 100" className="w-full h-full absolute inset-0" xmlns="http://www.w3.org/2000/svg">

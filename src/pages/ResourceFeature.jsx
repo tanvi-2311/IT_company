@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ChevronRight, ArrowRight, Library, PenTool, FileBarChart, Megaphone, Calendar, BookOpen, FileText } from 'lucide-react';
+import toast from 'react-hot-toast';
 import { resourceFeaturesData } from '../data/resourceFeatures';
 
 const IconComponent = ({ name, size = 32 }) => {
@@ -12,7 +13,31 @@ const IconComponent = ({ name, size = 32 }) => {
 const ResourceFeature = () => {
   const { slug } = useParams();
   const resourceData = resourceFeaturesData.find(r => r.slug === slug || r.slug === `/${slug}`);
+  const [email, setEmail] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email) {
+      toast.error('Please enter your email address.');
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error('Please enter a valid email address.');
+      return;
+    }
+
+    setSubmitting(true);
+    // Simulate premium API call
+    setTimeout(() => {
+      toast.success('Thank you for subscribing! Welcome to our tech newsletter.');
+      setEmail('');
+      setSubmitting(false);
+    }, 800);
+  };
 
   if (!resourceData) return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
@@ -44,9 +69,6 @@ const ResourceFeature = () => {
               {resourceData.title}
             </motion.h1>
             <p className="text-slate-300 text-lg mb-8">{resourceData.tagline}</p>
-            <button className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform flex items-center">
-              Access {resourceData.role} <ArrowRight className="ml-2" size={20}/>
-            </button>
           </div>
           <div className="md:w-1/2">
             <img
@@ -60,7 +82,7 @@ const ResourceFeature = () => {
       </section>
 
       {/* Content */}
-      <section className="py-24 px-4 bg-white">
+      <section id="resource-content-section" className="py-24 px-4 bg-white">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-20 items-center">
           <div>
             <h2 className="text-3xl font-extrabold text-secondary mb-6">Knowledge is <span className="text-primary">Power</span></h2>
@@ -110,10 +132,22 @@ const ResourceFeature = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-6">Stay Ahead of the Curve</h2>
           <p className="text-lg opacity-80 mb-10 max-w-2xl mx-auto">Subscribe to receive the latest {resourceData.role.toLowerCase()} and tech insights directly in your inbox.</p>
-          <div className="flex flex-col sm:flex-row justify-center max-w-lg mx-auto gap-4">
-            <input type="email" placeholder="Enter your work email" className="px-6 py-4 rounded-full text-slate-800 w-full focus:outline-none focus:ring-2 focus:ring-primary"/>
-            <button className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-primary-dark transition-colors flex-shrink-0">Subscribe Now</button>
-          </div>
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row justify-center max-w-lg mx-auto gap-4">
+            <input 
+              type="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your work email *" 
+              className="px-6 py-4 rounded-full text-slate-800 w-full focus:outline-none focus:ring-2 focus:ring-primary font-medium"
+            />
+            <button 
+              type="submit" 
+              disabled={submitting}
+              className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-primary-dark transition-colors flex-shrink-0 disabled:opacity-75 flex items-center justify-center gap-2 min-w-[160px]"
+            >
+              {submitting ? 'Subscribing...' : 'Subscribe Now'}
+            </button>
+          </form>
         </div>
       </section>
     </div>

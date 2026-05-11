@@ -13,10 +13,12 @@ import IndustryFeature from './pages/IndustryFeature'
 import ResourceFeature from './pages/ResourceFeature'
 import Portfolio from './pages/Portfolio'
 import ServiceDetail from './pages/ServiceDetail'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-brand-cream text-secondary selection:bg-primary selection:text-white">
+      <ScrollToTop />
       <Navbar />
       <main className="flex-grow pt-20">
         <Routes>
