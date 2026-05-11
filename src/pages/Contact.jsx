@@ -13,7 +13,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/contacts', {
+      const response = await axios.post('http://localhost:5001/api/contacts', {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
@@ -46,21 +46,22 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="bg-secondary text-white p-10 md:p-14 flex flex-col justify-between relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary rounded-full blur-3xl opacity-20 -mr-20 -mt-20"></div>
-            
+
             <div className="relative z-10">
               <h3 className="text-3xl font-bold mb-8">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-center">
                   <MapPin className="text-brand-sand mr-4" size={24} />
-                  <span className="text-lg text-slate-300">120 Corporate Ave, NY 10001, USA</span>
+                  <span className="text-lg text-slate-300">Gandhinagar, Infocity, Gandhinagar
+                    Ahmedabad, Gujarat, India - 382007</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="text-brand-sand mr-4" size={24} />
-                  <span className="text-lg text-slate-300">+1 (800) 123-4567</span>
+                  <span className="text-lg text-slate-300">+91 9510774987</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="text-brand-sand mr-4" size={24} />
-                  <span className="text-lg text-slate-300">contact@hyperlinkinfosystem.com</span>
+                  <span className="text-lg text-slate-300">info@vedanco.com</span>
                 </div>
               </div>
             </div>
@@ -72,40 +73,40 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">Full Name *</label>
-                <input 
+                <input
                   type="text" name="name" value={formData.name} onChange={handleChange} required
                   className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-slate-50 focus:bg-white"
-                  placeholder="John Doe"
+                  placeholder="Full Name"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">Email Address *</label>
-                  <input 
+                  <input
                     type="email" name="email" value={formData.email} onChange={handleChange} required
                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-slate-50 focus:bg-white"
-                    placeholder="john@company.com"
+                    placeholder="Email Address"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">Phone Number</label>
-                  <input 
+                  <input
                     type="tel" name="phone" value={formData.phone} onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-slate-50 focus:bg-white"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="Phone Number"
                   />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-2">Message *</label>
-                <textarea 
+                <textarea
                   name="message" value={formData.message} onChange={handleChange} required rows="4"
                   className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-slate-50 focus:bg-white resize-none"
                   placeholder="Tell us about your project..."
                 ></textarea>
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={loading}
                 className="w-full btn-primary py-4 flex items-center justify-center text-lg disabled:opacity-70"
               >

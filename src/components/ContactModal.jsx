@@ -18,7 +18,7 @@ const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!" }) =
     }
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/contacts', {
+      const response = await axios.post('http://localhost:5001/api/contacts', {
         name: form.name,
         email: form.email,
         phone: form.phone,

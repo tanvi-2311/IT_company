@@ -9,18 +9,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
           
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-6 group">
-              {/* Circular V Badge */}
-              <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-md">
-                <svg viewBox="0 0 40 40" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 10 L20 32 L33 10" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+            {/* Logo — Vedanco (Classical Serif Corporate Identity) */}
+            <Link to="/" className="flex items-center gap-3 mb-6 group select-none">
+              {/* Perfectly proportioned, distortion-free classic serif V badge */}
+              <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm relative overflow-hidden select-none">
+                <svg viewBox="0 0 100 100" className="w-full h-full absolute inset-0" xmlns="http://www.w3.org/2000/svg">
+                  <text x="50" y="75" textAnchor="middle" fontSize="72" fontWeight="bold" fontFamily="Georgia, 'Times New Roman', Times, serif" fill="#123C24">V</text>
                 </svg>
               </div>
-              {/* Text */}
-              <div className="flex flex-col leading-none">
-                <span className="text-[26px] font-black text-white tracking-tight leading-none">Vedanco</span>
-                <span className="text-[0.6rem] font-semibold text-primary tracking-widest mt-0.5 uppercase">Rooted Here. Rising Worldwide.</span>
-              </div>
+              {/* Serif Wordmark */}
+              <span className="text-[28px] font-bold text-white font-serif tracking-tight leading-none">Vedanco</span>
             </Link>
             <p className="text-sm leading-relaxed mb-6">
               Hyperlink InfoSystem is a renowned mobile app development company & the best IT Software Solutions provider based in New York, USA & India, established in 2011.

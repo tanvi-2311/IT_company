@@ -123,19 +123,16 @@ const Navbar = () => {
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md top-0' : 'bg-white lg:top-8 top-0 border-b border-slate-100'}`}>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[80px]">
           
-          {/* Logo — Vedanco */}
-          <Link to="/" className="flex items-center gap-3 group">
-            {/* Circular V Badge */}
-            <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-md group-hover:shadow-lg transition-shadow">
-              <svg viewBox="0 0 40 40" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 10 L20 32 L33 10" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+          {/* Logo — Vedanco (Classical Serif Corporate Identity) */}
+          <Link to="/" className="flex items-center gap-3 group select-none">
+            {/* Perfectly proportioned, distortion-free classic serif V badge */}
+            <div className="w-11 h-11 rounded-full bg-[#123C24] flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow relative overflow-hidden select-none">
+              <svg viewBox="0 0 100 100" className="w-full h-full absolute inset-0" xmlns="http://www.w3.org/2000/svg">
+                <text x="50" y="75" textAnchor="middle" fontSize="72" fontWeight="bold" fontFamily="Georgia, 'Times New Roman', Times, serif" fill="#fcfaf2">V</text>
               </svg>
             </div>
-            {/* Text */}
-            <div className="flex flex-col leading-none">
-              <span className="text-[26px] font-black text-secondary tracking-tight leading-none">Vedanco</span>
-              <span className="text-[0.6rem] font-semibold text-slate-400 tracking-widest mt-0.5 uppercase">Rooted Here. Rising Worldwide.</span>
-            </div>
+            {/* Serif Wordmark */}
+            <span className="text-[28px] font-bold text-[#123C24] font-serif tracking-tight leading-none">Vedanco</span>
           </Link>
                    {/* Desktop Menu */}
           <div className="hidden lg:flex items-center h-full">
