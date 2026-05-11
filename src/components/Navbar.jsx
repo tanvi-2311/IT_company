@@ -110,17 +110,8 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="hidden lg:flex justify-end items-center px-8 py-2 bg-slate-100 text-xs text-slate-700 space-x-6 border-b border-slate-200">
-        <a href="tel:+918000161161" className="flex items-center hover:text-primary"><img src="https://flagcdn.com/w20/in.png" alt="IN" className="w-4 h-3 mr-2"/> +91 8000-161-161</a>
-        <a href="tel:+13097914105" className="flex items-center hover:text-primary"><img src="https://flagcdn.com/w20/us.png" alt="US" className="w-4 h-3 mr-2"/> +1 (309) 791-4105</a>
-        <a href="tel:+442032879060" className="flex items-center hover:text-primary"><img src="https://flagcdn.com/w20/gb.png" alt="UK" className="w-4 h-3 mr-2"/> +44 20 3287 9060</a>
-        <Link to="/press" className="hover:text-primary">Press Release</Link>
-        <Link to="/book-call" className="hover:text-primary font-bold">Book A Call</Link>
-      </div>
-
       {/* Main Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md top-0' : 'bg-white lg:top-8 top-0 border-b border-slate-100'}`}>
+      <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${scrolled ? 'bg-white shadow-md' : 'bg-white border-b border-slate-100'}`}>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[80px]">
           
           {/* Logo — Vedanco (Classical Serif Corporate Identity) */}
