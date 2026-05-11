@@ -13,10 +13,22 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      toast.success('Message sent successfully! We will get back to you soon.');
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      const response = await axios.post('http://localhost:5000/api/contacts', {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        service: 'General Inquiry'
+      });
+      if (response.data.success) {
+        toast.success('Message sent successfully! We will get back to you soon.');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        throw new Error(response.data.message || 'Submission failed');
+      }
     } catch (error) {
-      toast.error('Failed to send message. Please try again later.');
+      console.error('Contact submission error:', error);
+      toast.error(error.response?.data?.message || 'Failed to send message. Please try again later.');
     } finally {
       setLoading(false);
     }

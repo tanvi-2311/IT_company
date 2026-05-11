@@ -24,7 +24,12 @@ const ServiceDetail = () => {
       {/* ── HERO ── */}
       <section className="relative bg-secondary text-white py-24 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={service.bannerImage} alt={service.title} className="w-full h-full object-cover opacity-20"/>
+          <img
+            src={service.bannerImage}
+            alt={service.title}
+            onError={e => { e.target.onerror = null; e.target.src = `https://picsum.photos/seed/${slug}/1400/800`; }}
+            className="w-full h-full object-cover opacity-20"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-secondary/60"/>
         </div>
         <div className="max-w-[1200px] mx-auto relative z-10">
@@ -97,7 +102,12 @@ const ServiceDetail = () => {
             </div>
           </div>
           <div className="relative">
-            <img src={service.bannerImage} alt={service.title} className="rounded-3xl shadow-2xl w-full h-[400px] object-cover"/>
+            <img
+              src={service.bannerImage}
+              alt={service.title}
+              onError={e => { e.target.onerror = null; e.target.src = `https://picsum.photos/seed/${slug}/1200/800`; }}
+              className="rounded-3xl shadow-2xl w-full h-[400px] object-cover"
+            />
             <div className="absolute -bottom-5 -right-5 bg-secondary text-white px-5 py-4 rounded-2xl shadow-xl">
               <div className="text-2xl font-black text-brand-sand">{service.stats[0].val}</div>
               <div className="text-xs text-white/70">{service.stats[0].label}</div>
@@ -120,7 +130,12 @@ const ServiceDetail = () => {
               <motion.div key={i} whileInView={{opacity:1,y:0}} initial={{opacity:0,y:30}} viewport={{once:true}} transition={{delay:i*0.1}}
                 className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-100 group">
                 <div className="relative h-48 overflow-hidden">
-                  <img src={f.img} alt={f.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
+                  <img
+                    src={f.img}
+                    alt={f.title}
+                    onError={e => { e.target.onerror = null; e.target.src = `https://picsum.photos/seed/${slug}${i}/600/400`; }}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"/>
                 </div>
                 <div className="p-7">

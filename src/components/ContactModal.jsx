@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, User, Mail, Phone, MessageSquare, Briefcase } from 'lucide-react';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!" }) => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', service: '' });
@@ -16,11 +17,27 @@ const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!" }) =
       return;
     }
     setLoading(true);
-    await new Promise(r => setTimeout(r, 1200)); // Simulate API
-    setLoading(false);
-    toast.success('Message sent! We will contact you within 24 hours.');
-    setForm({ name: '', email: '', phone: '', message: '', service: '' });
-    onClose();
+    try {
+      const response = await axios.post('http://localhost:5000/api/contacts', {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+        service: form.service || 'General Inquiry'
+      });
+      if (response.data.success) {
+        toast.success('Message sent! We will contact you within 24 hours.');
+        setForm({ name: '', email: '', phone: '', message: '', service: '' });
+        onClose();
+      } else {
+        throw new Error(response.data.message || 'Submission failed');
+      }
+    } catch (error) {
+      console.error('Contact modal error:', error);
+      toast.error(error.response?.data?.message || 'Failed to send message. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
