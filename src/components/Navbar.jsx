@@ -11,6 +11,25 @@ const Navbar = () => {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const location = useLocation();
 
+  // Accordion component for mobile menu
+  const MobileAccordion = ({ title, children }) => {
+    const [open, setOpen] = useState(false);
+    return (
+      <div className="border-b border-slate-100 last:border-0">
+        <button onClick={() => setOpen(!open)}
+          className="w-full flex items-center justify-between py-3.5 px-2 text-base font-semibold text-secondary hover:text-primary transition-colors">
+          {title}
+          <ChevronDown size={18} className={`transition-transform duration-300 ${open ? 'rotate-180 text-primary' : ''}`} />
+        </button>
+        {open && (
+          <div className="pb-2 pl-2 grid grid-cols-2 gap-1">
+            {children}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -287,20 +306,87 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="lg:hidden text-secondary" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={30} /> : <Menu size={30} />}
+          <button className="lg:hidden text-secondary p-2" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+        {/* Premium Mobile Menu Dropdown */}
         {isOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 px-4 flex flex-col space-y-4 max-h-[80vh] overflow-y-auto border-t">
-            <Link to="/" className="text-lg font-bold text-secondary border-b pb-2">About Us</Link>
-            <Link to="/ai-integration-services" className="text-lg font-bold text-secondary border-b pb-2">AI Services</Link>
-            <Link to="/services" className="text-lg font-bold text-secondary border-b pb-2">All Services</Link>
-            <Link to="/" className="text-lg font-bold text-secondary border-b pb-2">Hire Resources</Link>
-            <Link to="/portfolio" className="text-lg font-bold text-secondary border-b pb-2">Portfolio</Link>
-            <button onClick={() => setIsQuoteOpen(true)} className="bg-primary text-white text-center py-3 rounded-md font-bold mt-4 w-full">Get A Free Quote</button>
+          <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-100 max-h-[85vh] overflow-y-auto">
+            <div className="px-4 py-3 space-y-1">
+
+              {/* AI Services */}
+              <MobileAccordion title="AI Services">
+                {aiLinks.map((link, i) => (
+                  <Link key={i} to={link.to} onClick={() => setIsOpen(false)}
+                    className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+                    {link.title}
+                  </Link>
+                ))}
+              </MobileAccordion>
+
+              {/* Services */}
+              <MobileAccordion title="Services">
+                {servicesLinks.map((link, i) => (
+                  <Link key={i} to={link.to} onClick={() => setIsOpen(false)}
+                    className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+                    {link.title}
+                  </Link>
+                ))}
+              </MobileAccordion>
+
+              {/* Hire Resources */}
+              <MobileAccordion title="Hire Resources">
+                {hireLinks.map((link, i) => (
+                  <Link key={i} to={link.to} onClick={() => setIsOpen(false)}
+                    className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+                    {link.title}
+                  </Link>
+                ))}
+              </MobileAccordion>
+
+              {/* Industries */}
+              <MobileAccordion title="Industries">
+                {industryLinks.map((link, i) => (
+                  <Link key={i} to={link.to} onClick={() => setIsOpen(false)}
+                    className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+                    {link.title}
+                  </Link>
+                ))}
+              </MobileAccordion>
+
+              {/* Resources */}
+              <MobileAccordion title="Resources">
+                {resourceLinks.map((link, i) => (
+                  <Link key={i} to={link.to} onClick={() => setIsOpen(false)}
+                    className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+                    {link.title}
+                  </Link>
+                ))}
+              </MobileAccordion>
+
+              {/* About Us */}
+              <MobileAccordion title="About Us">
+                {aboutLinks.map((link, i) => (
+                  <Link key={i} to={link.to} onClick={() => setIsOpen(false)}
+                    className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+                    {link.title}
+                  </Link>
+                ))}
+              </MobileAccordion>
+
+              {/* Direct Links */}
+              <Link to="/contact" onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 py-3 px-3 text-base font-semibold text-secondary hover:text-primary border-t border-slate-100 mt-2">
+                Contact Us
+              </Link>
+
+              <button onClick={() => { setIsQuoteOpen(true); setIsOpen(false); }}
+                className="w-full bg-primary text-white py-3.5 rounded-xl font-bold text-base hover:bg-secondary transition-colors shadow-md mt-2">
+                Get A Free Quote
+              </button>
+            </div>
           </div>
         )}
       </motion.nav>
