@@ -101,4 +101,72 @@ export const servicesData = [
     stats: [{ val:"300+", label:"Games Shipped"},{ val:"50M+", label:"Downloads"},{ val:"4.8★", label:"Avg Store Rating"},{ val:"10+", label:"Platforms"}],
     techStack: ["Unity","Unreal Engine 5","C#","C++","ARKit","ARCore","Photon","PlayFab"]
   },
+  {
+    slug: "salesforce-solutions",
+    title: "Salesforce Solutions",
+    tagline: "Optimize and scale your business operations with Salesforce CRM integration.",
+    description: "Our dedicated Salesforce architects design, customize, and implement cloud solutions that drive sales, streamline operations, and enhance customer relationships. We build tailored integrations, automate complex business logic, and migrate legacy data smoothly.",
+    bannerImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80",
+    tags: ["Salesforce", "CRM", "Apex", "Lightning Web Components"],
+    color: "bg-sky-50 text-sky-600",
+    features: [
+      { title: "Sales & Service Cloud Setup", desc: "Tailored setup and optimization of Salesforce Sales and Service Clouds.", img: "https://images.unsplash.com/photo-1552581234-2612b753ee93?w=600&q=80" },
+      { title: "Custom LWC & Apex Development", desc: "Advanced customization using Apex triggers, classes, and modern Lightning Web Components.", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" },
+      { title: "Third-Party API Integration", desc: "Connect Salesforce seamlessly with your ERPs, accounting tools, and internal software.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" },
+    ],
+    process: ["Business Process Audit", "Custom Architecture Design", "Implementation & Coding", "Data Migration", "UAT Testing & Training", "Post-Launch Support"],
+    stats: [{ val:"500+", label:"CRM Integrations"}, { val:"98%", label:"User Adoption"}, { val:"150%", label:"Sales Pipeline Lift"}, { val:"24/7", label:"Admin Support"}],
+    techStack: ["Apex", "LWC", "Visualforce", "MuleSoft", "Salesforce API", "Heroku", "Zapier"]
+  },
+  {
+    slug: "iot-embedded",
+    title: "IoT & Embedded Solutions",
+    tagline: "Build secure, reliable, and intelligent smart device ecosystems.",
+    description: "We design and develop robust Internet of Things (IoT) software and firmware. From real-time telemetry dashboards and remote monitoring systems to hardware-level embedded C programming, our team connects your physical world to the cloud seamlessly.",
+    bannerImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=80",
+    tags: ["IoT", "Embedded C", "Raspberry Pi", "Firmware"],
+    color: "bg-emerald-50 text-emerald-600",
+    features: [
+      { title: "Custom Firmware Development", desc: "Write lightweight, fast, and secure embedded code for microcontrollers and sensors.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" },
+      { title: "IoT Cloud Analytics", desc: "Build responsive web and mobile telemetry dashboards with real-time data streaming.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" },
+      { title: "Smart Home Integration", desc: "Develop applications that connect with Apple HomeKit, Google Home, and custom gateways.", img: "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&q=80" },
+    ],
+    process: ["Hardware Selection", "Firmware Prototyping", "Gateway setup", "Cloud Pipeline Design", "Security Hardening", "Deployment Sprints"],
+    stats: [{ val:"1M+", label:"Connected Devices"}, { val:"99.9%", label:"Uptime Rate"}, { val:"<50ms", label:"Data Latency"}, { val:"SOC2", label:"Security Ready"}],
+    techStack: ["Embedded C", "C++", "Python", "Node-RED", "AWS IoT Core", "MQTT", "Raspberry Pi", "Arduino"]
+  },
+  {
+    slug: "cloud-technologies",
+    title: "Cloud & DevOps Solutions",
+    tagline: "Accelerate your development cycle with secure, scalable cloud architectures.",
+    description: "We design cloud-native systems and set up high-efficiency CI/CD automation pipelines. By leveraging modern cloud provider environments and Infrastructure as Code (IaC), our expert engineers ensure your platform handles any traffic spike without breaking a sweat.",
+    bannerImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80",
+    tags: ["AWS", "Azure", "Kubernetes", "DevOps"],
+    color: "bg-blue-50 text-blue-600",
+    features: [
+      { title: "Cloud Migration Services", desc: "Migrate legacy software to AWS, Microsoft Azure, or GCP with zero downtime.", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" },
+      { title: "Kubernetes & Containerization", desc: "Package software into Docker containers and orchestrate microservices effortlessly.", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80" },
+      { title: "Infrastructure as Code", desc: "Configure server networks and cloud infrastructure using Terraform for absolute repeatability.", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" },
+    ],
+    process: ["Architecture Audit", "Migration Planning", "CI/CD Pipeline Setup", "Environment Provisioning", "Security Scanning", "Production Deployment"],
+    stats: [{ val:"99.99%", label:"Guaranteed SLA"}, { val:"5x", label:"Faster Deployments"}, { val:"40%", label:"Cloud Cost Savings"}, { val:"100%", label:"Automated Devops"}],
+    techStack: ["AWS", "Azure", "GCP", "Terraform", "Docker", "Kubernetes", "Jenkins", "GitHub Actions"]
+  },
+  {
+    slug: "ui-ux-design",
+    title: "UI/UX Product Design",
+    tagline: "Stunning, high-fidelity interfaces crafted for premium user engagement.",
+    description: "We merge artistic aesthetics with user psychology to design premium, state-of-the-art products. From wireframing and user journey mapping to gorgeous visual mockups and interactive prototypes, we design web and mobile apps that feel intuitive, premium, and delightful.",
+    bannerImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1400&q=80",
+    tags: ["Figma", "Adobe XD", "Wireframing", "Prototypes"],
+    color: "bg-pink-50 text-pink-600",
+    features: [
+      { title: "User Journey & Wireframing", desc: "Develop low-fidelity blueprints mapping intuitive user interactions and features.", img: "https://images.unsplash.com/photo-1581291518655-9523c932dede?w=600&q=80" },
+      { title: "High-Fidelity UI Design", desc: "Create pixel-perfect visual styles, responsive layouts, and curated color palettes.", img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600&q=80" },
+      { title: "Interactive Prototyping", desc: "Build clickable, high-fidelity Figma prototypes representing the absolute final product feel.", img: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80" },
+    ],
+    process: ["User Research", "User Flow Mapping", "Low-Fidelity Wireframes", "Visual Style System", "High-Fidelity Mockups", "Interactive Prototype"],
+    stats: [{ val:"350+", label:"Visual Prototypes"}, { val:"95%+", label:"User Satisfaction"}, { val:"3x", label:"Engage Boost"}, { val:"100%", label:"Custom Visuals"}],
+    techStack: ["Figma", "Adobe Creative Cloud", "After Effects", "Blender", "Sketch", "InVision"]
+  }
 ];

@@ -63,15 +63,15 @@ const Navbar = () => {
   ];
 
   const servicesLinks = [
-    { to: "/services", img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=150&q=80", title: "Mobile App Development", desc: "iOS, Android, React Native & Flutter" },
-    { to: "/services", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=150&q=80", title: "Web & CMS Development", desc: "High-performance modern websites." },
-    { to: "/services", img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=150&q=80", title: "eCommerce Solutions", desc: "Scalable digital storefronts like Magento & Shopify." },
-    { to: "/services", img: "https://images.unsplash.com/photo-1639762681485-074b7f4ec651?w=150&q=80", title: "Blockchain Development", desc: "Smart contracts, DApps, Crypto & Web3." },
-    { to: "/services", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=150&q=80", title: "Salesforce Solutions", desc: "Enterprise CRM integration and consulting." },
-    { to: "/services", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=150&q=80", title: "IoT & Embedded", desc: "Smart device connectivity and IoT Dashboards." },
-    { to: "/services", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=150&q=80", title: "Game Development", desc: "Unity 3D, Unreal Engine & Metaverse games." },
-    { to: "/services", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=150&q=80", title: "Cloud Technologies", desc: "AWS, Azure, Migration and DevOps solutions." },
-    { to: "/services", img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=150&q=80", title: "UI/UX Design", desc: "Wireframing, prototyping and rich user interfaces." }
+    { to: "/services/mobile-app-development", img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=150&q=80", title: "Mobile App Development", desc: "iOS, Android, React Native & Flutter" },
+    { to: "/services/web-cms-development", img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=150&q=80", title: "Web & CMS Development", desc: "High-performance modern websites." },
+    { to: "/services/ecommerce-development", img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=150&q=80", title: "eCommerce Solutions", desc: "Scalable digital storefronts like Magento & Shopify." },
+    { to: "/services/blockchain-development", img: "https://images.unsplash.com/photo-1639762681485-074b7f4ec651?w=150&q=80", title: "Blockchain Development", desc: "Smart contracts, DApps, Crypto & Web3." },
+    { to: "/services/salesforce-solutions", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=150&q=80", title: "Salesforce Solutions", desc: "Enterprise CRM integration and consulting." },
+    { to: "/services/iot-embedded", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=150&q=80", title: "IoT & Embedded", desc: "Smart device connectivity and IoT Dashboards." },
+    { to: "/services/game-development", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=150&q=80", title: "Game Development", desc: "Unity 3D, Unreal Engine & Metaverse games." },
+    { to: "/services/cloud-technologies", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=150&q=80", title: "Cloud Technologies", desc: "AWS, Azure, Migration and DevOps solutions." },
+    { to: "/services/ui-ux-design", img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=150&q=80", title: "UI/UX Design", desc: "Wireframing, prototyping and rich user interfaces." }
   ];
 
   const hireLinks = [

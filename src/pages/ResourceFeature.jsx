@@ -49,7 +49,12 @@ const ResourceFeature = () => {
             </button>
           </div>
           <div className="md:w-1/2">
-            <img src={resourceData.bannerImage} alt={resourceData.title} className="rounded-3xl shadow-2xl border-4 border-white/5 object-cover w-full h-[450px]"/>
+            <img
+              src={resourceData.bannerImage}
+              alt={resourceData.title}
+              onError={e => { e.target.onerror = null; e.target.src = `https://picsum.photos/seed/${resourceData.slug}/900/500`; }}
+              className="rounded-3xl shadow-2xl border-4 border-white/5 object-cover w-full h-[450px]"
+            />
           </div>
         </div>
       </section>

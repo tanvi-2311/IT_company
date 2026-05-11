@@ -46,7 +46,12 @@ const IndustryFeature = () => {
             <p className="text-slate-300 text-lg mb-8">{industryData.tagline}</p>
           </div>
           <div className="md:w-1/2">
-            <img src={industryData.bannerImage} alt={industryData.title} className="rounded-3xl shadow-2xl border border-white/10 object-cover w-full h-[400px]"/>
+            <img
+              src={industryData.bannerImage}
+              alt={industryData.title}
+              onError={e => { e.target.onerror = null; e.target.src = `https://picsum.photos/seed/${industryData.slug}/900/500`; }}
+              className="rounded-3xl shadow-2xl border border-white/10 object-cover w-full h-[400px]"
+            />
           </div>
         </div>
       </section>
