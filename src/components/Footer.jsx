@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube, ArrowRight, Send, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, ArrowRight, Send, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -16,8 +16,6 @@ const Footer = () => {
     { icon: <Facebook size={18}/>, href: "https://www.facebook.com/vedanco", label: "Facebook" },
     { icon: <Linkedin size={18}/>, href: "https://www.linkedin.com/company/vedanco", label: "LinkedIn" },
     { icon: <Instagram size={18}/>, href: "https://www.instagram.com/vedanco", label: "Instagram" },
-    { icon: <Twitter size={18}/>, href: "https://twitter.com/vedanco", label: "Twitter" },
-    { icon: <Youtube size={18}/>, href: "https://youtube.com/@vedanco", label: "YouTube" },
   ];
 
   const footerLinks = {
