@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Building2, ChevronRight, ArrowRight } from 'lucide-react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { Menu, X, ChevronDown, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ContactModal from './ContactModal';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [hidden, setHidden] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const location = useLocation();
@@ -35,23 +36,26 @@ const Navbar = () => {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (currentScrollY / docHeight) * 100 : 0;
+      setScrollProgress(progress);
 
-      // Active state for backdrop-blur/glassmorphism styles
-      if (currentScrollY > 30) {
+      // Glassmorphism activation threshold
+      if (currentScrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
 
-      // Hide navbar when scrolling down, show when scrolling up (with threshold of 80px)
-      if (currentScrollY > 80) {
-        if (currentScrollY > lastScrollY) {
-          setHidden(true); // scrolling down
-        } else {
-          setHidden(false); // scrolling up
+      // Hide navbar when scrolling down, show when scrolling up
+      if (currentScrollY > 100) {
+        if (currentScrollY > lastScrollY + 5) {
+          setHidden(true);
+        } else if (currentScrollY < lastScrollY - 5) {
+          setHidden(false);
         }
       } else {
-        setHidden(false); // near the top, always show
+        setHidden(false);
       }
 
       lastScrollY = currentScrollY;
@@ -155,22 +159,33 @@ const Navbar = () => {
   ];
 
 
+  // Active link check
+  const isActive = (path) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
+
   return (
     <>
-      {/* Main Navbar with Premium Framer Motion Scroll Animations */}
+      {/* Main Navbar with Glassmorphism & Scroll Progress */}
       <motion.nav
         variants={{
-          visible: { y: 0 },
-          hidden: { y: "-100%" }
+          visible: { y: 0, opacity: 1 },
+          hidden: { y: "-100%", opacity: 0 }
         }}
         animate={hidden ? "hidden" : "visible"}
-        transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-        className={`fixed w-full z-50 top-0 transition-all duration-300 ${
+        transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+        className={`fixed w-full z-50 top-0 transition-all duration-500 ${
           scrolled 
-            ? 'bg-white/75 backdrop-blur-md border-b border-slate-200/50 shadow-sm' 
+            ? 'navbar-glass' 
             : 'bg-transparent border-b border-transparent'
         }`}
       >
+        {/* Scroll Progress Bar */}
+        <motion.div
+          className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-brand-sand to-primary z-50"
+          style={{ width: `${scrollProgress}%` }}
+        />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-[80px]">
           
           {/* Logo — Vedanco (Classical Serif Corporate Identity) */}
@@ -296,12 +311,23 @@ const Navbar = () => {
               </div>
             </div>
 
-            <Link to="/contact" className="text-secondary font-semibold text-[15px] hover:text-primary transition-colors px-4">
+            <Link to="/contact"
+              className={`font-semibold text-[15px] hover:text-primary transition-colors px-4 relative ${
+                isActive('/contact') ? 'text-primary' : 'text-secondary'
+              }`}>
               Contact Us
+              {isActive('/contact') && (
+                <motion.div layoutId="activeNav" className="absolute -bottom-1 left-4 right-4 h-0.5 bg-primary rounded-full" />
+              )}
             </Link>
 
-            <button onClick={() => setIsQuoteOpen(true)} className="ml-2 bg-primary text-white px-6 py-2.5 rounded-full font-bold text-[15px] hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg">
-              Get A Free Quote
+            <button onClick={() => setIsQuoteOpen(true)}
+              className="ml-2 relative group bg-primary text-white px-6 py-2.5 rounded-full font-bold text-[15px] transition-all duration-300 shadow-md hover:shadow-[0_8px_30px_rgba(35,75,47,0.4)] hover:-translate-y-0.5 overflow-hidden">
+              <span className="relative z-10 flex items-center gap-1.5">
+                <Sparkles size={14} className="opacity-70" />
+                Get A Free Quote
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-dark to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
           </div>
 
@@ -393,24 +419,6 @@ const Navbar = () => {
       
       {/* Contact Modal Popup */}
       <ContactModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} title="Request A Free Quote!" />
-      
-      {/* Custom scrollbar styles for mega menu */}
-      <style dangerouslySetInnerHTML={{__html: `
-        .styled-scrollbar::-webkit-scrollbar {
-          width: 6px;
-        }
-        .styled-scrollbar::-webkit-scrollbar-track {
-          background: #f1f5f9; 
-          border-radius: 10px;
-        }
-        .styled-scrollbar::-webkit-scrollbar-thumb {
-          background: #cbd5e1; 
-          border-radius: 10px;
-        }
-        .styled-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #94a3b8; 
-        }
-      `}} />
     </>
   );
 };

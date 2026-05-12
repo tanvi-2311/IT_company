@@ -53,36 +53,37 @@ const Home = () => {
 
       {/* ── HERO ── */}
       <ScrollSection>
-        <section className="bg-primary text-white pt-40 pb-24 px-4 relative overflow-hidden min-h-[92vh] flex items-center">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"/>
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/60 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3"/>
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=60" alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.07]" />
-          </div>
+        <section className="animated-gradient text-white pt-40 pb-24 px-4 relative overflow-hidden min-h-[92vh] flex items-center">
+          <div className="absolute inset-0 hero-grid opacity-40 z-0" />
+          <div className="absolute top-20 right-[10%] w-[500px] h-[500px] rounded-full bg-primary/40 blur-[130px] float-orb-1 z-0" />
+          <div className="absolute bottom-10 left-[5%] w-[400px] h-[400px] rounded-full bg-brand-sand/20 blur-[100px] float-orb-2 z-0" />
+          <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] rounded-full bg-white/5 blur-[80px] float-orb-3 z-0" />
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=60" alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-[0.04]" />
 
           <div className="max-w-[1200px] mx-auto relative z-10 w-full grid lg:grid-cols-2 gap-14 items-center">
             <div>
               <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{duration:0.5}}
-                className="inline-flex items-center bg-white/15 border border-white/30 px-5 py-2 rounded-full text-xs font-bold mb-8 uppercase tracking-widest gap-2">
+                className="inline-flex items-center bg-white/10 border border-white/25 backdrop-blur-sm px-5 py-2 rounded-full text-xs font-bold mb-8 uppercase tracking-widest gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"/>
                 Top-Rated IT Agency · Clutch 2024
               </motion.div>
 
               <motion.h1 variants={fadeUp} initial="hidden" animate="show" transition={{duration:0.6,delay:0.1}}
-                className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold mb-6 leading-[1.12]">
-                We Build Digital Products That <span className="text-brand-sand">Change Industries</span>
+                className="text-4xl md:text-5xl lg:text-[3.75rem] font-extrabold mb-6 leading-[1.08] tracking-tight">
+                We Build Digital Products That <span className="text-gradient">Change Industries</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} initial="hidden" animate="show" transition={{duration:0.6,delay:0.2}}
-                className="text-lg text-white/80 mb-10 max-w-xl leading-relaxed">
-                Vedanco is a premier IT company delivering world-class mobile apps, AI systems, blockchain platforms, and enterprise web solutions across USA, India & UAE.
+                className="text-lg text-white/75 mb-10 max-w-xl leading-relaxed">
+                Vedanco is a premier IT company delivering world-class mobile apps, AI systems, blockchain platforms, and enterprise web solutions across USA, India &amp; UAE.
               </motion.p>
 
               <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{duration:0.5,delay:0.3}} className="flex flex-wrap gap-4">
-                <Link to="/contact" className="bg-brand-sand text-secondary px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all duration-300 shadow-xl hover:-translate-y-1 flex items-center gap-2">
-                  Start Your Project <ArrowRight size={20}/>
+                <Link to="/contact" className="group relative bg-brand-sand text-secondary px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-2 overflow-hidden">
+                  <span className="relative z-10 flex items-center gap-2">Start Your Project <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform"/></span>
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
                 </Link>
-                <Link to="/portfolio" className="border-2 border-white/40 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-primary transition-all duration-300">
+                <Link to="/portfolio" className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm">
                   View Our Work
                 </Link>
               </motion.div>
@@ -91,27 +92,47 @@ const Home = () => {
                 className="mt-12 flex items-center gap-6">
                 <div className="flex -space-x-3">
                   {["men/32","women/44","men/68"].map((p,i)=>(
-                    <img key={i} src={`https://randomuser.me/api/portraits/${p}.jpg`} className="w-10 h-10 rounded-full border-2 border-white object-cover" alt="client"/>
+                    <img key={i} src={`https://randomuser.me/api/portraits/${p}.jpg`} className="w-10 h-10 rounded-full border-2 border-white/60 object-cover" alt="client" loading="lazy"/>
                   ))}
                 </div>
                 <div>
                   <div className="flex gap-0.5 mb-1">{[...Array(5)].map((_,i)=><Star key={i} size={14} className="fill-yellow-400 text-yellow-400"/>)}</div>
-                  <p className="text-sm text-white/70">Trusted by <span className="font-bold text-white">2700+</span> clients worldwide</p>
+                  <p className="text-sm text-white/60">Trusted by <span className="font-bold text-white">2700+</span> clients worldwide</p>
                 </div>
               </motion.div>
             </div>
 
-            <motion.div initial={{opacity:0,x:60}} animate={{opacity:1,x:0}} transition={{duration:0.8}} className="hidden lg:block relative">
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80" alt="Team working" className="rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] border-4 border-white/10 object-cover w-full h-[480px]"/>
-              {/* Floating cards */}
-              <div className="absolute -bottom-5 -left-5 bg-white text-secondary px-3 py-2.5 rounded-xl shadow-xl z-20 flex items-center gap-3 hover:-translate-y-1 transition-transform">
+            {/* Premium Dashboard Mockup */}
+            <motion.div initial={{opacity:0,x:60}} animate={{opacity:1,x:0}} transition={{duration:0.9,ease:[0.22,1,0.36,1]}} className="hidden lg:block relative">
+              <div className="absolute inset-0 bg-primary/30 blur-[60px] rounded-3xl scale-110" />
+              <div className="dashboard-mockup rounded-3xl p-5 relative overflow-hidden">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-red-400/80"/><div className="w-3 h-3 rounded-full bg-yellow-400/80"/><div className="w-3 h-3 rounded-full bg-green-400/80"/>
+                  <div className="flex-1 bg-white/10 rounded-full h-5 ml-4 px-3 flex items-center">
+                    <span className="text-[10px] text-white/50">app.vedanco.com/dashboard</span>
+                  </div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80" alt="Dashboard" loading="lazy"
+                  className="rounded-2xl shadow-[0_20px_60px_-10px_rgba(0,0,0,0.6)] border border-white/10 object-cover w-full h-[340px]"/>
+                <div className="mt-4 grid grid-cols-3 gap-3">
+                  {[["4500+","Projects"],["2700+","Clients"],["98%","Retention"]].map(([n,l])=>(
+                    <div key={l} className="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
+                      <div className="text-white font-black text-lg">{n}</div>
+                      <div className="text-white/50 text-[10px] font-semibold uppercase tracking-wider">{l}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <motion.div animate={{y:[0,-8,0]}} transition={{duration:3,repeat:Infinity,ease:"easeInOut"}}
+                className="absolute -bottom-5 -left-8 bg-white text-secondary px-4 py-3 rounded-xl shadow-2xl z-20 flex items-center gap-3">
                 <div className="bg-green-100 text-green-600 p-2 rounded-lg"><CheckCircle size={16}/></div>
                 <div><div className="text-base font-black">4500+</div><div className="text-[10px] text-slate-500 font-semibold">Apps Delivered</div></div>
-              </div>
-              <div className="absolute -top-4 -right-4 bg-primary text-white px-3 py-2.5 rounded-xl shadow-xl z-20 flex items-center gap-3 hover:-translate-y-1 transition-transform">
-                <div className="bg-white/20 p-2 rounded-lg"><Award size={16}/></div>
-                <div><div className="text-base font-black">12+</div><div className="text-[10px] text-white/70 font-semibold">Years Experience</div></div>
-              </div>
+              </motion.div>
+              <motion.div animate={{y:[0,8,0]}} transition={{duration:4,repeat:Infinity,ease:"easeInOut",delay:1}}
+                className="absolute -top-4 -right-6 bg-white/15 backdrop-blur-md border border-white/20 text-white px-4 py-3 rounded-xl shadow-xl z-20 flex items-center gap-3">
+                <div className="bg-brand-sand/20 p-2 rounded-lg"><Award size={16} className="text-brand-sand"/></div>
+                <div><div className="text-base font-black">12+</div><div className="text-[10px] text-white/60 font-semibold">Years Experience</div></div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -143,7 +164,9 @@ const Home = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((s,i)=>(
                 <motion.div key={i} whileInView={{opacity:1,y:0}} initial={{opacity:0,y:30}} viewport={{once:true}} transition={{duration:0.5,delay:i*0.07}}
-                  className="bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 group overflow-hidden hover:-translate-y-2">
+                  className="bg-white rounded-2xl shadow-sm border border-slate-100 group overflow-hidden cursor-pointer"
+                  style={{transition:'all 0.4s cubic-bezier(0.34,1.56,0.64,1)'}}
+                  whileHover={{y:-8,scale:1.01,boxShadow:'0 25px 60px -10px rgba(35,75,47,0.18)',borderColor:'rgba(35,75,47,0.2)'}}>
                   <div className="relative h-44 overflow-hidden">
                     <img src={s.img} alt={s.title}
                       onError={e => { e.target.onerror = null; e.target.src = `https://picsum.photos/seed/${s.slug}/600/300`; }}
@@ -206,7 +229,8 @@ const Home = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {whyUs.map((w,i)=>(
                 <motion.div key={i} whileInView={{opacity:1,y:0}} initial={{opacity:0,y:20}} viewport={{once:true}} transition={{delay:i*0.1}}
-                  className="group rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-500 bg-white">
+                  className="group rounded-2xl overflow-hidden border border-slate-100 bg-white cursor-pointer"
+                  whileHover={{y:-6,boxShadow:'0 20px 50px -8px rgba(35,75,47,0.14)',borderColor:'rgba(35,75,47,0.18)'}}>
                   <div className="relative h-36 overflow-hidden">
                     <img src={w.img} alt={w.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"/>
@@ -273,7 +297,7 @@ const Home = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((t,i)=>(
                 <motion.div key={i} whileInView={{opacity:1,y:0}} initial={{opacity:0,y:30}} viewport={{once:true}} transition={{delay:i*0.1}}
-                  className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all duration-300">
+                  className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 hover:border-white/25 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
                   <div className="flex gap-1 mb-5">{[...Array(t.rating)].map((_,j)=><Star key={j} size={16} className="fill-yellow-400 text-yellow-400"/>)}</div>
                   <p className="text-slate-300 text-[15px] leading-relaxed mb-6 italic">"{t.review}"</p>
                   <div className="flex items-center gap-4">
@@ -312,19 +336,35 @@ const Home = () => {
 
       {/* ── CTA ── */}
       <ScrollSection>
-        <section className="bg-primary py-24 px-4 relative overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=40" alt="" className="absolute inset-0 w-full h-full object-cover opacity-10"/>
-          <div className="max-w-4xl mx-auto text-center text-white relative z-10">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Ready to Build Something <span className="text-brand-sand">Extraordinary?</span></h2>
-            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Join 2700+ businesses that trust Vedanco to turn their bold ideas into world-class digital products.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <button onClick={() => setIsModalOpen(true)} className="bg-white text-secondary px-10 py-4 rounded-full font-bold text-lg hover:bg-brand-sand transition-colors shadow-xl hover:scale-105 inline-block">
-                Get A Free Quote
+        <section className="cta-gradient py-32 px-4 relative overflow-hidden">
+          {/* Animated orbs */}
+          <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-primary/60 rounded-full blur-[120px] float-orb-1" />
+          <div className="absolute bottom-0 right-1/4 w-[350px] h-[350px] bg-brand-sand/15 rounded-full blur-[100px] float-orb-2" />
+          <div className="absolute inset-0 hero-grid opacity-20" />
+          <div className="max-w-3xl mx-auto text-center text-white relative z-10">
+            <motion.span whileInView={{opacity:1,y:0}} initial={{opacity:0,y:20}} viewport={{once:true}}
+              className="inline-block text-xs font-bold text-brand-sand uppercase tracking-[0.25em] bg-white/10 border border-brand-sand/20 px-5 py-2 rounded-full mb-8">
+              Start Your Journey
+            </motion.span>
+            <motion.h2 whileInView={{opacity:1,y:0}} initial={{opacity:0,y:30}} viewport={{once:true}} transition={{delay:0.1}}
+              className="text-4xl md:text-6xl font-extrabold mb-6 leading-[1.05] tracking-tight">
+              Ready to Build Something <span className="text-gradient">Extraordinary?</span>
+            </motion.h2>
+            <motion.p whileInView={{opacity:1,y:0}} initial={{opacity:0,y:20}} viewport={{once:true}} transition={{delay:0.2}}
+              className="text-xl text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed">
+              Join 2700+ businesses that trust Vedanco to turn their bold ideas into world-class digital products.
+            </motion.p>
+            <motion.div whileInView={{opacity:1,y:0}} initial={{opacity:0,y:20}} viewport={{once:true}} transition={{delay:0.3}}
+              className="flex flex-wrap gap-5 justify-center">
+              <button onClick={() => setIsModalOpen(true)}
+                className="group relative bg-brand-sand text-secondary px-10 py-4 rounded-full font-bold text-lg shadow-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(205,191,168,0.4)]">
+                <span className="relative z-10 flex items-center gap-2">Get A Free Quote <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform"/></span>
+                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
               </button>
-              <Link to="/portfolio" className="border-2 border-white/50 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors">
+              <Link to="/portfolio" className="border-2 border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm">
                 See Our Work
               </Link>
-            </div>
+            </motion.div>
           </div>
         </section>
       </ScrollSection>
