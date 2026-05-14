@@ -260,7 +260,8 @@ const HireDedicatedDevelopers = () => {
         return prev.filter(item => item.id !== dev.id);
       } else {
         toast.success(`Added ${dev.name} to Cart`);
-        return [...prev, dev];
+        const today = new Date().toISOString().split('T')[0];
+        return [...prev, { ...dev, startDate: today, workMode: 'Full-time', durationDays: 30 }];
       }
     });
   };
@@ -326,14 +327,29 @@ const HireDedicatedDevelopers = () => {
     return allSkillsList.filter(skill => skill.toLowerCase().includes(skillSearchQuery.toLowerCase()));
   }, [skillSearchQuery]);
 
-  const totalHourlyRate = useMemo(() => {
-    return cart.reduce((sum, item) => sum + item.price, 0);
+  const [checkoutMode, setCheckoutMode] = useState('hire'); 
+
+  const updateCartItem = (id, field, value) => {
+    setCart(prev => prev.map(item => item.id === id ? { ...item, [field]: value } : item));
+  };
+
+  const grandTotalAmount = useMemo(() => {
+    return cart.reduce((sum, item) => {
+      const hoursPerDay = item.workMode === 'Part-time' ? 4 : 8;
+      const days = Number(item.durationDays) || 30;
+      return sum + (item.price * hoursPerDay * days);
+    }, 0);
   }, [cart]);
 
   const handleProceedToHire = () => {
     if (cart.length === 0) return;
-    const devListStr = cart.map(item => `${item.name} (${item.skillHeading}, $${item.price}/hr)`).join('\n• ');
-    setHireMessage(`I want to hire the following dedicated developers:\n• ${devListStr}\n\nTotal Estimated Rate: $${totalHourlyRate}/hr`);
+    if (checkoutMode === 'hire') {
+      const devListStr = cart.map(item => `${item.name} (${item.skillHeading}, ${item.workMode}, ${item.durationDays} Days, Start: ${item.startDate || 'Immediate'}) - $${item.price * (item.workMode === 'Part-time' ? 4 : 8) * (item.durationDays || 30)}`).join('\n• ');
+      setHireMessage(`I would like to hire the following dedicated developers:\n• ${devListStr}\n\nGrand Total Amount: $${grandTotalAmount} (inc. taxes)`);
+    } else {
+      const devListStr = cart.map(item => `${item.name} (${item.skillHeading}, $${item.price}/hr, Start: ${item.startDate || 'Immediate'})`).join('\n• ');
+      setHireMessage(`I would like to schedule an interview with the following dedicated developers:\n• ${devListStr}\n\n(Note: Interview deposit is fully refundable)`);
+    }
     setCartDrawerOpen(false);
     setModalOpen(true);
   };
@@ -780,87 +796,213 @@ const HireDedicatedDevelopers = () => {
         </div>
       </div>
 
-      {/* Cart Drawer Popup */}
+      {/* Cart Modal Popup (Exact 247Coders e-Commerce Replica) */}
       <AnimatePresence>
         {cartDrawerOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex justify-end bg-black/60 backdrop-blur-sm p-4 sm:p-0"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto"
             onClick={() => setCartDrawerOpen(false)}
           >
             <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="bg-white w-full max-w-lg h-full shadow-2xl flex flex-col justify-between overflow-hidden rounded-3xl sm:rounded-none"
+              className="bg-white w-full max-w-6xl rounded-3xl shadow-2xl overflow-hidden my-8 flex flex-col max-h-[90vh]"
               onClick={e => e.stopPropagation()}
             >
-              <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50/50">
-                <span className="text-lg font-black text-secondary flex items-center gap-2">
-                  <ShoppingCart size={20} className="text-primary" /> My Selected Developers
-                  <span className="text-xs bg-primary text-white px-2.5 py-0.5 rounded-full font-bold">
-                    {cart.length}
-                  </span>
-                </span>
-                <button onClick={() => setCartDrawerOpen(false)} className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition-colors">
+              {/* Header Bar */}
+              <div className="p-6 md:p-8 border-b border-slate-200 flex justify-between items-center bg-white sticky top-0 z-10 shadow-sm">
+                <div className="flex items-center gap-4">
+                  <button 
+                    onClick={() => setCartDrawerOpen(false)} 
+                    className="flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs sm:text-sm font-black transition-colors"
+                  >
+                    <ArrowRight size={14} className="rotate-180" /> Back
+                  </button>
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-black text-secondary">My Cart</h2>
+                    <p className="text-xs md:text-sm font-bold text-blue-600">{cart.length} Developer{cart.length !== 1 ? 's' : ''} in your cart</p>
+                  </div>
+                </div>
+                <button onClick={() => setCartDrawerOpen(false)} className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition-colors">
                   <X size={18} />
                 </button>
               </div>
 
-              <div className="p-6 flex-1 overflow-y-auto space-y-4 styled-scrollbar">
+              {/* Main Cart Body */}
+              <div className="p-6 md:p-8 flex-1 overflow-y-auto bg-slate-50/50">
                 {cart.length === 0 ? (
-                  <div className="text-center py-16 text-slate-400">
-                    <ShoppingCart size={48} className="mx-auto mb-4 opacity-40" />
-                    <p className="font-extrabold text-secondary text-base">Your cart is currently empty.</p>
-                    <p className="text-xs mt-1 text-slate-500">Browse the marketplace and add developers to get started.</p>
+                  <div className="text-center py-20 text-slate-400">
+                    <ShoppingCart size={64} className="mx-auto mb-4 opacity-40" />
+                    <p className="font-extrabold text-secondary text-lg">Your cart is currently empty.</p>
+                    <p className="text-xs sm:text-sm mt-1 text-slate-500">Browse our top 1% pre-vetted marketplace to add developers.</p>
+                    <button onClick={() => setCartDrawerOpen(false)} className="mt-6 px-6 py-3 bg-primary text-white rounded-full text-xs font-bold shadow-md hover:bg-secondary">
+                      Explore Developers
+                    </button>
                   </div>
                 ) : (
-                  cart.map(item => (
-                    <div key={item.id} className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-black flex items-center justify-center text-sm flex-shrink-0">
-                          {item.name.charAt(0)}
-                        </div>
-                        <div>
-                          <h4 className="font-black text-secondary text-sm">{item.name}</h4>
-                          <p className="text-xs font-bold text-primary">{item.skillHeading}</p>
-                          <span className="text-[10px] text-slate-500 font-medium">{item.title}</span>
-                        </div>
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    {/* Left Items Table */}
+                    <div className="lg:col-span-7 space-y-4">
+                      {cart.map(item => {
+                        const hoursPerDay = item.workMode === 'Part-time' ? 4 : 8;
+                        const days = Number(item.durationDays) || 30;
+                        const itemTotal = item.price * hoursPerDay * days;
+
+                        return (
+                          <div key={item.id} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4 relative">
+                            {/* Profile Info */}
+                            <div className="flex items-center gap-3 min-w-[200px]">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-600 to-slate-800 text-white font-black flex items-center justify-center text-lg flex-shrink-0 shadow-md">
+                                {item.name.charAt(0)}
+                              </div>
+                              <div>
+                                <h4 className="font-black text-secondary text-base">{item.name}</h4>
+                                <p className="text-xs text-slate-500 font-medium">{item.title}</p>
+                              </div>
+                            </div>
+
+                            {/* Hourly Price */}
+                            <div className="flex items-center gap-1 flex-shrink-0">
+                              <span className="text-xl font-black text-secondary">${item.price}</span>
+                              <span className="text-xs text-slate-400 font-bold">/hr</span>
+                            </div>
+
+                            {/* Controls Group */}
+                            <div className="flex flex-wrap items-center gap-3 flex-1 justify-end">
+                              {/* Start Date */}
+                              <div className="flex flex-col">
+                                <span className="text-[10px] font-extrabold text-slate-400 mb-1">Start Date</span>
+                                <input 
+                                  type="date" 
+                                  value={item.startDate || ''} 
+                                  onChange={e => updateCartItem(item.id, 'startDate', e.target.value)}
+                                  className="bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-secondary outline-none focus:ring-1 focus:ring-primary"
+                                />
+                              </div>
+
+                              {/* Work Mode */}
+                              <div className="flex flex-col">
+                                <span className="text-[10px] font-extrabold text-slate-400 mb-1">Work Mode</span>
+                                <select 
+                                  value={item.workMode || 'Full-time'} 
+                                  onChange={e => updateCartItem(item.id, 'workMode', e.target.value)}
+                                  className="bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-secondary outline-none focus:ring-1 focus:ring-primary"
+                                >
+                                  <option value="Full-time">Full-time (8h)</option>
+                                  <option value="Part-time">Part-time (4h)</option>
+                                </select>
+                              </div>
+
+                              {/* Duration Days */}
+                              <div className="flex flex-col">
+                                <span className="text-[10px] font-extrabold text-slate-400 mb-1">Duration</span>
+                                <select 
+                                  value={item.durationDays || 30} 
+                                  onChange={e => updateCartItem(item.id, 'durationDays', Number(e.target.value))}
+                                  className="bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-secondary outline-none focus:ring-1 focus:ring-primary"
+                                >
+                                  <option value={15}>15 Days</option>
+                                  <option value={30}>30 Days</option>
+                                  <option value={60}>60 Days</option>
+                                  <option value={90}>90 Days</option>
+                                </select>
+                              </div>
+
+                              {/* Total item calculation */}
+                              <div className="flex items-center gap-1.5 bg-blue-50 text-blue-700 px-3 py-2 rounded-xl border border-blue-100 font-black text-sm">
+                                <span>${itemTotal} Total</span>
+                              </div>
+
+                              {/* Remove Button */}
+                              <button 
+                                onClick={() => toggleCart(item)}
+                                className="w-8 h-8 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center transition-colors ml-1"
+                                title="Remove item"
+                              >
+                                <Trash2 size={14} />
+                              </button>
+                            </div>
+
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Right Summary Checkout Panel */}
+                    <div className="lg:col-span-5 bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-lg flex flex-col justify-between">
+                      <div>
+                        <h3 className="font-black text-secondary text-base mb-4">Would you like to hire developers or schedule an interview?</h3>
+                        
+                        {/* Option 1: Hire Developers */}
+                        <label 
+                          className={`flex items-center justify-between p-4 rounded-2xl border cursor-pointer transition-all mb-4 ${checkoutMode === 'hire' ? 'bg-blue-50/60 border-blue-600 shadow-sm' : 'bg-slate-50 border-slate-200 hover:border-slate-300'}`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${checkoutMode === 'hire' ? 'border-blue-600 bg-blue-600 text-white' : 'border-slate-400 bg-white'}`}>
+                              {checkoutMode === 'hire' && <div className="w-2 h-2 rounded-full bg-white" />}
+                            </div>
+                            <span className="font-extrabold text-secondary text-sm">Hire Developers</span>
+                          </div>
+                          <input 
+                            type="radio" 
+                            name="checkoutMode" 
+                            checked={checkoutMode === 'hire'} 
+                            onChange={() => setCheckoutMode('hire')}
+                            className="sr-only" 
+                          />
+                        </label>
+
+                        {/* Option 2: Schedule an Interview */}
+                        <label 
+                          className={`flex flex-col p-4 rounded-2xl border cursor-pointer transition-all mb-6 ${checkoutMode === 'interview' ? 'bg-blue-50/60 border-blue-600 shadow-sm' : 'bg-slate-50 border-slate-200 hover:border-slate-300'}`}
+                        >
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="flex items-center gap-3">
+                              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${checkoutMode === 'interview' ? 'border-blue-600 bg-blue-600 text-white' : 'border-slate-400 bg-white'}`}>
+                                {checkoutMode === 'interview' && <div className="w-2 h-2 rounded-full bg-white" />}
+                              </div>
+                              <span className="font-extrabold text-secondary text-sm">Schedule an Interview</span>
+                            </div>
+                            <input 
+                              type="radio" 
+                              name="checkoutMode" 
+                              checked={checkoutMode === 'interview'} 
+                              onChange={() => setCheckoutMode('interview')}
+                              className="sr-only" 
+                            />
+                          </div>
+                          <p className="text-[11px] text-slate-500 pl-8 leading-relaxed">Any amount paid to schedule an interview shall be fully refundable.</p>
+                        </label>
                       </div>
 
-                      <div className="flex items-center gap-4 flex-shrink-0">
-                        <span className="font-black text-secondary text-sm">${item.price}/hr</span>
+                      <div className="border-t border-slate-200 pt-6 mt-6 space-y-6">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-extrabold text-slate-500">Total Amount</span>
+                          <div className="text-right">
+                            <span className="text-2xl font-black text-secondary">${grandTotalAmount}</span>
+                            <span className="text-xs text-slate-400 font-bold ml-1">(inc. taxes)</span>
+                          </div>
+                        </div>
+
                         <button 
-                          onClick={() => toggleCart(item)}
-                          className="w-8 h-8 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center transition-colors"
+                          onClick={handleProceedToHire}
+                          className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black text-base shadow-xl shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
                         >
-                          <Trash2 size={14} />
+                          <span>Proceed to Payment</span>
+                          <ArrowRight size={18} />
                         </button>
                       </div>
+
                     </div>
-                  ))
+
+                  </div>
                 )}
               </div>
-
-              {cart.length > 0 && (
-                <div className="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
-                  <div className="flex justify-between items-center pb-4 border-b border-slate-200">
-                    <span className="text-sm font-extrabold text-slate-600">Total Estimated Bandwidth Rate:</span>
-                    <span className="text-xl font-black text-primary">${totalHourlyRate}/hr</span>
-                  </div>
-
-                  <button 
-                    onClick={handleProceedToHire}
-                    className="w-full py-4 rounded-xl bg-primary hover:bg-secondary text-white font-black text-base shadow-xl transition-all flex items-center justify-center gap-2"
-                  >
-                    <span>Proceed to Onboard Developers</span>
-                    <ArrowRight size={18} />
-                  </button>
-                </div>
-              )}
             </motion.div>
           </motion.div>
         )}
