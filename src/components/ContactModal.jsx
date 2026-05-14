@@ -4,9 +4,15 @@ import { X, User, Mail, Phone, MessageSquare, Briefcase } from 'lucide-react';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
-const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!" }) => {
+const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!", initialMessage = '' }) => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', service: '' });
   const [loading, setLoading] = useState(false);
+
+  React.useEffect(() => {
+    if (isOpen && initialMessage) {
+      setForm(prev => ({ ...prev, message: initialMessage, service: 'Hire Dedicated Developer' }));
+    }
+  }, [isOpen, initialMessage]);
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 

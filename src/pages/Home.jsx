@@ -138,19 +138,7 @@ const Home = () => {
         </section>
       </ScrollSection>
 
-      {/* ── STATS ── */}
-      <ScrollSection>
-        <section className="bg-white py-14 border-b border-slate-100">
-          <div className="max-w-[1200px] mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[["12+","Years of Excellence"],["4500+","Projects Delivered"],["2700+","Happy Clients"],["1200+","Tech Experts"]].map(([n,l])=>(
-              <motion.div key={l} whileInView={{opacity:1,y:0}} initial={{opacity:0,y:20}} viewport={{once:true}} transition={{duration:0.5}}>
-                <div className="text-4xl md:text-5xl font-black text-secondary mb-2">{n}</div>
-                <div className="text-slate-500 text-sm font-semibold uppercase tracking-wider">{l}</div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-      </ScrollSection>
+
 
       {/* ── SERVICES ── */}
       <ScrollSection>

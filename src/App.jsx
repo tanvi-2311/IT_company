@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Contact from './pages/Contact'
 import AiIntegration from './pages/AiIntegration'
 import HireDeveloper from './pages/HireDeveloper'
+import HireDedicatedDevelopers from './pages/HireDedicatedDevelopers'
 import AiService from './pages/AiService'
 import AboutFeature from './pages/AboutFeature'
 import IndustryFeature from './pages/IndustryFeature'
@@ -25,6 +26,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ai-integration-services" element={<AiIntegration />} />
+          <Route path="/hire-dedicated-developers" element={<HireDedicatedDevelopers />} />
+          <Route path="/hire/hire-dedicated-developers" element={<HireDedicatedDevelopers />} />
           <Route path="/ai/:slug" element={<AiService />} />
           <Route path="/hire/:slug" element={<HireDeveloper />} />
           <Route path="/about/:slug" element={<AboutFeature />} />

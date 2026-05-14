@@ -10,7 +10,13 @@ const Navbar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [hidden, setHidden] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [forceClose, setForceClose] = useState(false);
   const location = useLocation();
+
+  const handleMenuClick = () => {
+    setForceClose(true);
+    setTimeout(() => setForceClose(false), 400);
+  };
 
   // Accordion component for mobile menu
   const MobileAccordion = ({ title, children }) => {
@@ -71,8 +77,8 @@ const Navbar = () => {
   }, [location]);
 
   // A completely upgraded, premium Menu Item Component
-  const RichMenuItem = ({ to, img, title, desc }) => (
-    <Link to={to} className="flex items-center p-4 rounded-xl bg-slate-50/50 border border-transparent hover:bg-white hover:border-slate-100 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 group/item relative overflow-hidden">
+  const RichMenuItem = ({ to, img, title, desc, onClick }) => (
+    <Link to={to} onClick={onClick} className="flex items-center p-4 rounded-xl bg-slate-50/50 border border-transparent hover:bg-white hover:border-slate-100 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 group/item relative overflow-hidden">
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary scale-y-0 group-hover/item:scale-y-100 transition-transform origin-center duration-300"></div>
       <div className="relative overflow-hidden rounded-xl mr-5 flex-shrink-0 shadow-sm group-hover/item:shadow-md transition-shadow">
     <img src={img} alt={title}
@@ -207,12 +213,12 @@ const Navbar = () => {
               <Link to="/ai-integration-services" className="text-secondary font-semibold text-[15px] flex items-center group-hover:text-primary transition-colors">
                 AI <ChevronDown size={16} className="ml-1 transition-transform group-hover:rotate-180" />
               </Link>
-              <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[1100px] max-w-[95vw] bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl border-t-4 border-primary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex overflow-hidden">
+              <div className={`absolute top-[80px] left-1/2 -translate-x-1/2 w-[1100px] max-w-[95vw] bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl border-t-4 border-primary transition-all duration-300 flex overflow-hidden ${forceClose ? 'hidden opacity-0 invisible pointer-events-none' : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'}`}>
                 <div className="p-8 w-full max-h-[75vh] overflow-y-auto styled-scrollbar bg-slate-50/30">
                   <h3 className="text-xl font-black text-secondary mb-6 flex items-center"><div className="w-2 h-6 bg-primary mr-3 rounded-full"></div> Artificial Intelligence Services</h3>
                   <div className="grid grid-cols-3 gap-5">
                     {aiLinks.map((link, i) => (
-                      <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} />
+                      <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} onClick={handleMenuClick} />
                     ))}
                   </div>
                 </div>
@@ -224,12 +230,12 @@ const Navbar = () => {
               <span className="text-secondary font-semibold text-[15px] flex items-center group-hover:text-primary transition-colors">
                 Services <ChevronDown size={16} className="ml-1 transition-transform group-hover:rotate-180" />
               </span>
-              <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[1100px] max-w-[95vw] bg-white shadow-2xl rounded-b-xl border-t-2 border-primary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex overflow-hidden">
+              <div className={`absolute top-[80px] left-1/2 -translate-x-1/2 w-[1100px] max-w-[95vw] bg-white shadow-2xl rounded-b-xl border-t-2 border-primary transition-all duration-300 flex overflow-hidden ${forceClose ? 'hidden opacity-0 invisible pointer-events-none' : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'}`}>
                 <div className="p-8 w-full max-h-[75vh] overflow-y-auto styled-scrollbar">
                   <h3 className="text-lg font-bold text-secondary mb-6 border-b pb-2">World-Class IT Services</h3>
                   <div className="grid grid-cols-3 gap-4">
                     {servicesLinks.map((link, i) => (
-                      <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} />
+                      <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} onClick={handleMenuClick} />
                     ))}
                   </div>
                 </div>
@@ -241,15 +247,20 @@ const Navbar = () => {
               <span className="text-secondary font-semibold text-[15px] flex items-center group-hover:text-primary transition-colors">
                 Hire Resources <ChevronDown size={16} className="ml-1 transition-transform group-hover:rotate-180" />
               </span>
-              <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[1000px] max-w-[95vw] bg-white shadow-2xl rounded-b-xl border-t-2 border-primary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex overflow-hidden">
+              <div className={`absolute top-[80px] left-1/2 -translate-x-1/2 w-[1000px] max-w-[95vw] bg-white shadow-2xl rounded-b-xl border-t-2 border-primary transition-all duration-300 flex overflow-hidden ${forceClose ? 'hidden opacity-0 invisible pointer-events-none' : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'}`}>
                 <div className="p-8 w-full max-h-[75vh] overflow-y-auto styled-scrollbar">
-                  <h3 className="text-lg font-bold text-secondary mb-6 border-b pb-2 flex justify-between items-center">
-                    <span>Hire Dedicated Tech Experts</span>
-                    <span className="text-xs font-normal text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Top 1% Talent</span>
-                  </h3>
+                  <div className="mb-6 border-b pb-4 flex justify-between items-center">
+                    <Link to="/hire-dedicated-developers" onClick={handleMenuClick} className="group/head flex items-center gap-2">
+                      <div className="w-2 h-6 bg-primary rounded-full"></div>
+                      <span className="text-xl font-black text-secondary group-hover/head:text-primary transition-colors">Hire Dedicated Tech Experts</span>
+                    </Link>
+                    <Link to="/hire-dedicated-developers" onClick={handleMenuClick} className="text-xs font-bold text-white bg-primary hover:bg-secondary transition-colors px-4 py-2 rounded-full flex items-center gap-1 shadow-sm">
+                      Top 1% Talent &amp; Teams <ArrowRight size={12} />
+                    </Link>
+                  </div>
                   <div className="grid grid-cols-3 gap-4">
                      {hireLinks.map((link, i) => (
-                      <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} />
+                      <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} onClick={handleMenuClick} />
                     ))}
                   </div>
                 </div>
@@ -261,12 +272,12 @@ const Navbar = () => {
               <span className="text-secondary font-semibold text-[15px] flex items-center group-hover:text-primary transition-colors">
                 Industries <ChevronDown size={16} className="ml-1 transition-transform group-hover:rotate-180" />
               </span>
-              <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[950px] max-w-[95vw] bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl border-t-4 border-primary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex overflow-hidden">
+              <div className={`absolute top-[80px] left-1/2 -translate-x-1/2 w-[950px] max-w-[95vw] bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl border-t-4 border-primary transition-all duration-300 flex overflow-hidden ${forceClose ? 'hidden opacity-0 invisible pointer-events-none' : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'}`}>
                 <div className="p-8 w-full max-h-[75vh] overflow-y-auto bg-slate-50/30">
                   <h3 className="text-xl font-black text-secondary mb-6 flex items-center"><div className="w-2 h-6 bg-primary mr-3 rounded-full"></div> Solutions Across Industries</h3>
                   <div className="grid grid-cols-2 gap-5">
                     {industryLinks.map((link, i) => (
-                      <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} />
+                      <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} onClick={handleMenuClick} />
                     ))}
                   </div>
                 </div>
@@ -278,12 +289,12 @@ const Navbar = () => {
               <span className="text-secondary font-semibold text-[15px] flex items-center group-hover:text-primary transition-colors">
                 Resources <ChevronDown size={16} className="ml-1 transition-transform group-hover:rotate-180" />
               </span>
-              <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[950px] max-w-[95vw] bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl border-t-4 border-primary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col overflow-hidden">
+              <div className={`absolute top-[80px] left-1/2 -translate-x-1/2 w-[950px] max-w-[95vw] bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl border-t-4 border-primary transition-all duration-300 flex flex-col overflow-hidden ${forceClose ? 'hidden opacity-0 invisible pointer-events-none' : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'}`}>
                  <div className="p-8 w-full max-h-[75vh] overflow-y-auto bg-slate-50/30">
                    <h3 className="text-xl font-black text-secondary mb-6 flex items-center"><div className="w-2 h-6 bg-primary mr-3 rounded-full"></div> Insights &amp; Resources</h3>
                    <div className="grid grid-cols-2 gap-5">
                       {resourceLinks.map((link, i) => (
-                        <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} />
+                        <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} onClick={handleMenuClick} />
                       ))}
                    </div>
                  </div>
@@ -295,7 +306,7 @@ const Navbar = () => {
               <span className="text-secondary font-semibold text-[15px] flex items-center group-hover:text-primary transition-colors">
                 About Us <ChevronDown size={16} className="ml-1 transition-transform group-hover:rotate-180" />
               </span>
-              <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[950px] max-w-[95vw] bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl border-t-4 border-primary opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex overflow-hidden">
+              <div className={`absolute top-[80px] left-1/2 -translate-x-1/2 w-[950px] max-w-[95vw] bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-2xl border-t-4 border-primary transition-all duration-300 flex overflow-hidden ${forceClose ? 'hidden opacity-0 invisible pointer-events-none' : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'}`}>
                 <div className="w-1/3 bg-slate-50 p-8 border-r border-slate-100 flex flex-col justify-between">
                   <div>
                     <h3 className="text-2xl font-black text-secondary mb-4 leading-tight">Empowering Global Enterprises</h3>
@@ -305,7 +316,7 @@ const Navbar = () => {
                 </div>
                 <div className="w-2/3 p-8 grid grid-cols-2 gap-4 bg-white">
                   {aboutLinks.map((link, i) => (
-                    <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} />
+                    <RichMenuItem key={i} to={link.to} img={link.img} title={link.title} desc={link.desc} onClick={handleMenuClick} />
                   ))}
                 </div>
               </div>
@@ -365,6 +376,11 @@ const Navbar = () => {
 
               {/* Hire Resources */}
               <MobileAccordion title="Hire Resources">
+                <Link to="/hire-dedicated-developers" onClick={() => setIsOpen(false)}
+                  className="block py-2.5 px-3 text-sm font-bold text-primary bg-primary/5 rounded-lg hover:bg-primary/10 transition-colors flex items-center justify-between mb-1">
+                  <span>Hire Dedicated Developers</span>
+                  <span className="text-[10px] bg-primary text-white px-2 py-0.5 rounded font-black uppercase tracking-wider">Top 1%</span>
+                </Link>
                 {hireLinks.map((link, i) => (
                   <Link key={i} to={link.to} onClick={() => setIsOpen(false)}
                     className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
