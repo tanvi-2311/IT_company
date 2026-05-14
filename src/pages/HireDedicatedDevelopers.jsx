@@ -438,7 +438,7 @@ const HireDedicatedDevelopers = () => {
       </div>
 
       {/* Top Marketplace Navigation Bar */}
-      <div className="bg-white border-b border-slate-200 sticky top-20 z-40 shadow-sm">
+      <div className="bg-white border-b border-slate-200 relative z-10 shadow-sm">
         <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-black text-xl shadow-md">
