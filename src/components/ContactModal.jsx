@@ -35,6 +35,7 @@ const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!", ini
         toast.success('Message sent! We will contact you within 24 hours.');
         setForm({ name: '', email: '', phone: '', message: '', service: '' });
         onClose();
+      }
     } catch (error) {
       console.warn('Backend server unreachable, inserting directly into Supabase cloud database from frontend:', error);
       try {

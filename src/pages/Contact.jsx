@@ -23,6 +23,7 @@ const Contact = () => {
       if (response.data.success) {
         toast.success('Message sent successfully! We will get back to you soon.');
         setFormData({ name: '', email: '', phone: '', message: '' });
+      }
     } catch (error) {
       console.warn('Backend server unreachable, inserting directly into Supabase cloud database from frontend:', error);
       try {
