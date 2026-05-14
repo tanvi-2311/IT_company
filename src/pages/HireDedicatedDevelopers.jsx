@@ -439,48 +439,48 @@ const HireDedicatedDevelopers = () => {
 
       {/* Top Marketplace Navigation Bar */}
       <div className="bg-white border-b border-slate-200 relative z-10 shadow-sm">
-        <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
+        <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-black text-xl shadow-md">
+            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-black text-xl shadow-md flex-shrink-0">
               V
             </div>
             <div>
               <h1 className="text-lg md:text-xl font-black text-secondary leading-tight">Hire Coders Marketplace</h1>
-              <p className="text-xs text-slate-500 font-medium">Explore &amp; Onboard Top 1% Pre-Vetted Developers</p>
+              <p className="text-xs text-slate-500 font-medium leading-relaxed">Explore &amp; Onboard Top 1% Pre-Vetted Developers</p>
             </div>
           </div>
 
           {/* Right Counters / Action Buttons */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full md:w-auto">
             <button 
               onClick={() => toast("Wishlist contains your saved profiles. Add them to cart to proceed!", { icon: "❤️" })}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full border text-xs sm:text-sm font-bold transition-all shadow-sm ${wishlist.length > 0 ? 'bg-rose-50 border-rose-200 text-rose-600' : 'bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200'}`}
+              className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 rounded-full border text-xs font-bold transition-all shadow-sm ${wishlist.length > 0 ? 'bg-rose-50 border-rose-200 text-rose-600' : 'bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200'}`}
             >
-              <Heart size={16} className={wishlist.length > 0 ? 'fill-rose-500 text-rose-500 animate-bounce' : ''} />
-              <span>Wish List</span>
-              <span className={`px-2 py-0.5 rounded-full text-xs font-black ${wishlist.length > 0 ? 'bg-rose-500 text-white' : 'bg-slate-300 text-slate-700'}`}>
+              <Heart size={14} className={wishlist.length > 0 ? 'fill-rose-500 text-rose-500 animate-bounce' : ''} />
+              <span className="hidden sm:inline">Wish List</span>
+              <span className={`px-2 py-0.5 rounded-full text-[10px] font-black ${wishlist.length > 0 ? 'bg-rose-500 text-white' : 'bg-slate-300 text-slate-700'}`}>
                 {wishlist.length}
               </span>
             </button>
 
             <button 
               onClick={() => setCompareModalOpen(true)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full border text-xs sm:text-sm font-bold transition-all shadow-sm ${compareList.length > 0 ? 'bg-blue-50 border-blue-200 text-blue-600' : 'bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200'}`}
+              className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 rounded-full border text-xs font-bold transition-all shadow-sm ${compareList.length > 0 ? 'bg-blue-50 border-blue-200 text-blue-600' : 'bg-slate-100 border-slate-200 text-slate-600 hover:bg-slate-200'}`}
             >
-              <SlidersHorizontal size={16} className={compareList.length > 0 ? 'text-blue-600' : ''} />
-              <span>In Comparison</span>
-              <span className={`px-2 py-0.5 rounded-full text-xs font-black ${compareList.length > 0 ? 'bg-blue-600 text-white' : 'bg-slate-300 text-slate-700'}`}>
+              <SlidersHorizontal size={14} className={compareList.length > 0 ? 'text-blue-600' : ''} />
+              <span className="hidden sm:inline">In Comparison</span>
+              <span className={`px-2 py-0.5 rounded-full text-[10px] font-black ${compareList.length > 0 ? 'bg-blue-600 text-white' : 'bg-slate-300 text-slate-700'}`}>
                 {compareList.length}
               </span>
             </button>
 
             <button 
               onClick={() => setCartDrawerOpen(true)}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full border text-xs sm:text-sm font-black transition-all shadow-md ${cart.length > 0 ? 'bg-primary border-primary text-white hover:bg-secondary' : 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'}`}
+              className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 rounded-full border text-xs font-black transition-all shadow-md ${cart.length > 0 ? 'bg-primary border-primary text-white hover:bg-secondary' : 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'}`}
             >
-              <ShoppingCart size={16} className={cart.length > 0 ? 'animate-pulse' : ''} />
-              <span>My Cart</span>
-              <span className={`px-2.5 py-0.5 rounded-full text-xs font-black ${cart.length > 0 ? 'bg-brand-sand text-secondary' : 'bg-slate-300 text-slate-700'}`}>
+              <ShoppingCart size={14} className={cart.length > 0 ? 'animate-pulse' : ''} />
+              <span className="hidden sm:inline">My Cart</span>
+              <span className={`px-2 py-0.5 rounded-full text-[10px] font-black ${cart.length > 0 ? 'bg-brand-sand text-secondary' : 'bg-slate-300 text-slate-700'}`}>
                 {cart.length}
               </span>
             </button>
@@ -854,26 +854,32 @@ const HireDedicatedDevelopers = () => {
                         const itemTotal = item.price * hoursPerDay * days;
 
                         return (
-                          <div key={item.id} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4 relative">
-                            {/* Profile Info */}
-                            <div className="flex items-center gap-3 min-w-[200px]">
-                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-600 to-slate-800 text-white font-black flex items-center justify-center text-lg flex-shrink-0 shadow-md">
-                                {item.name.charAt(0)}
+                          <div key={item.id} className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 relative">
+                            {/* Header Info */}
+                            <div className="flex items-center justify-between gap-3 w-full md:w-auto border-b border-slate-100 md:border-0 pb-3 md:pb-0">
+                              <div className="flex items-center gap-3">
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-600 to-slate-800 text-white font-black flex items-center justify-center text-lg flex-shrink-0 shadow-md">
+                                  {item.name.charAt(0)}
+                                </div>
+                                <div>
+                                  <h4 className="font-black text-secondary text-base">{item.name}</h4>
+                                  <p className="text-xs text-slate-500 font-medium">{item.title}</p>
+                                </div>
                               </div>
-                              <div>
-                                <h4 className="font-black text-secondary text-base">{item.name}</h4>
-                                <p className="text-xs text-slate-500 font-medium">{item.title}</p>
+                              <div className="flex items-center gap-1 md:hidden">
+                                <span className="text-lg font-black text-secondary">${item.price}</span>
+                                <span className="text-xs text-slate-400 font-bold">/hr</span>
                               </div>
                             </div>
 
-                            {/* Hourly Price */}
-                            <div className="flex items-center gap-1 flex-shrink-0">
+                            {/* Hourly Price (Desktop) */}
+                            <div className="hidden md:flex items-center gap-1 flex-shrink-0">
                               <span className="text-xl font-black text-secondary">${item.price}</span>
                               <span className="text-xs text-slate-400 font-bold">/hr</span>
                             </div>
 
                             {/* Controls Group */}
-                            <div className="flex flex-wrap items-center gap-3 flex-1 justify-end">
+                            <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2.5 w-full md:w-auto md:flex-1 md:justify-end">
                               {/* Start Date */}
                               <div className="flex flex-col">
                                 <span className="text-[10px] font-extrabold text-slate-400 mb-1">Start Date</span>
@@ -881,7 +887,7 @@ const HireDedicatedDevelopers = () => {
                                   type="date" 
                                   value={item.startDate || ''} 
                                   onChange={e => updateCartItem(item.id, 'startDate', e.target.value)}
-                                  className="bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-secondary outline-none focus:ring-1 focus:ring-primary"
+                                  className="bg-slate-100 border border-slate-200 rounded-lg px-2 py-1.5 text-xs font-bold text-secondary outline-none w-full"
                                 />
                               </div>
 
@@ -891,7 +897,7 @@ const HireDedicatedDevelopers = () => {
                                 <select 
                                   value={item.workMode || 'Full-time'} 
                                   onChange={e => updateCartItem(item.id, 'workMode', e.target.value)}
-                                  className="bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-secondary outline-none focus:ring-1 focus:ring-primary"
+                                  className="bg-slate-100 border border-slate-200 rounded-lg px-2 py-1.5 text-xs font-bold text-secondary outline-none w-full"
                                 >
                                   <option value="Full-time">Full-time (8h)</option>
                                   <option value="Part-time">Part-time (4h)</option>
@@ -904,7 +910,7 @@ const HireDedicatedDevelopers = () => {
                                 <select 
                                   value={item.durationDays || 30} 
                                   onChange={e => updateCartItem(item.id, 'durationDays', Number(e.target.value))}
-                                  className="bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-secondary outline-none focus:ring-1 focus:ring-primary"
+                                  className="bg-slate-100 border border-slate-200 rounded-lg px-2 py-1.5 text-xs font-bold text-secondary outline-none w-full"
                                 >
                                   <option value={15}>15 Days</option>
                                   <option value={30}>30 Days</option>
@@ -914,18 +920,20 @@ const HireDedicatedDevelopers = () => {
                               </div>
 
                               {/* Total item calculation */}
-                              <div className="flex items-center gap-1.5 bg-blue-50 text-blue-700 px-3 py-2 rounded-xl border border-blue-100 font-black text-sm">
-                                <span>${itemTotal} Total</span>
-                              </div>
+                              <div className="flex items-center justify-between sm:justify-start gap-2 col-span-2 sm:col-span-1 mt-2 sm:mt-0">
+                                <div className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 bg-blue-50 text-blue-700 px-3 py-2 rounded-xl border border-blue-100 font-black text-xs sm:text-sm">
+                                  <span>${itemTotal} Total</span>
+                                </div>
 
-                              {/* Remove Button */}
-                              <button 
-                                onClick={() => toggleCart(item)}
-                                className="w-8 h-8 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center transition-colors ml-1"
-                                title="Remove item"
-                              >
-                                <Trash2 size={14} />
-                              </button>
+                                {/* Remove Button */}
+                                <button 
+                                  onClick={() => toggleCart(item)}
+                                  className="w-9 h-9 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center transition-colors flex-shrink-0"
+                                  title="Remove item"
+                                >
+                                  <Trash2 size={16} />
+                                </button>
+                              </div>
                             </div>
 
                           </div>
