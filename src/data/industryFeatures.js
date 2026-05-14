@@ -62,7 +62,7 @@ export const industryFeaturesData = [
     description: "Modernize your supply chain with our intelligent logistics software. We build robust fleet management systems, real-time GPS tracking solutions, warehouse automation software, and AI-driven route optimization tools that reduce costs and ensure on-time delivery globally.",
     keyPoints: ["Real-time Fleet & Asset Tracking", "AI Route Optimization", "Warehouse Management Systems (WMS)", "Supply Chain Transparency"],
     highlights: ["IoT Sensor Integration", "Predictive Maintenance", "Cross-Border Logistics Platforms", "Automated Dispatch Systems"],
-    bannerImage: "https://images.unsplash.com/photo-1580674296366-06180cdce7f6?w=1200&q=80",
+    bannerImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80",
     iconName: "Truck"
   }
 ];
