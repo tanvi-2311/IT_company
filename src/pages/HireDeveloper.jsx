@@ -13,10 +13,13 @@ const HireDeveloper = () => {
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
   const getBannerImage = (role) => {
+    if(role.includes("Java")) return "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80";
     if(role.includes("Android") || role.includes("iOS")) return "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80";
     if(role.includes("React") || role.includes("UI")) return "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80";
-    if(role.includes("AI") || role.includes("Blockchain")) return "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80";
-    return "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=1200&q=80";
+    if(role.includes("AI")) return "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80"; // Modern AI/Neural Network
+    if(role.includes("Blockchain")) return "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80"; // Decentralized Network/Blockchain
+    if(role.includes("Python")) return "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=1200&q=80";
+    return "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80";
   };
 
   if (!developerData) return (

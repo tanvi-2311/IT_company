@@ -46,13 +46,45 @@ const Contact = () => {
             }
           }
         );
-        toast.success('Message sent successfully! We will get back to you soon.');
-        setFormData({ name: '', email: '', phone: '', message: '' });
       } catch (supabaseErr) {
         console.error('Supabase direct insert error:', supabaseErr);
-        toast.success('Message sent successfully! We will get back to you soon.');
-        setFormData({ name: '', email: '', phone: '', message: '' });
       }
+
+      // Send instant Email Notification to Company Mail ID via Web3Forms
+      try {
+        // Note: To activate live email forwarding on Vercel, replace YOUR_WEB3FORMS_ACCESS_KEY with your free key from https://web3forms.com
+        const web3FormsKey = "YOUR_WEB3FORMS_ACCESS_KEY";
+        if (web3FormsKey !== "YOUR_WEB3FORMS_ACCESS_KEY") {
+          await axios.post('https://api.web3forms.com/submit', {
+            access_key: web3FormsKey,
+            subject: `New Inquiry from ${formData.name}`,
+            from_name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            service: 'General Inquiry'
+          });
+          console.log('Email dispatched successfully via Web3Forms');
+        } else {
+          console.log('Web3Forms key is placeholder. Skipping email dispatch.');
+        }
+      } catch (emailErr) {
+        console.error('Web3Forms email dispatch error:', emailErr);
+      }
+
+      // Send data directly to Company WhatsApp
+      try {
+        // Replace with your company's official WhatsApp Phone Number (with country code, e.g., 919876543210)
+        const companyWhatsappNumber = "919510774987";
+        const whatsappText = `*New Website Inquiry*\n\n*Client Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone || 'Not Specified'}\n\n*Message:*\n${formData.message}`;
+        const encodedText = encodeURIComponent(whatsappText);
+        window.open(`https://api.whatsapp.com/send?phone=${companyWhatsappNumber}&text=${encodedText}`, '_blank');
+      } catch (whatsappErr) {
+        console.error('WhatsApp redirect error:', whatsappErr);
+      }
+
+      toast.success('Message sent successfully! We will get back to you soon.');
+      setFormData({ name: '', email: '', phone: '', message: '' });
     } finally {
       setLoading(false);
     }

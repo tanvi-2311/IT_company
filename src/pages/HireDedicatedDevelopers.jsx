@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Search, SlidersHorizontal, Heart, CheckSquare, Square, ShoppingCart, 
   Trash2, X, Star, CheckCircle2, ChevronDown, ChevronUp, Sparkles, 
@@ -10,181 +10,11 @@ import {
 import ContactModal from '../components/ContactModal';
 import toast from 'react-hot-toast';
 
-const initialDevelopers = [
-  {
-    id: 1,
-    name: "J*y B**a",
-    verified: true,
-    title: "Senior Software Engineer",
-    price: 25,
-    partTime: true,
-    fullTime: true,
-    years: 5,
-    skillHeading: "iOS | Swift",
-    bio: "Experienced iOS Developer specializing in iOS and Swift development. Proficient in frameworks such as SwiftUI, Combine, and CoreData.",
-    skills: ["iOS", "Swift", "Mobile App Development", "React Native"],
-    experience: 5
-  },
-  {
-    id: 2,
-    name: "T*******...",
-    verified: true,
-    title: "Senior Software Engineer",
-    price: 35,
-    partTime: true,
-    fullTime: true,
-    years: 8,
-    skillHeading: "Wordpress | PHP",
-    bio: "Experienced WordPress Developer with expertise in custom theme and plugin development. Proficient in PHP, MySQL, and WooCommerce scaling.",
-    skills: ["PHP", "Wordpress", "Web & CMS Development"],
-    experience: 8
-  },
-  {
-    id: 3,
-    name: "B*****v C...",
-    verified: true,
-    title: "Software Engineer",
-    price: 25,
-    partTime: true,
-    fullTime: true,
-    years: 4,
-    skillHeading: "UI/UX Design | Figma",
-    bio: "Dedicated UI/UX Designer with expertise in user-centered design, wireframing, and interactive prototyping. Proficient in mobile and web app UX.",
-    skills: ["UI/UX", "Figma", "Design"],
-    experience: 4
-  },
-  {
-    id: 4,
-    name: "K***n A**e",
-    verified: true,
-    title: "Senior Full Stack Dev",
-    price: 40,
-    partTime: true,
-    fullTime: true,
-    years: 9,
-    skillHeading: "React.js | Node.js",
-    bio: "Full stack developer architecting high-traffic SaaS applications. Deep expertise in React, Redux, Next.js, Node, Express, and MongoDB.",
-    skills: ["ReactJS", "Node.js", "Web & CMS Development"],
-    experience: 9
-  },
-  {
-    id: 5,
-    name: "M***r B***",
-    verified: true,
-    title: "Quality Analyst & QA Lead",
-    price: 25,
-    partTime: true,
-    fullTime: true,
-    years: 6,
-    skillHeading: "Automated QA | Selenium",
-    bio: "Expert QA engineer proficient in automated and manual testing, CI/CD pipeline integration, API testing, and ensuring zero-bug deployments.",
-    skills: ["QA", "Java (Core)"],
-    experience: 6
-  },
-  {
-    id: 6,
-    name: "A*****a S...",
-    verified: true,
-    title: "Lead AI Engineer",
-    price: 50,
-    partTime: false,
-    fullTime: true,
-    years: 7,
-    skillHeading: "Python | Machine Learning",
-    bio: "AI/ML specialist focusing on LLM integration, LangChain, PyTorch, and NLP pipelines. Helped scale enterprise generative AI platforms.",
-    skills: ["Python", "AI & ML Development", "C++"],
-    experience: 7
-  },
-  {
-    id: 7,
-    name: "D*******...",
-    verified: true,
-    title: "Software Engineer",
-    price: 30,
-    partTime: true,
-    fullTime: true,
-    years: 5,
-    skillHeading: "Java | Spring Boot",
-    bio: "Seasoned Java expert specializing in Spring Boot, Hibernate, microservices architectures, Kafka, and highly secure transaction backends.",
-    skills: ["Java (Core)", "Web & CMS Development", "C"],
-    experience: 5
-  },
-  {
-    id: 8,
-    name: "R***t P***",
-    verified: true,
-    title: "Blockchain Specialist",
-    price: 60,
-    partTime: true,
-    fullTime: true,
-    years: 5,
-    skillHeading: "Solidity | Smart Contracts",
-    bio: "Web3 engineer specializing in secure smart contracts, DeFi protocols, NFT marketplaces, and auditing Ethereum/Polygon decentralized apps.",
-    skills: ["Blockchain", "C++"],
-    experience: 5
-  },
-  {
-    id: 9,
-    name: "S*****i M...",
-    verified: true,
-    title: "Senior Android Dev",
-    price: 30,
-    partTime: true,
-    fullTime: true,
-    years: 6,
-    skillHeading: "Android | Kotlin",
-    bio: "Passionate Android developer with deep knowledge of Kotlin, Jetpack Compose, Coroutines, and MVVM clean architecture patterns.",
-    skills: ["Android", "Mobile App Development", "Java (Core)"],
-    experience: 6
-  },
-  {
-    id: 10,
-    name: "V****k S***",
-    verified: true,
-    title: "Backend Architect",
-    price: 55,
-    partTime: true,
-    fullTime: true,
-    years: 11,
-    skillHeading: "Golang | Microservices",
-    bio: "Highly skilled backend architect designing ultra-low latency microservices in Go. Expert in gRPC, Kafka, Docker, and distributed systems.",
-    skills: ["Golang", "C"],
-    experience: 11
-  },
-  {
-    id: 11,
-    name: "P****a K...",
-    verified: true,
-    title: "UI/UX & Product Designer",
-    price: 30,
-    partTime: true,
-    fullTime: true,
-    years: 5,
-    skillHeading: "Design Systems | Adobe XD",
-    bio: "Creative product designer crafting high-converting SaaS interfaces, responsive web layouts, and comprehensive design systems.",
-    skills: ["UI/UX", "Design"],
-    experience: 5
-  },
-  {
-    id: 12,
-    name: "N****n R***",
-    verified: true,
-    title: "Enterprise Systems Engineer",
-    price: 45,
-    partTime: false,
-    fullTime: true,
-    years: 12,
-    skillHeading: "C++ | Systems Architecture",
-    bio: "Expert embedded systems and backend developer with 12+ years of experience in high-concurrency C++ network engines and IoT protocols.",
-    skills: ["C++", "C", "Cloud"],
-    experience: 12
-  }
-];
-
 const allSkillsList = [
   "Java (Core)", "C", "C++", "ReactJS", "PHP", "Python", 
-  "iOS", "Swift", "Android", "Node.js", "UI/UX", "Blockchain", 
-  "Golang", "AI & ML Development", "Wordpress", "QA"
+  "iOS", "Swift", "Android", "Flutter", "Dart", "Node.js", 
+  "UI/UX", "Blockchain", "Golang", "AI & ML Development", 
+  "Wordpress", "QA", "Firebase", "React Native"
 ];
 
 const expRangesList = [
@@ -195,12 +25,36 @@ const expRangesList = [
   { label: "21+", min: 21, max: 99 }
 ];
 
+import developersData from '../data/developers.json';
+import API_BASE_URL from '../config/api';
+
 const HireDedicatedDevelopers = () => {
+  const navigate = useNavigate();
+  const formatName = (name, showFullName) => {
+    if (showFullName) return name;
+    if (!name) return '';
+    return name.trim().split(' ').map(word => {
+      if (word.length <= 2) return word[0] + '*';
+      return word[0] + '*'.repeat(word.length - 2) + word[word.length - 1];
+    }).join(' ');
+  };
+
+  const [initialDevelopers, setInitialDevelopers] = useState(developersData);
   const [wishlist, setWishlist] = useState([]);
   const [compareList, setCompareList] = useState([]);
   const [cart, setCart] = useState([]);
   const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
   const [compareModalOpen, setCompareModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Attempt to fetch fresh data from local server if available (for Admin Panel sync)
+    if (window.location.hostname === 'localhost') {
+      fetch(`${API_BASE_URL}/developers`)
+        .then(res => res.json())
+        .then(data => setInitialDevelopers(data))
+        .catch(err => console.log('Using bundled developers data'));
+    }
+  }, []);
 
   // Filter States
   const [searchQuery, setSearchQuery] = useState('');
@@ -321,7 +175,7 @@ const HireDedicatedDevelopers = () => {
       if (sortBy === 'verified') return (b.verified === true ? 1 : 0) - (a.verified === true ? 1 : 0);
       return a.id - b.id;
     });
-  }, [searchQuery, selectedSkills, selectedExpRanges, sortBy]);
+  }, [initialDevelopers, searchQuery, selectedSkills, selectedExpRanges, sortBy]);
 
   const displayedSkills = useMemo(() => {
     return allSkillsList.filter(skill => skill.toLowerCase().includes(skillSearchQuery.toLowerCase()));
@@ -344,10 +198,10 @@ const HireDedicatedDevelopers = () => {
   const handleProceedToHire = () => {
     if (cart.length === 0) return;
     if (checkoutMode === 'hire') {
-      const devListStr = cart.map(item => `${item.name} (${item.skillHeading}, ${item.workMode}, ${item.durationDays} Days, Start: ${item.startDate || 'Immediate'}) - $${item.price * (item.workMode === 'Part-time' ? 4 : 8) * (item.durationDays || 30)}`).join('\n• ');
+      const devListStr = cart.map(item => `${formatName(item.name, item.showFullName)} [ID: ${item.talentId}] (${item.skillHeading}, ${item.workMode}, ${item.durationDays} Days, Start: ${item.startDate || 'Immediate'}) - $${item.price * (item.workMode === 'Part-time' ? 4 : 8) * (item.durationDays || 30)}`).join('\n• ');
       setHireMessage(`I would like to hire the following dedicated developers:\n• ${devListStr}\n\nGrand Total Amount: $${grandTotalAmount} (inc. taxes)`);
     } else {
-      const devListStr = cart.map(item => `${item.name} (${item.skillHeading}, $${item.price}/hr, Start: ${item.startDate || 'Immediate'})`).join('\n• ');
+      const devListStr = cart.map(item => `${formatName(item.name, item.showFullName)} [ID: ${item.talentId}] (${item.skillHeading}, $${item.price}/hr, Start: ${item.startDate || 'Immediate'})`).join('\n• ');
       setHireMessage(`I would like to schedule an interview with the following dedicated developers:\n• ${devListStr}\n\n(Note: Interview deposit is fully refundable)`);
     }
     setCartDrawerOpen(false);
@@ -693,7 +547,8 @@ const HireDedicatedDevelopers = () => {
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
                     key={dev.id}
-                    className="bg-white rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                    className="bg-white rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
+                    onClick={() => navigate(`/developer/${dev.talentId}`)}
                   >
                     <div className="p-6 pb-4">
                       {/* Top Header Row */}
@@ -704,7 +559,7 @@ const HireDedicatedDevelopers = () => {
                           </div>
                           <div>
                             <div className="flex items-center gap-1.5 font-black text-secondary text-base md:text-lg">
-                              <span>{dev.name}</span>
+                              <span>{formatName(dev.name, dev.showFullName)}</span>
                               {dev.verified && <CheckCircle2 size={16} className="text-blue-500 fill-blue-50" />}
                             </div>
                             <span className="text-xs font-bold text-slate-500">{dev.title}</span>
@@ -719,11 +574,11 @@ const HireDedicatedDevelopers = () => {
                       </div>
 
                       {/* Tags Row */}
-                      <div className="flex flex-wrap gap-1.5 mb-5 border-b border-slate-100 pb-4">
+                      <div className="flex flex-wrap gap-1.5 mb-5 border-b border-slate-100 pb-4 items-center">
+                        <span className="bg-blue-50 text-blue-700 text-[10px] font-black px-2 py-0.5 rounded-md border border-blue-200">ID: {dev.talentId}</span>
                         {dev.partTime && <span className="bg-amber-50 text-amber-700 text-[10px] font-extrabold px-2 py-0.5 rounded-md border border-amber-200">Part Time</span>}
                         {dev.fullTime && <span className="bg-emerald-50 text-emerald-700 text-[10px] font-extrabold px-2 py-0.5 rounded-md border border-emerald-200">Full Time</span>}
                         <span className="bg-primary/5 text-primary text-[10px] font-extrabold px-2 py-0.5 rounded-md border border-primary/10">{dev.years} Years+</span>
-                        <span className="bg-slate-100 text-slate-600 text-[10px] font-extrabold px-2 py-0.5 rounded-md">Show More</span>
                       </div>
 
                       {/* Main Skill Heading */}
@@ -743,7 +598,7 @@ const HireDedicatedDevelopers = () => {
                       <div className="flex items-center gap-2">
                         {/* Wishlist Button */}
                         <button 
-                          onClick={() => toggleWishlist(dev.id)}
+                          onClick={(e) => { e.stopPropagation(); toggleWishlist(dev.id); }}
                           className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all shadow-sm ${inWish ? 'bg-rose-50 border border-rose-200 text-rose-500' : 'bg-white border border-slate-200 text-slate-400 hover:text-slate-600'}`}
                           title="Wishlist"
                         >
@@ -755,7 +610,7 @@ const HireDedicatedDevelopers = () => {
                           <input 
                             type="checkbox" 
                             checked={inComp}
-                            onChange={() => toggleCompare(dev.id)}
+                            onChange={(e) => { e.stopPropagation(); toggleCompare(dev.id); }}
                             className="sr-only"
                           />
                           <div className={`w-4 h-4 rounded border flex items-center justify-center transition-all ${inComp ? 'bg-blue-600 border-blue-600 text-white' : 'border-slate-300 bg-white'}`}>
@@ -767,7 +622,7 @@ const HireDedicatedDevelopers = () => {
 
                       {/* Add to Cart Button */}
                       <button 
-                        onClick={() => toggleCart(dev)}
+                        onClick={(e) => { e.stopPropagation(); toggleCart(dev); }}
                         className={`flex-1 py-2.5 rounded-xl font-black text-xs transition-all flex items-center justify-center gap-1.5 shadow-md ${inCart ? 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-emerald-600/20' : 'bg-primary text-white hover:bg-secondary shadow-primary/20'}`}
                       >
                         <ShoppingCart size={14} />
@@ -862,7 +717,7 @@ const HireDedicatedDevelopers = () => {
                                   {item.name.charAt(0)}
                                 </div>
                                 <div>
-                                  <h4 className="font-black text-secondary text-base">{item.name}</h4>
+                                  <h4 className="font-black text-secondary text-base">{formatName(item.name, item.showFullName)}</h4>
                                   <p className="text-xs text-slate-500 font-medium">{item.title}</p>
                                 </div>
                               </div>

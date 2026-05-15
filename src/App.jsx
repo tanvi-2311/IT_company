@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -14,14 +14,19 @@ import IndustryFeature from './pages/IndustryFeature'
 import ResourceFeature from './pages/ResourceFeature'
 import Portfolio from './pages/Portfolio'
 import ServiceDetail from './pages/ServiceDetail'
+import AdminPanel from './pages/AdminPanel'
+import DeveloperProfile from './pages/DeveloperProfile'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
     <div className="min-h-screen flex flex-col bg-brand-cream text-secondary selection:bg-primary selection:text-white">
       <ScrollToTop />
-      <Navbar />
-      <main className="flex-grow pt-20">
+      {!isAdminRoute && <Navbar />}
+      <main className={`flex-grow ${!isAdminRoute ? 'pt-20' : ''}`}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
@@ -35,9 +40,14 @@ function App() {
           <Route path="/resource/:slug" element={<ResourceFeature />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/developer/:talentId" element={<DeveloperProfile />} />
+          {/* Admin Panel - Only accessible locally */}
+          {(window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && (
+            <Route path="/admin/developers" element={<AdminPanel />} />
+          )}
         </Routes>
       </main>
-      <Footer />
+      {!isAdminRoute && <Footer />}
       <Toaster position="top-right" />
     </div>
   )

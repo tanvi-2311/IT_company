@@ -1,0 +1,1336 @@
+[
+  {
+    "id": 1778834735976,
+    "talentId": "VED-1001",
+    "name": "Vikas Dhaka",
+    "title": "Flutter Developer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "Team Work | Leadership | Problem Solving | Skill Development",
+    "bio": "Developed a Video Management Software (VMS) enabling live CCTV camera viewing, video playback, and event monitoring for comprehensive surveillance. Solely conceived, designed, and implemented the project.\nBuilt a Human Resource Management System (HRMS) with location-based attendance, leave application, salary viewing, task assignment, and sales tracking — fully designed and developed end-to-end.",
+    "skills": [
+      "C",
+      "C++",
+      "DSA",
+      "Dart",
+      "Flutter",
+      "REST",
+      "APIs",
+      "Firebase",
+      "Sqflite",
+      "Hive",
+      "Clean Architecture",
+      "HTML",
+      "CSS",
+      "Bootstrap"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Vikas_Resume.pdf",
+    "projects": [
+      {
+        "title": "Sparsh HRMS",
+        "desc": "HRMS mobile application with location-based attendance, leave management, and salary tracking. Achieved 1K+ downloads."
+      },
+      {
+        "title": "Vision Admin App",
+        "desc": "Faculty management application for scheduling availability, managing timetables, and academic events."
+      },
+      {
+        "title": "EatNDine",
+        "desc": "Smart Dine-In Restaurant App for discovering restaurants, ordering, and in-app payments."
+      },
+      {
+        "title": "Video Management Software (VMS)",
+        "desc": "CCTV app with live video feeds, PTZ controls, and playback features for smart surveillance."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech Computer Science",
+        "school": "Panipat Institute Of Engineering & Technology",
+        "year": "2019 - 2023"
+      }
+    ]
+  },
+  {
+    "id": 1778834907892,
+    "talentId": "VED-1002",
+    "name": "Karansinh Vaghela",
+    "title": "Flutter & IOS",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2.5,
+    "skillHeading": "Flutter",
+    "bio": "Passionate Flutter Developer with hands-on experience in building modern, scalable, and feature-rich mobile applications. Skilled in implementing BLoC architecture for clean state management, local database integration using Sqflite, push notifications with Firebase Messaging and OneSignal, and advanced Firebase services including Analytics, Crashlytics, Authentication, and Realtime Database.",
+    "skills": [
+      "Flutter",
+      "React Js",
+      "Laravel",
+      "Html",
+      "Css"
+    ],
+    "experience": 2.5,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Karan_Vaghela_Resume.pdf",
+    "projects": [
+      {
+        "title": "Spowork",
+        "desc": "Platform to bridge the gap between employees and businesses in hospitality and service sectors."
+      },
+      {
+        "title": "Roof Measuring",
+        "desc": "Service application for residential/commercial measurements with payment and chat features."
+      },
+      {
+        "title": "42 Leuva Patel",
+        "desc": "Community platform for connecting members and staying updated with news and events."
+      },
+      {
+        "title": "Meedo",
+        "desc": "Business communication and rewards application for merchants and customers."
+      }
+    ],
+    "education": [
+      {
+        "degree": "MCA",
+        "school": "HNGU",
+        "year": "2020"
+      },
+      {
+        "degree": "BCA",
+        "school": "HNGU",
+        "year": "2018"
+      }
+    ]
+  },
+  {
+    "id": 1778835025706,
+    "talentId": "VED-1003",
+    "name": "Rucha Patel",
+    "title": "Flutter Developer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "UI/UX | Mobile Development | Rest API | Firebase",
+    "bio": "Experienced Flutter Developer with 3+ years of expertise in designing and developing cross-platform mobile applications.\nProficient in Flutter, Dart, API integration, and implementing responsive UI with a focus on performance and code quality.",
+    "skills": [
+      "Dart",
+      "JAVA"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/RUCHA_CV.pdf",
+    "projects": [
+      {
+        "title": "Event Booking & Ticketing",
+        "desc": "Applications featuring interactive seat selection, real-time availability, and API integration."
+      },
+      {
+        "title": "CRM & Field Service",
+        "desc": "Efficient customer management, lead tracking, and task assignment for field operations."
+      },
+      {
+        "title": "E-commerce Mobile Apps",
+        "desc": "Scalable eCommerce solutions with dynamic listings, cart management, and optimized checkout."
+      }
+    ],
+    "education": [
+      {
+        "degree": "MCA",
+        "school": "GLS University",
+        "year": "2022"
+      }
+    ]
+  },
+  {
+    "id": 1778835156615,
+    "talentId": "VED-1004",
+    "name": "ELIUS BOKHTIER",
+    "title": "Full Stack Developer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2.5,
+    "skillHeading": "Socket.IO| Web Sockets | React  Context API",
+    "bio": "FullStackDeveloperwith2.5yearsofproductionexperiencebuildingaschool\nmanagementplatformandreal-timewebapplicationsusingReact,Next.js,\nTypeScript,andNode.js.KnownfordeliveringscalableUIcomponentsystems,\nreal-timeSocket.IOarchitectures, andcleanfull-stackfeatureswithend-to-end\nownershipinfast-movingproductteams.",
+    "skills": [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript(ES6+)",
+      "TailwindCSS",
+      "HTML5",
+      "CSS3",
+      "FramerMotion Node.js",
+      "Express.js",
+      "MongoDB",
+      "RESTAPIs",
+      "JWTAuthentication"
+    ],
+    "experience": 2.5,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Elius Bokhtier MERN Stack.pdf",
+    "projects": [
+      {
+        "title": "Arronic - School Management",
+        "desc": "End-to-end development of production modules for students, teachers, and admins."
+      },
+      {
+        "title": "RhinoChat",
+        "desc": "Real-time messaging system supporting concurrent one-to-one and group chats."
+      },
+      {
+        "title": "RhinoMovies",
+        "desc": "Server-side rendered movie discovery platform with Next.js for optimal performance."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech — ECE",
+        "school": "Aligarh Muslim University",
+        "year": "2018 - 2022"
+      }
+    ]
+  },
+  {
+    "id": 1778835263853,
+    "talentId": "VED-1005",
+    "name": "Shilpa Narayanachari",
+    "title": "Frontend Developer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "Angular| Nestjs | MySQL| Git | Github |Gitlab| Bitbucket| GraphQL",
+    "bio": "Frontend Developer with 3+ years of experience in building scalable web applications using Angular, TypeScript,\nRxJS, and NgRx. Hands-on experience with full-stack development using NestJS and MySQL. Skilled in creating\nuser-focused, responsive, and high-performance applications.",
+    "skills": [
+      "Angular",
+      "Nestjs",
+      "MySQL",
+      "Git",
+      "Github",
+      "Gitlab",
+      "Bitbucket",
+      "GraphQL",
+      "Bootstrap",
+      "Tailwindcss",
+      "Saas",
+      "Google Apis",
+      "Vercel",
+      "Firebase",
+      "NGRX",
+      "RXJS",
+      "Websocket",
+      "Shimmer",
+      "Authentication",
+      "Authorization",
+      "Jenkins",
+      "CI/CD"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Shilpa_Narayanachari_CV.pdf",
+    "projects": [
+      {
+        "title": "AVIZ",
+        "desc": "Airport trip monitoring application enabling real-time communication between operators and brokers using WebSockets."
+      },
+      {
+        "title": "HRMS",
+        "desc": "Developed and managed multiple HRMS modules including Core HR, Recruitment, Payroll, and Expense Reimbursement."
+      },
+      {
+        "title": "Printlok",
+        "desc": "Application to track employee locations, attendance, shifts, and overtime using Google Maps API."
+      },
+      {
+        "title": "Project Management",
+        "desc": "App to keep track of projects, clients, and employees, monitoring work hours and daily status."
+      }
+    ],
+    "education": [
+      {
+        "degree": "MCA",
+        "school": "Er Perumal Manimekalai College Of Engineering",
+        "year": "2018 - 2020"
+      },
+      {
+        "degree": "BCA",
+        "school": "St. Joseph College Of Arts And Science For Women",
+        "year": "2015 - 2018"
+      }
+    ]
+  },
+  {
+    "id": 1778835421477,
+    "talentId": "VED-1006",
+    "name": "Anjali Hingu",
+    "title": "Software Engineer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2,
+    "skillHeading": "Angular | Node.js|  Express.js|  React.js | Kafka | Elasticsearch|  Logstash| Kibana| Redis",
+    "bio": "Developed and maintained an IOT-based portal providing real-time system updates and enhanced functionality for\nindustrial monitoring,supporting 60+ connected devices across multiple production units.",
+    "skills": [
+      "JavaScript",
+      "TypeScript",
+      "C++",
+      "HTML",
+      "CSS"
+    ],
+    "experience": 2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/AnjaliHingu_Resume.pdf",
+    "projects": [
+      {
+        "title": "IOT-based Portal",
+        "desc": "Real-time system updates and enhanced functionality for industrial monitoring supporting 60+ devices."
+      },
+      {
+        "title": "Abnormality Detection Dashboard",
+        "desc": "Backend logic for error classification and detailed time-series reporting using Elasticsearch and MongoDB."
+      },
+      {
+        "title": "Qr-based Food Ordering System",
+        "desc": "Scalable contactless restaurant ordering system using MEAN stack with table-wise ordering."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. in Computer Science",
+        "school": "Maharaja Sayajirao University Of Baroda",
+        "year": "2020 - 2024"
+      }
+    ]
+  },
+  {
+    "id": 1778835599261,
+    "talentId": "VED-1007",
+    "name": "Jaydeep Sitapara",
+    "title": "Flutter Developer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2.5,
+    "skillHeading": "Flutter| Dart| Material Design 3| Responsive UI",
+    "bio": "Motivated and detail-oriented developer with 1 year and 7 months of hands-on experience in cross-platform mobile app development, state management, and backend integration. Proficient in building scalable, high-performance applications \nwith clean code architecture. Experienced in AI-assisted development using ChatGPT and Claude to streamline workflows, debug efficiently, and accelerate delivery. Passionate about creating intuitive user experiences and continuously evolving \nwith modern technologies",
+    "skills": [
+      "REST APIs",
+      "Firebase (Auth",
+      "Firestore",
+      "Cloud Messaging)",
+      "Razorpay Integration"
+    ],
+    "experience": 2.5,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Jaydeep_Sitapara_Resume.pdf",
+    "projects": [
+      {
+        "title": "Team Collaboration & Chat App",
+        "desc": "Built modules for Chat, Task Management, and Daily Work Tracking with offline sync using SQFLite."
+      },
+      {
+        "title": "Role-Based Management System",
+        "desc": "Chemical Company App with role-based access for multiple teams and dynamic admin panel."
+      },
+      {
+        "title": "Sports Turf Booking App",
+        "desc": "Full-featured Flutter app for turf owners to manage services, availability, and dynamic pricing."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. Computer Engineering",
+        "school": "Government Engineering College, Rajkot",
+        "year": "2021 - 2024"
+      },
+      {
+        "degree": "Diploma in Computer Engineering",
+        "school": "Christ Polytechnic Institute, Rajkot",
+        "year": "2018 - 2021"
+      }
+    ]
+  },
+  {
+    "id": 1778835727171,
+    "talentId": "VED-1008",
+    "name": "Darshan Ajudiya",
+    "title": "Python Developer |AI/ML | Backend Developer",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 1.5,
+    "skillHeading": "Django,Flask, FastAPI, Node.js, Express.js",
+    "bio": "Python Developer with experience in AI/ML and backend development. Skilled in building data-driven applications using Python,\nDjango, and FastAPI. Strong knowledge of machine learning, REST APIs, and scalable backend systems.",
+    "skills": [
+      "Python",
+      "SQL",
+      "JavaScript"
+    ],
+    "experience": 1.5,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Darshan-Ajudiya-1.pdf",
+    "projects": [
+      {
+        "title": "RAG-Based AI Teaching Assistant",
+        "desc": "Automated 100% video transcription across 3 languages and improved answer relevance using RAG."
+      },
+      {
+        "title": "Movie Recommendation System",
+        "desc": "Content-based system recommending movies from 5,000+ dataset using cosine similarity."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech in IT",
+        "school": "Ganpat University",
+        "year": "2022 - Present"
+      }
+    ]
+  },
+  {
+    "id": 1778836015333,
+    "talentId": "VED-1009",
+    "name": "Rohit Satavekar",
+    "title": "AI/ML",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": " Pandas| NumPy| Power BI| Matplotlib| Seaborn| Plotly| Advanced Excel | Data Cleaning",
+    "bio": "AI/ML Engineer with 3+ years of experience specializing in NLP and Generative AI, with a track record of building intelligent systems for financial services, customer support, and regulatory compliance. Proficient in developing transformer-based solutions using BERT and GPT-style architectures, and implementing RAG pipelines, embeddings, and semantic search systems for real-world applications.",
+    "skills": [
+      "Python",
+      "SQL",
+      "REST API Development",
+      "FastAPI",
+      "Flask",
+      "Django"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Rohit Satavekar_CV.pdf",
+    "projects": [
+      {
+        "title": "AI-Powered Loan Pre-Approval",
+        "desc": "End-to-end chatbot using LangChain and XGBoost for eligibility prediction with fairness testing."
+      },
+      {
+        "title": "GenAI Regulatory Compliance",
+        "desc": "RAG solution to extract and structure regulatory obligations (FCA, GDPR) from unstructured rule-books."
+      },
+      {
+        "title": "COVID-19 Detection (CNN)",
+        "desc": "Convolutional Neural Network using TensorFlow to classify chest X-ray images with 95% accuracy."
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. Advance Computer With Data Science",
+        "school": "University Of Strathclyde, UK",
+        "year": "2023 - 2024"
+      },
+      {
+        "degree": "B.E. Computer Science",
+        "school": "JSPM, Pune University",
+        "year": "2016 - 2021"
+      }
+    ]
+  },
+  {
+    "id": 1778836158492,
+    "talentId": "VED-1010",
+    "name": "Hiren Makwana",
+    "title": "Flutter Developer",
+    "price": 25,
+    "partTime": false,
+    "fullTime": true,
+    "years": 4,
+    "skillHeading": "Flutter | Firebase | Dart",
+    "bio": "Flutter Developer with 4+ years of experience building scalable, high-performance Android and iOS applications using Flutter. Expertise in MobX, Firebase, REST API integration, Google Maps, payment gateway integration, and real-time systems. Delivered 20+ production-ready mobile applications across startups and client projects \nwith strong focus on clean architecture, performance optimization, and seamless user experience. Experienced in  leading development, managing app releases, and building end-to-end mobile solutions with strong ownership and product thinking.",
+    "skills": [
+      "Rest API",
+      "Dart"
+    ],
+    "experience": 4,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Hiren_Makwana_Flutter_CV.pdf",
+    "projects": [
+      {
+        "title": "GV Ride – Taxi Booking",
+        "desc": "Ride-sharing platform with negotiable fare system, driver selection, and real-time tracking (10K+ downloads)."
+      },
+      {
+        "title": "Zap AI (Speaking English)",
+        "desc": "AI-powered English practice app with speech interaction and real-time conversational responses."
+      },
+      {
+        "title": "Mighty Delivery",
+        "desc": "On-demand delivery system with real-time order tracking and complex role-based workflows."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Computer Applications (MCA)",
+        "school": "Government MCA College (GMCA) – GTU",
+        "year": "2020 - 2022"
+      },
+      {
+        "degree": "Bachelor of Computer Applications (BCA)",
+        "school": "Svccs – MKBU, Bhavnagar",
+        "year": "2017 - 2020"
+      }
+    ]
+  },
+  {
+    "id": 1778836352807,
+    "talentId": "VED-1011",
+    "name": "Shraddha Gediya",
+    "title": "Web & UI/UX",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "React, Angular, jQuery, Bootstrap, Tailwind CSS, Material-UI",
+    "bio": "Skilled UI professional with strong expertise in designing intuitive, visually engaging user\ninterfaces. Experienced in collaborating with cross-functional teams to deliver high-quality,\nuser-centered solutions while adapting quickly to evolving project requirements. Proficient in HTML, CSS, JavaScript, and modern UI frameworks, with a proven ability to solve problems and enhance overall user experience. Highly proficient in Figma for creating detailed and impactful design solutions.",
+    "skills": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Shraddha Gediya Web Ui designer.pdf",
+    "projects": [
+      {
+        "title": "VHealthy Redesign",
+        "desc": "Redesigned wellness website using React and SCSS with a focus on reusable component architecture."
+      },
+      {
+        "title": "Vpriv.com",
+        "desc": "Front-end development featuring custom animations, sticky sections, and backend integration."
+      },
+      {
+        "title": "WTPC Center",
+        "desc": "WordPress Elementor based frontend with mega menus, slider animations, and form validation."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Computer Science",
+        "school": "St. Xavier’s College",
+        "year": "2018 - 2021"
+      }
+    ]
+  },
+  {
+    "id": 1778836544942,
+    "talentId": "VED-1012",
+    "name": "Hiren Hadiya",
+    "title": "UI Developer",
+    "price": 25,
+    "partTime": false,
+    "fullTime": true,
+    "years": 8,
+    "skillHeading": "Angular| Bootstrap| Tailwind| UI kit| CMS Platform",
+    "bio": "Senior UI Developer with 8+ years of experience in frontend  development and UI/UX design, specializing in building high-performance and scalable web applications using React.js, Next.js, Angular, and modern frontend frameworks. Strong expertise in \nuser-centered design, clean architecture, and developing reliable, maintainable, and efficient solutions.",
+    "skills": [
+      "HTML5",
+      "CSS3",
+      "SCSS",
+      "LESS",
+      "jQuery",
+      "React.js",
+      "Next.js"
+    ],
+    "experience": 8,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Hiren Hadiya Resume_UI Developer.pdf",
+    "projects": [
+      {
+        "title": "Maserati India",
+        "desc": "Automobile portal development focusing on premium UI and high-performance frontend architecture."
+      },
+      {
+        "title": "apresbeauty",
+        "desc": "Scalable eCommerce platform with dynamic product listing and optimized checkout workflows."
+      },
+      {
+        "title": "Key Management System",
+        "desc": "Booking and rental management system with integrated CMS and real-time data handling."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Computer Applications (BCA)",
+        "school": "Smt. J.J. Kundaliya, Rajkot",
+        "year": "2010 - 2013"
+      },
+      {
+        "degree": "Master of Computer Applications (MCA)",
+        "school": "L.J. Institute, Ahmedabad",
+        "year": "2013 - 2015"
+      }
+    ]
+  },
+  {
+    "id": 1778836700229,
+    "talentId": "VED-1013",
+    "name": "Gohil Divya",
+    "title": "Full Stack Mobile Developer (Flutter + Backend)",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2.9,
+    "skillHeading": " REST API integration| Firebase",
+    "bio": "Flutter Developer with 2.9+ years of experience in developing cross-platform mobile and web applications.\nSkilled in Flutter, Dart, REST API integration, and Firebase, along with backend development using Laravel and PHP. Experienced in building scalable applications, integrating APIs, and delivering smooth user experiences.\nFocused on writing clean, maintainable code and continuously improving performance.",
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Laravel",
+      "PHP",
+      "Firebase",
+      "REST API"
+    ],
+    "experience": 2.9,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Gohil_Divya.pdf",
+    "projects": [
+      {
+        "title": "CommunitySafe",
+        "desc": "Office management system client app for streamlined internal operations and messenger safety alerts."
+      },
+      {
+        "title": "AoneHub",
+        "desc": "Toy business management app with inventory listings, sales tracking, and earnings reports."
+      },
+      {
+        "title": "Share My Deal",
+        "desc": "Textile platform connecting brokers, buyers, and sellers to explore cloth business deals."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor Of Arts",
+        "school": "Saurashtra University",
+        "year": "Graduate"
+      },
+      {
+        "degree": "Flutter Developer Course",
+        "school": "Aspire Multimedia & Design",
+        "year": "2023"
+      }
+    ]
+  },
+  {
+    "id": 1778836795282,
+    "talentId": "VED-1014",
+    "name": "Parth Vyas",
+    "title": "Associate Software Engineer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 1.2,
+    "skillHeading": "Flutter| Android|Jetpack Compose",
+    "bio": "Flutter Developer with 1.2+ years of experience building scalable and user-friendly mobile applications. Experienced in Flutter, Kotlin, REST API integration, Firebase, and state management using Provider and GetX. Focused on writing clean, maintainable code and delivering highperformance mobile solutions",
+    "skills": [
+      "Dart",
+      "Java",
+      "Kotlin",
+      "Flutter",
+      "Firebase"
+    ],
+    "experience": 1.2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Parth_Vyas_CV.pdf",
+    "projects": [
+      {
+        "title": "Pantry Pal",
+        "desc": "Inventory management app with GetX and MVVM, featuring offline access and IAP for subscriptions."
+      },
+      {
+        "title": "MFT App",
+        "desc": "Product browsing and ordering application with real-time tracking and Google Maps integration."
+      },
+      {
+        "title": "Cardixa App",
+        "desc": "Healthcare app with secure authentication, medical records, and video call functionality."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Computer Application",
+        "school": "LDRP Institute of Technology and Research",
+        "year": "2024 - Present"
+      },
+      {
+        "degree": "Bachelor of Computer Application",
+        "school": "Veer Narmad South Gujarat University",
+        "year": "2021 - 2024"
+      }
+    ]
+  },
+  {
+    "id": 1778836925880,
+    "talentId": "VED-1015",
+    "name": "Ashique KK",
+    "title": "Senior Flutter Developer",
+    "price": 25,
+    "partTime": false,
+    "fullTime": true,
+    "years": 5,
+    "skillHeading": "Flutter| Dart| React Native| Kotlin (Android) |Jetpack Compose| XML| Xcode",
+    "bio": "Full-stack Flutter Developer with 5 years of experience building scalable mobile and web applications. Experienced inmanaging and delivering multiple projects end-to-end with a strong focus on performance, user experience, and timelyexecution. Skilled in Flutter/Dart, Firebase, REST APIs, GraphQL, State Management (Bloc, GetX, Provider), CleanArchitecture, React Native, Node.js, and Native Android (Kotlin). Freelance experience includes managingend-to-end project lifecycles: planning, estimation, budgeting, client communication, and final delivery.",
+    "skills": [
+      "Node.js",
+      "RESTful API",
+      "GraphQL",
+      "WebSocket",
+      "Firebase",
+      "MongoDB"
+    ],
+    "experience": 5,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Ashique KK -  Resume.pdf",
+    "projects": [
+      {
+        "title": "Wuup Ecommerce",
+        "desc": "Flutter app with Bloc and Clean Architecture, integrated with Adobe GraphQL and Stripe."
+      },
+      {
+        "title": "Cityway (Ride Booking)",
+        "desc": "Complete ride booking ecosystem with real-time tracking, WebSockets, and secure payments."
+      },
+      {
+        "title": "Krispy Kreme Logistics",
+        "desc": "Enterprise tablet application for logistics management with offline handling and Sendgrid integration."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Computer Applications (MCA)",
+        "school": "Jain University, Bangalore",
+        "year": "2022 - 2024"
+      },
+      {
+        "degree": "Bachelor of Science in CS",
+        "school": "Kannur University",
+        "year": "2015 - 2018"
+      }
+    ]
+  },
+  {
+    "id": 1778837100357,
+    "talentId": "VED-1016",
+    "name": "Faraz Qureshi ",
+    "title": "Senior Angular Developer | MEAN Stack Develope",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "Angular (v12–20)|  JavaScript (ES6+)| Next.js| Vue.js |Bootstrap| Tailwind|Angular Material",
+    "bio": "Full Stack Developer with 3+ years of experience building scalable enterprise applications across Banking, SaaS, FinTech, Transportation, Healthcare, and EdTech domains. Strong expertise in Angular, Node.js, and MEAN stack development with hands-on experience in building high-performance web applications and AI-powered solutions.",
+    "skills": [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "JWT Authentication",
+      "API Design"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Faraz-Qureshi-Resume.pdf",
+    "projects": [
+      {
+        "title": "FinTech Loan Platform",
+        "desc": "Developed scalable frontend modules for merchant loans with optimized performance and API security."
+      },
+      {
+        "title": "GenAI Analysis Platform",
+        "desc": "Designed and deployed Generative AI analysis tools using Node.js and OpenAI/Gemini APIs."
+      },
+      {
+        "title": "Transportation Dashboard",
+        "desc": "MEAN stack dashboard for CRM, HR, and Expenses with multilingual support and SEO optimization."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. in Computer Science",
+        "school": "Mahakal Institute of Technology, Ujjain",
+        "year": "Graduate"
+      }
+    ]
+  },
+  {
+    "id": 1778837290022,
+    "talentId": "VED-1017",
+    "name": "Naman Doshi",
+    "title": "Software Engineer",
+    "price": 25,
+    "partTime": false,
+    "fullTime": true,
+    "years": 4,
+    "skillHeading": "Python | PHP | NextJS| ExpressJS| Tailwind CSS|  Django| React Native",
+    "bio": "I’m innovative Full Stack Developer with 4+ years of extensive experience in the software development lifecycle. Proficient in a diverse tech stack including React.js, Next.js, Node.js, Python, and PostgreSQL, MongoDB. Demonstrated success in architecting complex multi-tenant and modular application, integrating AI/LLM    technologies, and delivering high-performance solutions for international clients",
+    "skills": [
+      "HTML",
+      "CSS",
+      "jQuery",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Firebase",
+      "Clerk"
+    ],
+    "experience": 4,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Naman_Resume__.pdf",
+    "projects": [
+      {
+        "title": "Food Truck Management",
+        "desc": "Robust backend and admin panel for international clients using NestJS, Prisma, and PostgreSQL."
+      },
+      {
+        "title": "AI Chat Platform",
+        "desc": "Multi-tenant AI chat platform using LibreChat and custom Python-based MCP servers for 1000+ users."
+      },
+      {
+        "title": "Tax Advisory Platform",
+        "desc": "Full-stack platform using Next.js and Payload CMS, streamlining workflows and document management."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech in Computer Science",
+        "school": "Gandhinagar Institute Of Technology",
+        "year": "2020 - 2023"
+      },
+      {
+        "degree": "Diploma in Computer Engineering",
+        "school": "Government Polytechnic Ahemdabad",
+        "year": "2017 - 2020"
+      }
+    ]
+  },
+  {
+    "id": 1778837417422,
+    "talentId": "VED-1018",
+    "name": "Ranjith Kumar",
+    "title": "Software Engineer ",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2,
+    "skillHeading": "Node.js | Express.js | Firebase | REST API | JWT Authentication",
+    "bio": "Software Engineer with 2+ years of experience building full-stack web applications using React.js, TypeScript, Node.js, and Firebase. Delivered scalable solutions across hotel management, e-commerce, and enterprise software with measurable impact on\nperformance and client satisfaction.",
+    "skills": [
+      "React.js",
+      "TypeScript (basic)",
+      "JavaScript",
+      "Redux",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Responsive Design"
+    ],
+    "experience": 2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Ranjith_Kumar_P.pdf",
+    "projects": [
+      {
+        "title": "Fabrication ERP System",
+        "desc": "Enterprise ERP managing trading and fabrication lifecycle with Sales Pipeline and RBAC modules."
+      },
+      {
+        "title": "Hotel Management System",
+        "desc": "Full-stack booking platform with JWT authentication and real-time Firestore synchronization."
+      },
+      {
+        "title": "E-Commerce Platform",
+        "desc": "Shopping platform handling 1000+ concurrent users with secure payment gateway integration."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E Computer Science",
+        "school": "Anna University - Dindigul",
+        "year": "2019 - 2023"
+      }
+    ]
+  },
+  {
+    "id": 1778841394232,
+    "talentId": "VED-1019",
+    "name": "SAGAR G. BHALODIYA",
+    "title": "MERN/MEVN Stack Developer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3.5,
+    "skillHeading": "Express.js | Vue.js | Redux | Next.js",
+    "bio": "MERN/MEVN Stack Developer with 3.5 years of experience in MLM, Generative AI RAG, Task Management, \nand Survey applications. Skilled in React.js, Vue.js, Node.js, Express.js, MongoDB, SQL, Redis, BullMQ, \nAWS, and Azure. Experienced in building scalable web applications, cloud dashboards, real-time systems, \nchatbots, and high-performance backend architectures.",
+    "skills": [
+      "HTML   CSS   JavaScript   Typescript   React.js   Node.js"
+    ],
+    "experience": 3.5,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/SAGAR-G.-BHALODIYA.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778844152021,
+    "talentId": "VED-1020",
+    "name": "BRIJESH NIMAVAT  ",
+    "title": "Senior Flutter & iOS Mobile App Developer ",
+    "price": 25,
+    "partTime": false,
+    "fullTime": true,
+    "years": 5,
+    "skillHeading": "Flutter| Dart| Swift| SwiftUI | Java (Android) ",
+    "bio": "Senior Mobile App Developer with 5+ years of experience, having deployed 10+ \nproduction mobile applications on App Store and Play Store. Specialized in Flutter and \nnative iOS development with strong expertise in Clean Architecture, real-time features, \nCI/CD automation, and production release ownership. Proven ability to independently \ndeliver scalable, high-quality mobile applications used by 500K+ users. ",
+    "skills": [
+      "REST APIs",
+      "Graph QL",
+      "WebSocket",
+      "Firebase (Auth",
+      "Fire store",
+      "Realtime DB)"
+    ],
+    "experience": 5,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Brijesh_Nimavat_Resume_5.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778844302809,
+    "talentId": "VED-1021",
+    "name": "Riswan Abdussalam",
+    "title": "Flutter Engineer | Mobile & Full-Stack Developer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "Flutter| Dart|  BLoC | Provider | Clean Architecture| REST APIs| Firebase",
+    "bio": "Flutter Engineer with over three years of experience developing scalable mobile and web applications. Proven track record of driving user growth, improving application performance, and reducing defects through the adoption of clean architecture and structured state management approaches such as BLoC. Skilled in implementing CI/CD pipelines, conducting performance profiling, and integrating Flutter applications with Odoo backends to deliver robust and efficient solutions.",
+    "skills": [
+      "Node.js",
+      "Flask",
+      "Django",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+    ],
+    "experience": 0,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/resume-safe.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778844596016,
+    "talentId": "VED-1022",
+    "name": "KEYUR GAJERA",
+    "title": " Full stack Developer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "JavaScript | HTML/CSS | Typescript ",
+    "bio": "As a Full stack Developer with 3+ years of experience, I specialize in front-end development, creating responsive and scalable web applications using technologies like ReactJS, Next.js, Redux, and Tailwind CSS. While my expertise is primarily in front-end development, I also have experience with backend technologies such as NodeJS and API integration. I have contributed to building dynamic UIs, optimizing performance, and developing reusable components, collaborating with teams to deliver efficient and user-friendly software solutions. ",
+    "skills": [
+      "ReactJS",
+      "Next.js",
+      "NodeJS",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Material UI",
+      "Reactstrap"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Keyur_fullstack_developer.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778844770074,
+    "talentId": "VED-1023",
+    "name": "UJJAWAL R. DUDANI",
+    "title": " Android Developer ",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3.5,
+    "skillHeading": "Retrofit| REST APIs| Firebase | Hilt/Dagger| Git | Gradle",
+    "bio": "Results-driven Android Developer with 3.5 years of experience building scalable, production grade mobile applications using Kotlin, Jetpack Compose, and Java. Proven record of achieving 98%+ crash-free stability and reducing technical debt by 40% through systematic refactoring. Experienced across fintech, edtech, and workforce management domains. Delivered cross-platform modules using Flutter (Dart). Actively upskilling in advanced Compose UI architecture and clean architecture patterns.\n",
+    "skills": [
+      "Kotlin",
+      "Java",
+      "Android SDK",
+      "Jetpack Compose",
+      "MVVM",
+      "Room",
+      "SQLite",
+      "Coroutines",
+      "LiveData",
+      "ViewModel"
+    ],
+    "experience": 3.5,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Ujjawal_CV.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778844919273,
+    "talentId": "VED-1024",
+    "name": "MANASA THAGIRANCHA",
+    "title": "Flutter Developer & Tech Lead | Android & iOS | Play Store + App Store ",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2.4,
+    "skillHeading": "Flutter| Dart| Android Studio| Xcode | Cross-Platform (Android & iOS)",
+    "bio": "Flutter Developer & Tech Lead with 2.4 years of experience shipping 2 live apps on Google Play Store and Apple App\nStore. Led a team of 4 developers, specialized in Flutter, Dart, GetX, Firebase, MVVM architecture, Push Notifications,\nGoogle Maps API, and Payment Gateway Integration. Immediate joiner.",
+    "skills": [
+      "REST API Integration",
+      "Firebase (Auth",
+      "Firestore)",
+      "Laravel"
+    ],
+    "experience": 2.4,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Manasa_Flutter_Dev.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778845042353,
+    "talentId": "VED-1025",
+    "name": "Shakti Saini",
+    "title": "Backend Developer | Mern-Stack Developer",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2,
+    "skillHeading": "JavaScript | Python",
+    "bio": "Backend-focused developer with experience in building scalable APIs and full-stack applications using MERN stack. Strong understanding of database design, system architecture, and performance optimization.",
+    "skills": [
+      "Node.js",
+      "React.js",
+      "MongoDB",
+      "PostgreSQL",
+      "MySQL",
+      "Django"
+    ],
+    "experience": 2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Shaktisaini.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778845161736,
+    "talentId": "VED-1026",
+    "name": "KEVAL KHETANI ",
+    "title": "Software Engineer  ",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2,
+    "skillHeading": "JavaScript (ES6+) | TypeScript | Java ",
+    "bio": "MERN Stack Developer with 2+ years of experience building scalable web applications, e-commerce platforms, and SaaS products. Skilled in SQL, MongoDB, Express.js, React.js, Node.js, TypeScript, REST APIs, and cloud-based development. \nExperienced in Agile environments, cross-functional collaboration, and delivering production-ready solutions with clean and efficient code. ",
+    "skills": [
+      "React.js",
+      "Next.js",
+      "Redux Toolkit",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Material-UI",
+      "Responsive Design"
+    ],
+    "experience": 2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/keval_khetani_cv.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778845330310,
+    "talentId": "VED-1027",
+    "name": "RAISAHEMAD I MANSURI",
+    "title": "FULL STACK DEVELOPER",
+    "price": 13,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2,
+    "skillHeading": "NodeJs| SQL Server| MySQL |MongoDB| JavaScript",
+    "bio": "To be a part of an organization that encourages self-innovation and gives me opportunity to use my skills and expertise for the development of the organization.",
+    "skills": [
+      "Angular 2+",
+      "NodeJs",
+      "SQL Server",
+      "MySQL",
+      ".Net Core (MVC)",
+      "MongoDB",
+      "JavaScript",
+      "REST API"
+    ],
+    "experience": 2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Rais_Mansuri_Final_Resume.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778845501315,
+    "talentId": "VED-1028",
+    "name": "DIMPAL MAKWANA",
+    "title": "Senior Software Engineer Angular Front-End Lead",
+    "price": 25,
+    "partTime": false,
+    "fullTime": true,
+    "years": 4,
+    "skillHeading": "Angular | Angular Material | Telerik Kendo UI | ag-Grid | Basic React| Node.js",
+    "bio": "Senior Software Engineer with hands-on Angular experience delivering \nscalable front-end modules for enterprise products. Strong in reusable UI \nthinking, reliable execution, and collaborating with teams to ship polished \nuser experiences.",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript"
+    ],
+    "experience": 4,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Dimpal_2026.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778845775117,
+    "talentId": "VED-1029",
+    "name": "GAURAV SHARMA",
+    "title": "Frontend Develope",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2,
+    "skillHeading": "Angular (v10–17) | RxJS | TypeScript | JavaScript (ES6+) | HTML5| CSS3 | SCSS | Tailwind CSS | Bootstrap",
+    "bio": "Results-driven Frontend Developer with 2+ years of experience designing and building scalable Single Page Applications (SPAs) using Angular, RxJS, and TypeScript. Proven track record delivering responsive, cross-browser-compatible UIs for clients across\ne-commerce, HRMS, and professional-body platforms. Working knowledge of Java, Spring Boot, and REST API development, with a keen interest in growing into full-stack engineering. Comfortable in Agile environments and cross-functional teams.",
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "REST APIs",
+      "MySQL"
+    ],
+    "experience": 2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/GauravSharma Resume.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778845903458,
+    "talentId": "VED-1030",
+    "name": "KASHYAP SHARMA",
+    "title": "Junior Android Developer",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 1.1,
+    "skillHeading": "XML layouts| Material Design 3 | basic Jetpack Compose",
+    "bio": "Android Developer with 1.1 years of hands-on experience (6-month internship + 7-month full-time) building and shipping production-ready apps on the Google Play Store. Proficient in Kotlin, XML layouts, MVVM architecture, Retrofit, Room, and Firebase — with foundational knowledge of Jetpack Compose. Track record of independently developing 5 live Play Store apps, managing end-to-end release cycles, and integrating AdMob monetization. Passionate about clean code, performance optimization, and delivering polished user experiences.",
+    "skills": [
+      "Kotlin (primary)",
+      "Java (basic)"
+    ],
+    "experience": 1.1,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Kashyap_Sharma_Android_Developer_Resume.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778846063800,
+    "talentId": "VED-1031",
+    "name": "Lalitesh Tiwari",
+    "title": "Full Stack Developer | UI/UX Designer | AI-Augmented Builder",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2,
+    "skillHeading": "Node.js| Express.js| MongoDB| REST APIs| API Integration| JWT Authentication",
+    "bio": "Full Stack Developer and UI/ UX Designer with close to 2 years of production experience building AI-integrated, performance optimized web apps using the MERN stack. Experienced in transforming Figma designs into production-ready React components  while optimizing performance, accessibility, and Core Web Vitals. Skilled in MERN stack development, AI API integrations, and  modern frontend frameworks. Recognized among the Top 10 teams out of 600+ participants at a national hackathon for building  innovative AI-driven solutions.\n",
+    "skills": [
+      "React.js",
+      "Next.js",
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "SCSS",
+      "Redux",
+      "Context API",
+      "GSAP",
+      "Framer"
+    ],
+    "experience": 2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Lalitesh_Tiwari - Developer.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778846162576,
+    "talentId": "VED-1032",
+    "name": "Twinkle Gohil",
+    "title": "Seniore Flutter Developer",
+    "price": 25,
+    "partTime": false,
+    "fullTime": true,
+    "years": 4,
+    "skillHeading": "Flutter",
+    "bio": "Sr. Flutter Developer with 4+ years of experience building high-performance cross-platform mobile applications for Android\nand iOS using Flutter and Dart.Expertise in MVVM, Clean Architecture, REST API integration, and state management\nusing BLoC, Provider, and GetX. Proven track record of delivering production-ready applications with clean, maintainable\ncode and excellent user experience. Hands-on experience in integrating third-party SDKs and payment gateways including\nStripe, Razorpay, Apple Pay, and PayPal. Proficient in Git and Agile methodologies, with end-to-end experience across\ndevelopment, testing, deployment, and maintenance.",
+    "skills": [
+      "Dart",
+      "CSharp",
+      "C++"
+    ],
+    "experience": 4,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Twinkle_Gohil_Flutter_Developer_4.5Yrs.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778846353351,
+    "talentId": "VED-1033",
+    "name": "KARAN SHANKAR TRIPATHI",
+    "title": "Software Development Engineer",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2,
+    "skillHeading": " Firebase | REST APIs | Fast API | PHP",
+    "bio": "Flutter Developer with 2+ years of experience building scalable mobile applications using Flutter, Firebase, and REST APIs. Experienced in multi-role architectures, booking systems, and real-time data handling. Focused on clean architecture, performance optimization, and production-ready deployments.\n",
+    "skills": [
+      "Flutter",
+      "Dart"
+    ],
+    "experience": 2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/KaranTripathiResume.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778846593887,
+    "talentId": "VED-1034",
+    "name": "Vasita Makwana",
+    "title": "Web Designer",
+    "price": 25,
+    "partTime": false,
+    "fullTime": true,
+    "years": 6,
+    "skillHeading": "Bootstrap | Tailwind | CSS| React | React strap | Material UI ",
+    "bio": "Web Designer with 6+ years of experience working on responsive websites and user-focused web interfaces. Experienced in converting design concepts into clean and functional web pages while maintaining strong attention to layout, usability, and cross-browser compatibility. Have worked on multiple client projects and enjoy creating simple, effective UI solutions that improve the overall user experience.\n",
+    "skills": [
+      "HTML5 CSS3 SCSS / SASS JavaScript  jQuery"
+    ],
+    "experience": 6,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/VasitaResume.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778846680629,
+    "talentId": "VED-1035",
+    "name": "Mit Gondaliya ",
+    "title": "MERN Stack Developer ",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 2,
+    "skillHeading": "Node.js | Express.js | Next.js | Nest.js | React.js | Bootstrap | JQuery",
+    "bio": "I am a dedicated and results-driven Software Engineer with 2 years of \nprofessional experience specializing in React.js and Node.js \ndevelopment. I am passionate about delivering high-quality, efficient, \nand scalable solutions. I continuously seek opportunities to learn new \ntechnologies and improve my skill set. My goal is to contribute to \nimpactful projects while growing as a developer and team member.  \n",
+    "skills": [
+      "JavaScript"
+    ],
+    "experience": 2,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Meet_Gondaliya_Resume.pdf",
+    "projects": [],
+    "education": []
+  },
+  {
+    "id": 1778846858616,
+    "talentId": "VED-1036",
+    "name": "MADHURI GULAB PATIL",
+    "title": "Software Developer ",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "React.js| JavaScript (ES6+) | HTML5| CSS3| Bootstrap| Responsive Design",
+    "bio": "Results-driven Software Developer with 3+ years of experience in Frontend Development, SharePoint Development, and Workflow Automation. Proficient in React.js, Node.js, JavaScript, HTML5/CSS3, and Power Automate. Proven track record delivering scalable, user-centric web applications including e-commerce platforms, document management systems, and enterprise SharePoint solutions. Skilled at collaborating with cross-functional teams and translating business requirements into high-performance technical solutions.",
+    "skills": [
+      "Node.js",
+      "REST APIs",
+      "MySQL",
+      "SQL"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/MADHURI _PATIL _CV.pdf",
+    "projects": [],
+    "education": []
+  }
+]

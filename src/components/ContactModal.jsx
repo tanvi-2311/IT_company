@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, User, Mail, Phone, MessageSquare, Briefcase } from 'lucide-react';
+import { X, User, Mail, Phone, MessageSquare, Briefcase, Building2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
 const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!", initialMessage = '' }) => {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', service: '' });
+  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', message: '', service: '' });
   const [loading, setLoading] = useState(false);
 
   React.useEffect(() => {
@@ -26,6 +26,7 @@ const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!", ini
     try {
       const response = await axios.post('http://localhost:5001/api/contacts', {
         name: form.name,
+        company: form.company || 'Not Specified',
         email: form.email,
         phone: form.phone,
         message: form.message,
@@ -33,7 +34,7 @@ const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!", ini
       });
       if (response.data.success) {
         toast.success('Message sent! We will contact you within 24 hours.');
-        setForm({ name: '', email: '', phone: '', message: '', service: '' });
+        setForm({ name: '', company: '', email: '', phone: '', message: '', service: '' });
         onClose();
       }
     } catch (error) {
@@ -45,7 +46,7 @@ const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!", ini
             name: form.name,
             email: form.email,
             phone: form.phone,
-            message: form.message,
+            message: `[Company: ${form.company || 'Not Specified'}] ${form.message}`,
             service: form.service || 'Hire Dedicated Developer',
             status: 'New'
           },
@@ -58,15 +59,47 @@ const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!", ini
             }
           }
         );
-        toast.success('Message sent successfully! Our experts will contact you within 24 hours.');
-        setForm({ name: '', email: '', phone: '', message: '', service: '' });
-        onClose();
       } catch (supabaseErr) {
         console.error('Supabase direct insert error:', supabaseErr);
-        toast.success('Message sent successfully! Our experts will contact you within 24 hours.');
-        setForm({ name: '', email: '', phone: '', message: '', service: '' });
-        onClose();
       }
+
+      // Send instant Email Notification to Company Mail ID via Web3Forms
+      try {
+        // Note: To activate live email forwarding on Vercel, replace YOUR_WEB3FORMS_ACCESS_KEY with your free key from https://web3forms.com
+        const web3FormsKey = "YOUR_WEB3FORMS_ACCESS_KEY";
+        if (web3FormsKey !== "YOUR_WEB3FORMS_ACCESS_KEY") {
+          await axios.post('https://api.web3forms.com/submit', {
+            access_key: web3FormsKey,
+            subject: `New Developer Hire Request from ${form.name} (${form.company || 'Company'})`,
+            from_name: form.name,
+            email: form.email,
+            phone: form.phone,
+            company: form.company,
+            message: `Company: ${form.company || 'Not Specified'}\n\nRequirement:\n${form.message}`,
+            service: form.service || 'Hire Dedicated Developer'
+          });
+          console.log('Email dispatched successfully via Web3Forms');
+        } else {
+          console.log('Web3Forms key is placeholder. Skipping email dispatch.');
+        }
+      } catch (emailErr) {
+        console.error('Web3Forms email dispatch error:', emailErr);
+      }
+
+      // Send data directly to Company WhatsApp
+      try {
+        // Replace with your company's official WhatsApp Phone Number (with country code, e.g., 919876543210)
+        const companyWhatsappNumber = "919510774987";
+        const whatsappText = `*New Developer Hire Request*\n\n*Client Name:* ${form.name}\n*Company:* ${form.company || 'Not Specified'}\n*Email:* ${form.email}\n*Phone:* ${form.phone || 'Not Specified'}\n\n*Requirements:*\n${form.message}`;
+        const encodedText = encodeURIComponent(whatsappText);
+        window.open(`https://api.whatsapp.com/send?phone=${companyWhatsappNumber}&text=${encodedText}`, '_blank');
+      } catch (whatsappErr) {
+        console.error('WhatsApp redirect error:', whatsappErr);
+      }
+
+      toast.success('Message sent successfully! Our experts will contact you within 24 hours.');
+      setForm({ name: '', company: '', email: '', phone: '', message: '', service: '' });
+      onClose();
     } finally {
       setLoading(false);
     }
@@ -133,14 +166,26 @@ const ContactModal = ({ isOpen, onClose, title = "Feel Free to Contact Us!", ini
                 </div>
               </div>
 
-              {/* Phone */}
-              <div className="relative">
-                <Phone size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input
-                  type="tel" name="phone" value={form.phone} onChange={handleChange}
-                  placeholder="Contact No. (optional)"
-                  className="w-full pl-10 pr-4 py-3.5 rounded-xl border border-slate-200 text-sm text-secondary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
-                />
+              {/* Company & Phone */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* Company Name */}
+                <div className="relative">
+                  <Building2 size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <input
+                    type="text" name="company" value={form.company} onChange={handleChange}
+                    placeholder="Company Name *" required
+                    className="w-full pl-10 pr-4 py-3.5 rounded-xl border border-slate-200 text-sm text-secondary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                  />
+                </div>
+                {/* Phone */}
+                <div className="relative">
+                  <Phone size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <input
+                    type="tel" name="phone" value={form.phone} onChange={handleChange}
+                    placeholder="Contact No. (optional)"
+                    className="w-full pl-10 pr-4 py-3.5 rounded-xl border border-slate-200 text-sm text-secondary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                  />
+                </div>
               </div>
 
               {/* Message */}

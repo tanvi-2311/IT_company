@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import contactRoutes from './routes/contactRoutes.js';
+import developerRoutes from './routes/developerRoutes.js';
 import supabase from './config/supabase.js';
 
 // Load environmental config
@@ -11,8 +12,8 @@ dotenv.config();
 const app = express();
 
 // Middleware integrations
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 // Enable dynamic CORS for all frontend client ports
 app.use(cors({
@@ -36,6 +37,7 @@ app.get('/health', (req, res) => {
 
 // Register api endpoints
 app.use('/api', contactRoutes);
+app.use('/api/developers', developerRoutes);
 
 // Fallback 404 Route handler
 app.use((req, res, next) => {
