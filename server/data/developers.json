@@ -901,8 +901,27 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/SAGAR-G.-BHALODIYA.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Multi-Level Marketing (MLM) platform",
+        "desc": "Engineered and launched a Multi-Level Marketing (MLM) platform on the MEVN stack, enabling scalable growth and real-time processing of hierarchical networks."
+      },
+      {
+        "title": "Embedded Widget Script",
+        "desc": "Built and deployed an embedded widget script (Vue.js, JavaScript) for seamless client integration, enhancing customer adoption and usability."
+      },
+      {
+        "title": "AI-Powered Chatbot Backend",
+        "desc": "Architected and developed scalable chatbot backend APIs and interactive dashboards using the MEVN stack, improving system reliability."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. in Computer Engineering",
+        "school": "K.J Institute of Technology, Vadodara",
+        "year": "2018 – 2022"
+      }
+    ]
   },
   {
     "id": 1778844152021,
@@ -927,8 +946,31 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Brijesh_Nimavat_Resume_5.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Parachute – Kalpavriksha",
+        "desc": "Flutter app with 500K+ downloads. Specialized in clean architecture and real-time features."
+      },
+      {
+        "title": "City Sightseeing Philadelphia",
+        "desc": "Independently delivered Flutter features for iOS & Android including live bus tracking and real-time updates."
+      },
+      {
+        "title": "PickledIn",
+        "desc": "Real-time sports social app with real-time chat using GetStream and Firebase, and Google Maps integration."
+      },
+      {
+        "title": "Chatomate",
+        "desc": "Live support chat app with real-time chat, media messaging, and WebSocket integration."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Computer Engineering",
+        "school": "Gujarat Technological University (GTU)",
+        "year": "2016 - 2020"
+      }
+    ]
   },
   {
     "id": 1778844302809,
@@ -954,8 +996,31 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/resume-safe.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Thallaja",
+        "desc": "Cold storage marketplace platform built with Flutter and integrated with Odoo backend."
+      },
+      {
+        "title": "VanEx",
+        "desc": "Van sales management system for efficient sales and inventory tracking."
+      },
+      {
+        "title": "EmpEx",
+        "desc": "Employee self-service platform for internal business operations."
+      },
+      {
+        "title": "Basari Price Checker",
+        "desc": "Android price-checker application for retail inventory management."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Computer Applications",
+        "school": "University of Calicut",
+        "year": "2019 – 2022"
+      }
+    ]
   },
   {
     "id": 1778844596016,
@@ -981,8 +1046,40 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Keyur_fullstack_developer.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Outcome market",
+        "desc": "Built and delivered the Events Discovery module for a prediction market platform, including event listings, filtering, and navigation."
+      },
+      {
+        "title": "Coincrowd",
+        "desc": "Engineered a dynamic chart leveraging Chart.js and integrated external APIs for real-time cryptocurrency data visualizations."
+      },
+      {
+        "title": "Stylishop",
+        "desc": "Full-stack eCommerce platform with reusable React components and Firebase integration for authentication."
+      },
+      {
+        "title": "The Moguls",
+        "desc": "Contest-based web application with real-time match updates using WebSockets and automated match data fetching."
+      },
+      {
+        "title": "NFT Marketplace Platform",
+        "desc": "Engineered RESTful APIs for user management, NFT creation, and a real-time bidding system."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Computer Application (MCA)",
+        "school": "Kadi Sarva Vishwavidyalaya, Gandhinagar",
+        "year": "2022 – 2024"
+      },
+      {
+        "degree": "Bachelor of Computer Application (BCA)",
+        "school": "Kamani Science College, Amreli",
+        "year": "2019 – 2022"
+      }
+    ]
   },
   {
     "id": 1778844770074,
@@ -1011,8 +1108,37 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Ujjawal_CV.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Crest Connect",
+        "desc": "Workforce Management App for attendance and task tracking across field teams. Built with Flutter and Dart."
+      },
+      {
+        "title": "PlaceMe UK",
+        "desc": "Professional Relocation Platform supporting professionals relocating to the UK with placement and onboarding services."
+      },
+      {
+        "title": "CBT Nurses",
+        "desc": "Exam preparation app for UK nurses featuring mock tests and live support, supporting 10,000+ active users."
+      },
+      {
+        "title": "OET Nurses",
+        "desc": "Test preparation app offering mock exams and expert guidance for healthcare professionals."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Computer Science",
+        "school": "Indrashil Institute of Science and Technology, Gujarat",
+        "year": "2017 – 2021"
+      }
+    ],
+    "certificates": [
+      {
+        "title": "Google Play Academy – Store Listing Certificate",
+        "year": "2025"
+      }
+    ]
   },
   {
     "id": 1778844919273,
@@ -1035,8 +1161,41 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Manasa_Flutter_Dev.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Edmark",
+        "desc": "Responsive web and mobile platform for education management, supporting concurrent users and integrated with Laravel backend."
+      },
+      {
+        "title": "Readmark",
+        "desc": "Cross-platform Flutter application for educational reading and assessment, published on Google Play and App Store."
+      },
+      {
+        "title": "Digital Campus",
+        "desc": "Full-stack web platform for campus management using Vue.js, React.js, and Laravel."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Technology in Computer Science Engineering",
+        "school": "St. Peter’s Engineering College, Hyderabad",
+        "year": "2018 – 2022"
+      }
+    ],
+    "certificates": [
+      {
+        "title": "Flutter App Development — Udemy",
+        "year": "2022"
+      },
+      {
+        "title": "Python Certification — V-Cube Software Solutions",
+        "year": "2022"
+      },
+      {
+        "title": "Manual Testing Certification — Udemy",
+        "year": "2022"
+      }
+    ]
   },
   {
     "id": 1778845042353,
@@ -1061,8 +1220,36 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Shaktisaini.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Enrich CRM",
+        "desc": "Developed a CRM system to manage client interactions, track sales, and automate workflows."
+      },
+      {
+        "title": "ExplicitCars",
+        "desc": "Car trading platform with listing, browsing, and secure transaction features built using MERN stack."
+      },
+      {
+        "title": "Pulse",
+        "desc": "Created a salary management system with flexible payment scheduling and approval workflow."
+      },
+      {
+        "title": "Hop Wellness",
+        "desc": "Implemented video feature with limited free access and subscription-based model for a wellness platform."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Computer Applications",
+        "school": "Shri Guru Ram Rai University, Dehradun",
+        "year": "2020 – 2022"
+      },
+      {
+        "degree": "Bachelor of Science in Information Technology",
+        "school": "Shri Guru Ram Rai University, Dehradun",
+        "year": "2017 – 2020"
+      }
+    ]
   },
   {
     "id": 1778845161736,
@@ -1089,8 +1276,32 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/keval_khetani_cv.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Krambica.com",
+        "desc": "Full-stack e-commerce platform with product catalog, cart, and automated inventory system. Built with Next.js, Node.js, and AWS."
+      },
+      {
+        "title": "Egleio",
+        "desc": "Internal Employee Management System for a security company with secure role-based controls and automated payroll calculations."
+      },
+      {
+        "title": "Omnichannel CRM",
+        "desc": "SaaS CRM platform unifying WhatsApp, email, and messaging into a single real-time inbox using Node.js and Socket.IO."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Computer Application (MCA)",
+        "school": "Kadi Sarva Vishwavidyalaya, Gandhinagar",
+        "year": "2022 – 2024"
+      },
+      {
+        "degree": "Bachelor of Computer Application (BCA)",
+        "school": "Kamani Science College, Amreli",
+        "year": "2019 – 2022"
+      }
+    ]
   },
   {
     "id": 1778845330310,
@@ -1117,8 +1328,36 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Rais_Mansuri_Final_Resume.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "POS System",
+        "desc": "Developed a Point of Sale system using Angular 10+, .Net Core, and SQL Server."
+      },
+      {
+        "title": "Onboarding System",
+        "desc": "Employee onboarding platform built with Angular, ABP.io, and .Net Core."
+      },
+      {
+        "title": "CLPMS",
+        "desc": "Case Law and Practice Management System developed with Angular 10+, Asp.Net, and SQL Server."
+      },
+      {
+        "title": "Counselling & Career Guidance Website",
+        "desc": "A comprehensive website for career guidance using Angular 9+, Node.js, and MongoDB."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Computer Application",
+        "school": "Parul University Waghodiya GJ",
+        "year": "2018"
+      },
+      {
+        "degree": "Bachelor of Computer Application",
+        "school": "Saurastra University Rajkot GJ",
+        "year": "2016"
+      }
+    ]
   },
   {
     "id": 1778845501315,
@@ -1141,8 +1380,42 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Dimpal_2026.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Enterprise Angular Dashboard",
+        "desc": "Led the Angular front-end project delivering data-rich enterprise interfaces using Angular Material and Telerik Kendo UI."
+      },
+      {
+        "title": "Chatbot Implementation",
+        "desc": "Developed and implemented a JavaScript-based chatbot during internship at Kevit Technologies."
+      },
+      {
+        "title": "Salesforce to Zoho Migration",
+        "desc": "Successfully migrated complex Salesforce data to Zoho and set up Microsoft Intune for client requirements."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Master of Engineering",
+        "school": "Gujarat Technological University",
+        "year": "2021"
+      },
+      {
+        "degree": "Bachelor of Engineering",
+        "school": "Gujarat Technological University",
+        "year": "2019"
+      }
+    ],
+    "certificates": [
+      {
+        "title": "Claude Code in Action — Anthropic Academy",
+        "year": "2026"
+      },
+      {
+        "title": "AI Fluency: Framework & Foundations — Anthropic Academy",
+        "year": "2026"
+      }
+    ]
   },
   {
     "id": 1778845775117,
@@ -1165,8 +1438,31 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/GauravSharma Resume.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Gencodex AI",
+        "desc": "Low-code/no-code platform where I built reusable drag-and-drop controls and co-developed a grid library."
+      },
+      {
+        "title": "Maheshwari Samaj Portal",
+        "desc": "Community portal featuring a member directory, business listings, gold-card system, and role-based login."
+      },
+      {
+        "title": "Aamer Kila e-commerce",
+        "desc": "Integrated Razorpay payment gateways and implemented complex coupon/cart logic for a tourism-based e-commerce platform."
+      },
+      {
+        "title": "HRMS Module",
+        "desc": "Delivered an HRMS module with real-time camera-based attendance tracking and employee lifecycle management."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech in Electronics & Communication Engineering",
+        "school": "Swami Keshvanand Institute of Technology, Jaipur",
+        "year": "2019 – 2023"
+      }
+    ]
   },
   {
     "id": 1778845903458,
@@ -1187,8 +1483,41 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Kashyap_Sharma_Android_Developer_Resume.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Rummy Scorer",
+        "desc": "Score tracker for Rummy card game with multi-player support, customizable game phases, and per-round history."
+      },
+      {
+        "title": "Kachful (Judgement Scorer)",
+        "desc": "Score management app for the Judgement card game; tracks bids, results, and player rankings."
+      },
+      {
+        "title": "GoldNest",
+        "desc": "Fintech app for gold investment management tracking holdings, calculating returns, and secure user accounts via Firebase."
+      },
+      {
+        "title": "EQSR",
+        "desc": "Client-facing utility app with real-time data fetched via REST APIs and optimized performance."
+      },
+      {
+        "title": "WordPlay",
+        "desc": "Word puzzle game with AdMob monetization, offline gameplay, and smooth animated UI."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. in Computer Engineering",
+        "school": "Government Engineering College, Modasa",
+        "year": "2024"
+      }
+    ],
+    "certificates": [
+      {
+        "title": "BAPS Youth Fellowship Programme — Yuva Talim Kendra",
+        "year": "2024"
+      }
+    ]
   },
   {
     "id": 1778846063800,
@@ -1219,8 +1548,41 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Lalitesh_Tiwari - Developer.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "ResearchPro",
+        "desc": "Full-stack course platform featuring progressive video unlock logic, secure PayPal payment integration, and JWT-based authentication."
+      },
+      {
+        "title": "Supremewriter.pro",
+        "desc": "AI-powered writing assistant using Azure OpenAI with a freemium UX model and per-device access restrictions."
+      },
+      {
+        "title": "Intern Training App",
+        "desc": "Internal onboarding system with admin dashboard, automated credential generation, and private YouTube learning modules."
+      },
+      {
+        "title": "Coca-Cola Website Redesign",
+        "desc": "GSAP-powered interactive website redesign focused on modern UI interactions and mobile-first responsiveness."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Business Administration",
+        "school": "GS College of Commerce & Economics",
+        "year": "2020 – 2023"
+      }
+    ],
+    "certificates": [
+      {
+        "title": "MERN Stack Web Development Certification — Sheryians Coding School",
+        "year": "2025"
+      },
+      {
+        "title": "Google UX Design Certification — Coursera",
+        "year": "2025"
+      }
+    ]
   },
   {
     "id": 1778846162576,
@@ -1242,8 +1604,35 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Twinkle_Gohil_Flutter_Developer_4.5Yrs.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Financielle App",
+        "desc": "Money management app for financial education, inspirational content, and community tools."
+      },
+      {
+        "title": "Stork App",
+        "desc": "Child transportation service app for busy parents to provide safe and reliable rides for children."
+      },
+      {
+        "title": "Pocket Trainer",
+        "desc": "All-in-one fitness companion with workout plans, guided videos, and personalized nutrition support."
+      },
+      {
+        "title": "OpenCp Trades",
+        "desc": "Social trading platform for stock traders to share trades, pictures, and videos with a community."
+      },
+      {
+        "title": "Frued AI",
+        "desc": "AI-powered chatbot focused on supporting users with meditation and mindfulness practices."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Computer Applications",
+        "school": "Udhana Academy Collage of Computer Application and IT",
+        "year": "2016 – 2019"
+      }
+    ]
   },
   {
     "id": 1778846353351,
@@ -1264,8 +1653,36 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/KaranTripathiResume.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "EV Charging Station App",
+        "desc": "Developed and deployed a live mobile application using Flutter and Firebase with BLoC architecture for scalable state management."
+      },
+      {
+        "title": "Dog Services Platform",
+        "desc": "Multi-role platform using MobX state management, integrating REST APIs, push notifications, and payment gateways."
+      },
+      {
+        "title": "E-Grain App",
+        "desc": "Full-stack e-commerce application built with Flutter, PHP, and MySQL."
+      },
+      {
+        "title": "Money Manager App",
+        "desc": "Flutter and Firebase app for real-time expense and transaction tracking with a clean, user-friendly UI."
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc. Information Technology",
+        "school": "GLS University",
+        "year": "2022 - 2024"
+      },
+      {
+        "degree": "B.Sc. Information Technology",
+        "school": "M.G University",
+        "year": "2019 - 2022"
+      }
+    ]
   },
   {
     "id": 1778846593887,
@@ -1285,8 +1702,32 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/VasitaResume.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Personal Portfolio",
+        "desc": "Responsive portfolio website showcasing web design projects and interactive UI components."
+      },
+      {
+        "title": "Evolution Infosystem Web Projects",
+        "desc": "Worked on multiple client projects converting Figma designs into clean, functional, and responsive web pages."
+      },
+      {
+        "title": "Honeycomb Software Design",
+        "desc": "Designing user-focused web interfaces with a strong focus on layout, usability, and cross-browser compatibility."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Engineering: Computer Engineering",
+        "school": "VVP Engineering Collage",
+        "year": "2016 - 2019"
+      },
+      {
+        "degree": "Diploma: Computer Engineering",
+        "school": "A. V. Parekh Technical Institute",
+        "year": "2013 - 2016"
+      }
+    ]
   },
   {
     "id": 1778846680629,
@@ -1306,8 +1747,32 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/Meet_Gondaliya_Resume.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "Health & Wellness Platform",
+        "desc": "Integrated ChatGPT chatbot, Google Maps and address auto-suggestions using React.js."
+      },
+      {
+        "title": "Healthcare Platform",
+        "desc": "Contributed to building and improving the platform with AWS Chime integration for video meetings."
+      },
+      {
+        "title": "Lead Management System",
+        "desc": "Developed admin panel with React.js and Node.js, including real-time chat with Firebase."
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.C.A.",
+        "school": "R.B Institute Of Management Studies, Ahmedabad",
+        "year": "2021 – 2023"
+      },
+      {
+        "degree": "B.C.A.",
+        "school": "Navgujarat College Of Computer Applications, Ahmedabad",
+        "year": "2018 – 2021"
+      }
+    ]
   },
   {
     "id": 1778846858616,
@@ -1330,7 +1795,142 @@
     "verified": true,
     "showFullName": false,
     "resumeUrl": "/resumes/MADHURI _PATIL _CV.pdf",
-    "projects": [],
-    "education": []
+    "projects": [
+      {
+        "title": "NerDiamond",
+        "desc": "B2B certified diamond and luxury jewelry marketplace with advanced product search and shape filtering built with React.js."
+      },
+      {
+        "title": "ANSquared",
+        "desc": "Lab-grown diamond e-commerce platform with dynamic catalog and seamless buyer experience."
+      },
+      {
+        "title": "POS System",
+        "desc": "E-commerce Point-of-Sale application for streamlined sales transactions, billing, and inventory management."
+      },
+      {
+        "title": "Eco Hero (AgeWell)",
+        "desc": "Healthcare wellness application for older adults with health tracking, coaching, and AI-driven support."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. in Information Technology",
+        "school": "Uka Tarsadia University",
+        "year": "2023"
+      },
+      {
+        "degree": "Diploma in Information Technology",
+        "school": "Gujarat Technological University",
+        "year": "2020"
+      }
+    ],
+    "certificates": [
+      {
+        "title": "Cyber Security — Government Polytechnic for Girls",
+        "year": "2019"
+      },
+      {
+        "title": "Digital Marketing — Government Polytechnic for Girls",
+        "year": "2019"
+      }
+    ]
+  },
+  {
+    "id": 1778903688355,
+    "talentId": "VED-1037",
+    "name": "RAJ SAHANI",
+    "title": "MERN Stack Developer",
+    "price": 15,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "MySQL | Tailwind | Antd | Material UI | ShadCN",
+    "bio": "MERN Stack Developer with 3+ years of experience in React.js, Node.js, Express.js, MongoDB, and MySQL. Skilled in building scalable web applications, REST APIs, and responsive UI using Tailwind CSS, Ant Design, Material UI, and ShadCN UI. Proficient in JavaScript, TypeScript, API integration, authentication, and frontend optimization.\n",
+    "skills": [
+      "React",
+      "Node",
+      "Mongodb",
+      "Express"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Raj_Sahani_Mern_Developer.pdf",
+    "projects": [
+      {
+        "title": "WebVoltz Scalable Platform",
+        "desc": "Architected and developed full-stack applications using MERN stack, handling complex business logic and high-volume workflows."
+      },
+      {
+        "title": "Component Library",
+        "desc": "Built reusable and modular component libraries using React.js, Tailwind CSS, Ant Design, and ShadCN UI."
+      },
+      {
+        "title": "Responsive Web Applications",
+        "desc": "Assisted in developing responsive web applications with integrated RESTful APIs and optimized frontend performance."
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Science in Computer Science",
+        "school": "Dolat Usha Institue",
+        "year": "2022"
+      }
+    ],
+    "certificates": [
+      {
+        "title": "The Complete Javascript Mastery — Udemy",
+        "year": "2023"
+      }
+    ]
+  },
+  {
+    "id": 1778903821071,
+    "talentId": "VED-1038",
+    "name": "Pooja Makwana",
+    "title": "Full Stack Developer",
+    "price": 20,
+    "partTime": false,
+    "fullTime": true,
+    "years": 3,
+    "skillHeading": "Angular |lonic |Typescript |Git",
+    "bio": "As a Computer Engineering Graduate(BE) from Neotech Institute of Technology Engineering College Gujarat, I Would like to Apply my skills in Angular,lonic,React and other backend technology.\n",
+    "skills": [
+      "HTML",
+      "CSS",
+      "SQL",
+      "Javascript"
+    ],
+    "experience": 3,
+    "verified": true,
+    "showFullName": false,
+    "resumeUrl": "/resumes/Pooja CV.pdf",
+    "projects": [
+      {
+        "title": "Saloon Website and App",
+        "desc": "Developed a comprehensive saloon management website and mobile application using Angular and Ionic."
+      },
+      {
+        "title": "Banking Website",
+        "desc": "Built a secure banking portal with complex data binding and API integration using NodeJs and PHP."
+      },
+      {
+        "title": "Food Delivery Website",
+        "desc": "Responsive food delivery platform featuring real-time tracking and payment gateway integration."
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E. Computer Engineering",
+        "school": "Neotech Engineering College",
+        "year": "2021"
+      },
+      {
+        "degree": "Diploma: Computer Engineering",
+        "school": "Parul University",
+        "year": "2017"
+      }
+    ]
   }
 ]

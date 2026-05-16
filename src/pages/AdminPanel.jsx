@@ -55,15 +55,15 @@ const AdminPanel = () => {
     setFormData({ 
       ...dev, 
       skills: dev.skills ? dev.skills.join(', ') : '',
-      projects: dev.projects ? JSON.stringify(dev.projects, null, 2) : '[]',
-      education: dev.education ? JSON.stringify(dev.education, null, 2) : '[]'
+      projects: dev.projects || [],
+      education: dev.education || []
     });
     setIsModalOpen(true);
   };
 
   const handleAddNew = () => {
     setEditingDev(null);
-    setFormData({ ...defaultDev, skills: '', projects: '[]', education: '[]' });
+    setFormData({ ...defaultDev, skills: '', projects: [], education: [] });
     setIsModalOpen(true);
   };
 
@@ -129,25 +129,12 @@ const AdminPanel = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    let parsedProjects = [];
-    let parsedEducation = [];
-    
-    try {
-      parsedProjects = typeof formData.projects === 'string' ? JSON.parse(formData.projects) : (formData.projects || []);
-      parsedEducation = typeof formData.education === 'string' ? JSON.parse(formData.education) : (formData.education || []);
-    } catch (err) {
-      toast.error('Invalid JSON format in Projects or Education');
-      return;
-    }
-
     const payload = {
       ...formData,
       skills: typeof formData.skills === 'string' ? formData.skills.split(',').map(s => s.trim()).filter(s => s) : formData.skills,
       price: Number(formData.price),
       years: Number(formData.years),
       experience: Number(formData.experience),
-      projects: parsedProjects,
-      education: parsedEducation
     };
 
     try {
@@ -179,6 +166,47 @@ const AdminPanel = () => {
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  // Dynamic Item Handlers
+  const addProject = () => {
+    setFormData(prev => ({
+      ...prev,
+      projects: [...prev.projects, { title: '', desc: '' }]
+    }));
+  };
+
+  const updateProject = (index, field, value) => {
+    const newProjects = [...formData.projects];
+    newProjects[index][field] = value;
+    setFormData(prev => ({ ...prev, projects: newProjects }));
+  };
+
+  const removeProject = (index) => {
+    setFormData(prev => ({
+      ...prev,
+      projects: prev.projects.filter((_, i) => i !== index)
+    }));
+  };
+
+  const addEducation = () => {
+    setFormData(prev => ({
+      ...prev,
+      education: [...prev.education, { degree: '', school: '', year: '' }]
+    }));
+  };
+
+  const updateEducation = (index, field, value) => {
+    const newEdu = [...formData.education];
+    newEdu[index][field] = value;
+    setFormData(prev => ({ ...prev, education: newEdu }));
+  };
+
+  const removeEducation = (index) => {
+    setFormData(prev => ({
+      ...prev,
+      education: prev.education.filter((_, i) => i !== index)
     }));
   };
 
@@ -308,16 +336,82 @@ const AdminPanel = () => {
                   <label className="text-xs font-bold text-slate-600">Bio</label>
                   <textarea required name="bio" value={formData.bio} onChange={handleChange} className="w-full border p-2 rounded-lg text-sm h-24" placeholder="Developer bio..." />
                 </div>
-                <div className="space-y-1 md:col-span-2">
-                  <label className="text-xs font-bold text-slate-600">Projects (JSON Array)</label>
-                  <textarea name="projects" value={formData.projects} onChange={handleChange} className="w-full border p-2 rounded-lg text-xs font-mono h-24" placeholder='[ { "title": "P1", "desc": "..." } ]' />
-                </div>
-                <div className="space-y-1 md:col-span-2">
-                  <label className="text-xs font-bold text-slate-600">Education (JSON Array)</label>
-                  <textarea name="education" value={formData.education} onChange={handleChange} className="w-full border p-2 rounded-lg text-xs font-mono h-24" placeholder='[ { "degree": "...", "school": "...", "year": "..." } ]' />
+
+                {/* Dynamic Projects Section */}
+                <div className="md:col-span-2 space-y-3 mt-4">
+                  <div className="flex justify-between items-center">
+                    <label className="text-sm font-black text-secondary uppercase tracking-wider">Projects</label>
+                    <button type="button" onClick={addProject} className="text-xs bg-secondary text-white px-3 py-1 rounded-full font-bold flex items-center gap-1 hover:bg-black">
+                      <Plus size={14} /> Add Project
+                    </button>
+                  </div>
+                  <div className="space-y-3">
+                    {formData.projects.map((project, idx) => (
+                      <div key={idx} className="p-4 bg-slate-50 rounded-xl border border-slate-100 relative group">
+                        <button type="button" onClick={() => removeProject(idx)} className="absolute top-2 right-2 text-slate-300 hover:text-rose-500 transition-colors">
+                          <Trash2 size={16} />
+                        </button>
+                        <div className="grid gap-3">
+                          <input 
+                            placeholder="Project Title" 
+                            value={project.title} 
+                            onChange={(e) => updateProject(idx, 'title', e.target.value)}
+                            className="w-full border-none bg-transparent font-bold text-secondary focus:ring-0 p-0 placeholder:text-slate-400"
+                          />
+                          <textarea 
+                            placeholder="Project Description..." 
+                            value={project.desc} 
+                            onChange={(e) => updateProject(idx, 'desc', e.target.value)}
+                            className="w-full border-none bg-transparent text-sm text-slate-600 focus:ring-0 p-0 h-16 resize-none placeholder:text-slate-400"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                    {formData.projects.length === 0 && <p className="text-xs text-slate-400 italic">No projects added yet.</p>}
+                  </div>
                 </div>
 
-                <div className="space-y-1 md:col-span-2">
+                {/* Dynamic Education Section */}
+                <div className="md:col-span-2 space-y-3 mt-4">
+                  <div className="flex justify-between items-center">
+                    <label className="text-sm font-black text-secondary uppercase tracking-wider">Education</label>
+                    <button type="button" onClick={addEducation} className="text-xs bg-secondary text-white px-3 py-1 rounded-full font-bold flex items-center gap-1 hover:bg-black">
+                      <Plus size={14} /> Add Education
+                    </button>
+                  </div>
+                  <div className="space-y-3">
+                    {formData.education.map((edu, idx) => (
+                      <div key={idx} className="p-4 bg-slate-50 rounded-xl border border-slate-100 relative group">
+                        <button type="button" onClick={() => removeEducation(idx)} className="absolute top-2 right-2 text-slate-300 hover:text-rose-500 transition-colors">
+                          <Trash2 size={16} />
+                        </button>
+                        <div className="grid grid-cols-2 gap-3">
+                          <input 
+                            placeholder="Degree (e.g. B.Tech)" 
+                            value={edu.degree} 
+                            onChange={(e) => updateEducation(idx, 'degree', e.target.value)}
+                            className="w-full border-none bg-transparent font-bold text-secondary focus:ring-0 p-0 placeholder:text-slate-400"
+                          />
+                          <input 
+                            placeholder="Year (e.g. 2020)" 
+                            value={edu.year} 
+                            onChange={(e) => updateEducation(idx, 'year', e.target.value)}
+                            className="w-full border-none bg-transparent text-sm text-right focus:ring-0 p-0 placeholder:text-slate-400"
+                          />
+                          <input 
+                            placeholder="School/University" 
+                            value={edu.school} 
+                            onChange={(e) => updateEducation(idx, 'school', e.target.value)}
+                            className="col-span-2 w-full border-none bg-transparent text-sm text-slate-600 focus:ring-0 p-0 placeholder:text-slate-400"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                    {formData.education.length === 0 && <p className="text-xs text-slate-400 italic">No education history added yet.</p>}
+                  </div>
+                </div>
+
+                <div className="space-y-1 md:col-span-2 mt-4">
                   <label className="text-xs font-bold text-slate-600">Skills (Comma separated)</label>
                   <input required name="skills" value={formData.skills} onChange={handleChange} className="w-full border p-2 rounded-lg text-sm" placeholder="e.g. React, Node.js, AWS" />
                 </div>
