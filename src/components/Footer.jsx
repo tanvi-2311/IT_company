@@ -13,7 +13,7 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: <Facebook size={18}/>, href: "https://www.facebook.com/profile.php?id=61557018336336", label: "Facebook" },
+    { icon: <Facebook size={18}/>, href: "https://www.facebook.com/share/1BDXiFPcXb/?mibextid=wwXIfr", label: "Facebook" },
     { icon: <Linkedin size={18}/>, href: "https://www.linkedin.com/company/vedanco", label: "LinkedIn" },
     { icon: <Instagram size={18}/>, href: "https://www.instagram.com/vedanco_group/", label: "Instagram" },
   ];
