@@ -16,6 +16,9 @@ import Portfolio from './pages/Portfolio'
 import ServiceDetail from './pages/ServiceDetail'
 import AdminPanel from './pages/AdminPanel'
 import DeveloperProfile from './pages/DeveloperProfile'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Terms from './pages/Terms'
+import Sitemap from './pages/Sitemap'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
@@ -41,6 +44,9 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/developer/:talentId" element={<DeveloperProfile />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/sitemap" element={<Sitemap />} />
           {/* Admin Panel - Only accessible locally */}
           {(window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && (
             <Route path="/admin/developers" element={<AdminPanel />} />
