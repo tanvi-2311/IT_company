@@ -1,0 +1,78 @@
+[
+  {
+    "id": 1,
+    "name": "Super Admin",
+    "email": "admin@vedanco.com",
+    "password": "$2a$10$wcVcyRnvWM7KoXF.egDclu/oCaM7lY5QhWizD9/4vjBJeXZUTF8nG",
+    "role": "admin",
+    "permissions": [
+      "view",
+      "upload",
+      "edit",
+      "delete"
+    ]
+  },
+  {
+    "id": 1779078984117,
+    "name": "kina",
+    "email": "kina@gmail.com",
+    "password": "$2a$10$dMJB76fDcLmIHSTY3ScFneYd8SV1A1tETb4/2ZcVfelIAWFn.YWDe",
+    "role": "subadmin",
+    "permissions": [
+      "view"
+    ]
+  },
+  {
+    "id": 1779079068895,
+    "name": "disha",
+    "email": "dishaben20@gnu.ac.in",
+    "password": "$2a$10$CjwcNAYpaZdrWBfeiKMeSOeFn/e4nsIP.a1o0Yw5J7OvwnZAjUtzW",
+    "role": "subadmin",
+    "permissions": [
+      "upload"
+    ]
+  },
+  {
+    "id": 1779079084825,
+    "name": "Patel Tanvi",
+    "email": "tanvippatel20@gnu.ac.in",
+    "password": "$2a$10$J.JaRptc/jxtGYOE2Uuvru9JdtgHuGwMTzmqsp45bFvf/WtDG4d5a",
+    "role": "subadmin",
+    "permissions": [
+      "edit"
+    ]
+  },
+  {
+    "id": 1779079099065,
+    "name": "dhvani",
+    "email": "dhvani@gnu.ac.in",
+    "password": "$2a$10$DFlgJbFrBI3Lk3hV0kPsnOVfEMz/ZQ1nYxMhHAu25KxilL12PDEqG",
+    "role": "subadmin",
+    "permissions": [
+      "delete"
+    ]
+  },
+  {
+    "id": 1779079116505,
+    "name": "niyati",
+    "email": "niyati@gmail.com",
+    "password": "$2a$10$nkF7486IUlBWBmrHet1X5eLj2qeg.pD6ow771z/Y.7THOYrgK91ru",
+    "role": "subadmin",
+    "permissions": [
+      "view",
+      "upload",
+      "edit",
+      "delete"
+    ]
+  },
+  {
+    "id": 1779079879990,
+    "name": "nachiket",
+    "email": "nachiket@gmail.com",
+    "password": "$2a$10$GreYhNPR6XPyLSW0i6T5yOcBiwVQ5zqyVNOUT4HAX4CekR.uXaY3e",
+    "role": "subadmin",
+    "permissions": [
+      "view"
+    ]
+  }
+]

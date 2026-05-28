@@ -1,8 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Trash2, Edit, Plus, Save, X, FileText, Upload } from 'lucide-react';
+import { Trash2, Edit, Plus, Save, X, FileText, Upload, LogOut, Users, Code } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { useAuth } from '../context/AuthContext';
+import UserManagement from '../components/UserManagement';
 
 const AdminPanel = () => {
+  const { user, logout } = useAuth();
+  
+  // Helper to check permissions. Admin always gets true.
+  const hasPermission = (action) => {
+    if (user?.role === 'admin') return true;
+    const perms = user?.permissions || [];
+    if (action === 'view' && perms.length > 0) return true;
+    return perms.includes(action);
+  };
+
+  const [activeTab, setActiveTab] = useState('developers');
   const [developers, setDevelopers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +38,9 @@ const AdminPanel = () => {
   const fetchDevelopers = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch('http://localhost:5001/api/developers');
+      const res = await fetch('http://localhost:5001/api/developers', {
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+      });
       const data = await res.json();
       setDevelopers(data);
     } catch (error) {
@@ -38,7 +53,10 @@ const AdminPanel = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this developer?')) return;
     try {
-      const res = await fetch(`http://localhost:5001/api/developers/${id}`, { method: 'DELETE' });
+      const res = await fetch(`http://localhost:5001/api/developers/${id}`, { 
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+      });
       if (res.ok) {
         toast.success('Developer deleted');
         fetchDevelopers();
@@ -87,7 +105,10 @@ const AdminPanel = () => {
       try {
         const res = await fetch('http://localhost:5001/api/developers/upload-resume', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          },
           body: JSON.stringify({
             developerId: uploadingFor,
             fileName: file.name,
@@ -112,7 +133,10 @@ const AdminPanel = () => {
     try {
       const res = await fetch('http://localhost:5001/api/developers/delete-resume', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
         body: JSON.stringify({ developerId: devId })
       });
       if (res.ok) {
@@ -145,7 +169,10 @@ const AdminPanel = () => {
 
       const res = await fetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
         body: JSON.stringify(payload)
       });
 
@@ -214,24 +241,64 @@ const AdminPanel = () => {
     <div className="max-w-[1200px] mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-black text-secondary">Admin Panel: Hire Developers</h1>
-          <p className="text-slate-500">Manage dedicated developers listed on the website.</p>
+          <h1 className="text-3xl font-black text-secondary">
+            Admin Panel <span className="text-sm bg-primary/10 text-primary px-2 py-1 rounded-full uppercase tracking-wider">{user?.role}</span>
+          </h1>
+          <p className="text-slate-500">Manage Vedanco resources securely.</p>
         </div>
         <button 
-          onClick={handleAddNew}
-          className="bg-primary text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-primary-dark transition-colors"
+          onClick={logout}
+          className="bg-slate-100 text-slate-600 px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-slate-200 transition-colors"
         >
-          <Plus size={18} /> Add Developer
+          <LogOut size={18} /> Logout
         </button>
       </div>
 
-      <input 
-        type="file" 
-        ref={fileInputRef} 
-        className="hidden" 
-        accept=".pdf" 
-        onChange={handleFileChange} 
-      />
+      {user?.role === 'admin' && (
+        <div className="flex gap-4 mb-6 border-b border-slate-200 pb-2">
+          <button 
+            onClick={() => setActiveTab('developers')}
+            className={`font-bold pb-2 flex items-center gap-2 transition-colors ${activeTab === 'developers' ? 'text-primary border-b-2 border-primary' : 'text-slate-400 hover:text-slate-600'}`}
+          >
+            <Code size={18} /> Manage Developers
+          </button>
+          <button 
+            onClick={() => setActiveTab('users')}
+            className={`font-bold pb-2 flex items-center gap-2 transition-colors ${activeTab === 'users' ? 'text-primary border-b-2 border-primary' : 'text-slate-400 hover:text-slate-600'}`}
+          >
+            <Users size={18} /> Manage Users
+          </button>
+        </div>
+      )}
+
+      {user?.role === 'admin' && activeTab === 'users' ? (
+        <UserManagement />
+      ) : !hasPermission('view') ? (
+        <div className="bg-rose-50 text-rose-500 p-8 rounded-xl border border-rose-100 text-center">
+          <Shield className="w-12 h-12 mx-auto mb-4 text-rose-300" />
+          <h2 className="text-xl font-bold">Access Denied</h2>
+          <p className="mt-2 text-sm">You do not have permission to view developers. Please contact your Super Admin.</p>
+        </div>
+      ) : (
+        <>
+          {hasPermission('upload') && (
+            <div className="flex justify-end mb-4">
+              <button 
+                onClick={handleAddNew}
+                className="bg-primary text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-primary-dark transition-colors"
+              >
+                <Plus size={18} /> Add Developer
+              </button>
+            </div>
+          )}
+
+          <input 
+            type="file" 
+            ref={fileInputRef} 
+            className="hidden" 
+            accept=".pdf" 
+            onChange={handleFileChange} 
+          />
 
       {isLoading ? (
         <div className="text-center py-20 text-slate-500 font-bold animate-pulse">Loading developers...</div>
@@ -263,32 +330,40 @@ const AdminPanel = () => {
                           {dev.name}
                           <FileText size={12} className="text-slate-400" />
                         </a>
-                        <button 
-                          onClick={() => handleDeleteResume(dev.id)}
-                          className="p-0.5 text-rose-400 hover:text-rose-600 hover:bg-rose-50 rounded transition-colors"
-                          title="Delete Resume"
-                        >
-                          <X size={10} />
-                        </button>
+                        {hasPermission('delete') && (
+                          <button 
+                            onClick={() => handleDeleteResume(dev.id)}
+                            className="p-0.5 text-rose-400 hover:text-rose-600 hover:bg-rose-50 rounded transition-colors"
+                            title="Delete Resume"
+                          >
+                            <X size={10} />
+                          </button>
+                        )}
                       </div>
                     ) : dev.name}
                   </td>
                   <td className="p-4 text-sm text-slate-500">{dev.title}</td>
                   <td className="p-4 font-bold text-primary">${dev.price}/hr</td>
                   <td className="p-4 flex items-center justify-end gap-3">
-                    <button 
-                      onClick={() => handleResumeClick(dev.id)} 
-                      className="text-amber-500 hover:text-amber-700 p-1.5 rounded bg-amber-50"
-                      title="Upload Resume"
-                    >
-                      <FileText size={16} />
-                    </button>
-                    <button onClick={() => handleEdit(dev)} className="text-blue-500 hover:text-blue-700 p-1.5 rounded bg-blue-50">
-                      <Edit size={16} />
-                    </button>
-                    <button onClick={() => handleDelete(dev.id)} className="text-rose-500 hover:text-rose-700 p-1.5 rounded bg-rose-50">
-                      <Trash2 size={16} />
-                    </button>
+                    {hasPermission('upload') && (
+                      <button 
+                        onClick={() => handleResumeClick(dev.id)} 
+                        className="text-amber-500 hover:text-amber-700 p-1.5 rounded bg-amber-50"
+                        title="Upload Resume"
+                      >
+                        <FileText size={16} />
+                      </button>
+                    )}
+                    {hasPermission('edit') && (
+                      <button onClick={() => handleEdit(dev)} className="text-blue-500 hover:text-blue-700 p-1.5 rounded bg-blue-50" title="Edit Profile">
+                        <Edit size={16} />
+                      </button>
+                    )}
+                    {hasPermission('delete') && (
+                      <button onClick={() => handleDelete(dev.id)} className="text-rose-500 hover:text-rose-700 p-1.5 rounded bg-rose-50" title="Delete Developer">
+                        <Trash2 size={16} />
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -426,8 +501,8 @@ const AdminPanel = () => {
                   <label className="flex items-center gap-2 text-sm font-bold text-slate-600 cursor-pointer">
                     <input type="checkbox" name="fullTime" checked={formData.fullTime} onChange={handleChange} className="w-4 h-4" /> Full Time
                   </label>
-                  <label className="flex items-center gap-2 text-sm font-bold text-slate-600 cursor-pointer">
-                    <input type="checkbox" name="verified" checked={formData.verified} onChange={handleChange} className="w-4 h-4" /> Verified
+                  <label className={`flex items-center gap-2 text-sm font-bold cursor-pointer ${user?.role === 'admin' ? 'text-slate-600' : 'text-slate-400 opacity-70'}`} title={user?.role !== 'admin' ? "Only Admin can verify" : ""}>
+                    <input type="checkbox" name="verified" checked={formData.verified} onChange={handleChange} disabled={user?.role !== 'admin'} className="w-4 h-4" /> Verified
                   </label>
                   <label className="flex items-center gap-2 text-sm font-bold text-slate-600 cursor-pointer">
                     <input type="checkbox" name="showFullName" checked={formData.showFullName} onChange={handleChange} className="w-4 h-4" /> Show Full Name
@@ -443,6 +518,8 @@ const AdminPanel = () => {
             </div>
           </div>
         </div>
+      )}
+      </>
       )}
     </div>
   );

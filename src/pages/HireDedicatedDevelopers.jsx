@@ -50,9 +50,18 @@ const HireDedicatedDevelopers = () => {
     // Attempt to fetch fresh data from local server if available (for Admin Panel sync)
     if (window.location.hostname === 'localhost') {
       fetch(`${API_BASE_URL}/developers`)
-        .then(res => res.json())
-        .then(data => setInitialDevelopers(data))
-        .catch(err => console.log('Using bundled developers data'));
+        .then(res => {
+          if (!res.ok) throw new Error('API response error');
+          return res.json();
+        })
+        .then(data => {
+          if (Array.isArray(data)) {
+            setInitialDevelopers(data);
+          } else {
+            console.log('Received data is not an array, using bundled developers data');
+          }
+        })
+        .catch(err => console.log('Using bundled developers data:', err));
     }
   }, []);
 

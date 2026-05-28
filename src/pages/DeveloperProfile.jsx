@@ -32,13 +32,18 @@ const DeveloperProfile = () => {
   const fetchDeveloper = async () => {
     try {
       const res = await fetch(`${API_BASE_URL}/developers`);
+      if (!res.ok) throw new Error('API response error');
       const data = await res.json();
-      const dev = data.find(d => d.talentId === talentId);
-      if (dev) {
-        setDeveloper(dev);
+      if (Array.isArray(data)) {
+        const dev = data.find(d => d.talentId === talentId);
+        if (dev) {
+          setDeveloper(dev);
+        }
+      } else {
+        console.log('Received data is not an array, using bundled developers data');
       }
     } catch (error) {
-      console.log('Using bundled profile data');
+      console.log('Using bundled profile data:', error);
     } finally {
       setIsLoading(false);
     }
@@ -318,7 +323,14 @@ const DeveloperProfile = () => {
                 <div className="space-y-6">
                   {developer.education && developer.education.length > 0 ? (
                     developer.education.map((edu, idx) => (
-                      <div key={idx} className="flex gap-4 items-start">
+                      <div 
+                        key={idx} 
+                        className="flex gap-4 items-start cursor-pointer hover:bg-slate-50 p-2 -ml-2 rounded-xl transition-all"
+                        onClick={() => {
+                          const w = window.open('about:blank', '_blank');
+                          if (w) w.location.href = 'https://vedanco-global-campus-git-main-tanvipatel373-8191s-projects.vercel.app/';
+                        }}
+                      >
                         <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-400 flex-shrink-0">
                           <GraduationCap size={24} />
                         </div>

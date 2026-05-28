@@ -19,15 +19,19 @@ import DeveloperProfile from './pages/DeveloperProfile'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
 import Sitemap from './pages/Sitemap'
+import AdminLogin from './pages/AdminLogin'
 import ScrollToTop from './components/ScrollToTop'
+import { AuthProvider } from './context/AuthContext'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   return (
-    <div className="min-h-screen flex flex-col bg-brand-cream text-secondary selection:bg-primary selection:text-white">
-      <ScrollToTop />
+    <AuthProvider>
+      <div className="min-h-screen flex flex-col bg-brand-cream text-secondary selection:bg-primary selection:text-white">
+        <ScrollToTop />
       {!isAdminRoute && <Navbar />}
       <main className={`flex-grow ${!isAdminRoute ? 'pt-20' : ''}`}>
         <Routes>
@@ -47,15 +51,19 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/sitemap" element={<Sitemap />} />
-          {/* Admin Panel - Only accessible locally */}
-          {(window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') && (
-            <Route path="/admin/developers" element={<AdminPanel />} />
-          )}
+          {/* Admin Panel */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/developers" element={
+            <ProtectedRoute>
+              <AdminPanel />
+            </ProtectedRoute>
+          } />
         </Routes>
       </main>
       {!isAdminRoute && <Footer />}
       <Toaster position="top-right" />
-    </div>
+      </div>
+    </AuthProvider>
   )
 }
 

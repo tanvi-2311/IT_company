@@ -77,23 +77,49 @@ const Navbar = () => {
   }, [location]);
 
   // A completely upgraded, premium Menu Item Component
-  const RichMenuItem = ({ to, img, title, desc, onClick }) => (
-    <Link to={to} onClick={onClick} className="flex items-center p-4 rounded-xl bg-slate-50/50 border border-transparent hover:bg-white hover:border-slate-100 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 group/item relative overflow-hidden">
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary scale-y-0 group-hover/item:scale-y-100 transition-transform origin-center duration-300"></div>
-      <div className="relative overflow-hidden rounded-xl mr-5 flex-shrink-0 shadow-sm group-hover/item:shadow-md transition-shadow">
-    <img src={img} alt={title}
-           onError={e => { e.target.onerror = null; e.target.src = `https://picsum.photos/seed/${encodeURIComponent(title)}/80/80`; }}
-           className="w-16 h-16 object-cover group-hover/item:scale-110 transition-transform duration-500" />
-      </div>
-      <div className="flex-1">
-        <h4 className="font-extrabold text-secondary text-[16px] group-hover/item:text-primary transition-colors mb-1 flex items-center justify-between">
-          {title}
-          <ChevronRight size={16} className="opacity-0 -translate-x-3 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-primary" />
-        </h4>
-        <p className="text-[13px] text-slate-500 leading-relaxed line-clamp-2">{desc}</p>
-      </div>
-    </Link>
-  );
+  const RichMenuItem = ({ to, img, title, desc, onClick }) => {
+    const isExternal = to.startsWith('http');
+    const content = (
+      <>
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary scale-y-0 group-hover/item:scale-y-100 transition-transform origin-center duration-300"></div>
+        <div className="relative overflow-hidden rounded-xl mr-5 flex-shrink-0 shadow-sm group-hover/item:shadow-md transition-shadow">
+          <img src={img} alt={title}
+               onError={e => { e.target.onerror = null; e.target.src = `https://picsum.photos/seed/${encodeURIComponent(title)}/80/80`; }}
+               className="w-16 h-16 object-cover group-hover/item:scale-110 transition-transform duration-500" />
+        </div>
+        <div className="flex-1">
+          <h4 className="font-extrabold text-secondary text-[16px] group-hover/item:text-primary transition-colors mb-1 flex items-center justify-between">
+            {title}
+            <ChevronRight size={16} className="opacity-0 -translate-x-3 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-primary" />
+          </h4>
+          <p className="text-[13px] text-slate-500 leading-relaxed line-clamp-2">{desc}</p>
+        </div>
+      </>
+    );
+
+    const className = "flex items-center p-4 rounded-xl bg-slate-50/50 border border-transparent hover:bg-white hover:border-slate-100 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 group/item relative overflow-hidden text-left w-full";
+
+    if (isExternal) {
+      return (
+        <button 
+          onClick={(e) => { 
+            e.preventDefault(); 
+            window.open(to, '_blank'); 
+            if(onClick) onClick(); 
+          }} 
+          className={className}
+        >
+          {content}
+        </button>
+      );
+    }
+
+    return (
+      <Link to={to} onClick={onClick} className={className}>
+        {content}
+      </Link>
+    );
+  };
 
   // Data Arrays for Mega Menus
   const aboutLinks = [
@@ -151,7 +177,7 @@ const Navbar = () => {
     { to: "/industry/healthcare", img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=150&q=80", title: "Healthcare", desc: "Telemedicine and health data systems." },
     { to: "/industry/fintech", img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=150&q=80", title: "Fintech", desc: "Secure banking and finance apps." },
     { to: "/industry/retail-ecommerce", img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=150&q=80", title: "Retail & eCommerce", desc: "Shopping platforms and POS systems." },
-    { to: "/industry/education", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=150&q=80", title: "Education", desc: "EdTech and e-learning portals." },
+    { to: "https://vedanco-global-campus-git-main-tanvipatel373-8191s-projects.vercel.app/", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=150&q=80", title: "Education", desc: "EdTech and e-learning portals." },
     { to: "/industry/logistics", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=150&q=80", title: "Logistics", desc: "Supply chain tracking and management." }
   ];
 
@@ -392,10 +418,17 @@ const Navbar = () => {
               {/* Industries */}
               <MobileAccordion title="Industries">
                 {industryLinks.map((link, i) => (
-                  <Link key={i} to={link.to} onClick={() => setIsOpen(false)}
-                    className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
-                    {link.title}
-                  </Link>
+                  link.to.startsWith('http') ? (
+                    <button key={i} onClick={() => { window.open(link.to, '_blank'); setIsOpen(false); }}
+                      className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors text-left w-full">
+                      {link.title}
+                    </button>
+                  ) : (
+                    <Link key={i} to={link.to} onClick={() => setIsOpen(false)}
+                      className="block py-2 px-3 text-sm text-slate-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+                      {link.title}
+                    </Link>
+                  )
                 ))}
               </MobileAccordion>
 

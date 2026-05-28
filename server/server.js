@@ -4,6 +4,8 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 import contactRoutes from './routes/contactRoutes.js';
 import developerRoutes from './routes/developerRoutes.js';
+import authRoutes from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 import supabase from './config/supabase.js';
 
 // Load environmental config
@@ -37,6 +39,8 @@ app.get('/health', (req, res) => {
 
 // Register api endpoints
 app.use('/api', contactRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/developers', developerRoutes);
 
 // Fallback 404 Route handler
