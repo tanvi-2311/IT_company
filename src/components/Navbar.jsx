@@ -177,7 +177,7 @@ const Navbar = () => {
     { to: "/industry/healthcare", img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=150&q=80", title: "Healthcare", desc: "Telemedicine and health data systems." },
     { to: "/industry/fintech", img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=150&q=80", title: "Fintech", desc: "Secure banking and finance apps." },
     { to: "/industry/retail-ecommerce", img: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=150&q=80", title: "Retail & eCommerce", desc: "Shopping platforms and POS systems." },
-    { to: "https://vedanco-global-campus-git-main-tanvipatel373-8191s-projects.vercel.app/", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=150&q=80", title: "Education", desc: "EdTech and e-learning portals." },
+    { to: "https://vedanco-global-campus.vercel.app/", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=150&q=80", title: "Education", desc: "EdTech and e-learning portals." },
     { to: "/industry/logistics", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=150&q=80", title: "Logistics", desc: "Supply chain tracking and management." }
   ];
 
